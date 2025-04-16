@@ -12,7 +12,7 @@ const Gallery = () => {
   const galleryItems = [
     { 
       type: 'image', 
-      src: 'src/img/COMBOPREMIUM-HILUX-1.jpg', 
+      src: 'src/img/COMBOPREMIUM-HILUX-1.JPG', 
       alt: 'Antes e depois dos bancos do carro', 
       title: 'Polimento automotivo' 
     },
