@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import carImage from '@/img/COMBOPREMIUM-HILUX-1.jpg'; // Import the image
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -34,7 +33,7 @@ const Hero = () => {
       {/* Car background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url(${carImage})` }}
+        style={{ backgroundImage: `url("src/img/COMBOPREMIUM-HILUX-1.jpg")` }}
       ></div>
       
       {/* Water effect that rises based on scroll */}
