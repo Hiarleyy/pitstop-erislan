@@ -10,8 +10,8 @@ export default defineConfig(({ mode }) => ({
     port: 3001,
   },
   preview: {
-    port: 3001, // Mantém a mesma porta para preview
-    host: true  // Permite acesso externo durante preview
+    port: 3001,
+    host: true  
   },
   plugins: [
     react(),
@@ -24,9 +24,9 @@ export default defineConfig(({ mode }) => ({
   },
   assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.png', '**/*.jpeg'],
   build: {
-    outDir: 'dist', // Diretório de saída para os arquivos buildados
-    emptyOutDir: true, // Limpa o diretório antes de cada build
-    sourcemap: mode === 'development', // Gera sourcemaps apenas em desenvolvimento
+    outDir: 'dist',
+    emptyOutDir: true, 
+    sourcemap: mode === 'development', 
     rollupOptions: {
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]',
@@ -35,6 +35,6 @@ export default defineConfig(({ mode }) => ({
       }
     }
   },
-  // Configuração base para o deploy
-  base: '/', // Altere para '/caminho/' se estiver deployando em subdiretório
+  
+  base: '/', 
 }));
