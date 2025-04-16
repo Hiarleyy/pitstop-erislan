@@ -9,7 +9,6 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "serve": "serve -s dist",
     "deploy": "git pull origin main && npm install && npm run build && pm2 restart Insilico-deploy"
   },
   "dependencies": {
