@@ -646,7 +646,7 @@ const Booking = () => {
                   defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : 'higienizacao'}
                   onValueChange={setSelectedCategory}
                 >
-                  <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-6 w-full">
+                  <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-10 w-full mt-10">
                     {Object.entries(serviceCategories).map(([key, category]) => (
                       <TabsTrigger 
                         key={key} 

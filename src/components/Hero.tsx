@@ -28,7 +28,7 @@ const Hero = () => {
   const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));
   return (
     <section id="home" className="relative h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-pitstop-black to-pitstop-darkBlue opacity-70 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-pitstop-black to-pitstop-darkBlue opacity-70 z-1"></div>
       
       {/* Car background image */}
       <div 
@@ -38,7 +38,7 @@ const Hero = () => {
       
       {/* Water effect that rises based on scroll */}
       <div 
-        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-300 to-blue-100 z-20 transition-all duration-300"
+        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-300 to-blue-100 z-2 transition-all duration-300"
         style={{ 
           height: `${waterHeight}%`, 
           opacity: waterOpacity,
@@ -46,7 +46,7 @@ const Hero = () => {
         }}
       >
         {/* Soap bubbles */}
-        <div className="absolute top-0 left-0 right-0 h-20 bg-white bg-opacity-70 z-30">
+        <div className="absolute top-0 left-0 right-0 h-20 bg-white bg-opacity-70 z-5">
           {Array.from({ length: 40 }).map((_, i) => (
             <div 
               key={i} 
@@ -65,7 +65,7 @@ const Hero = () => {
         </div>
         
         {/* Water ripples */}
-        <div className="absolute inset-0 z-20">
+        <div className="absolute inset-0 z-5">
           {Array.from({ length: 10 }).map((_, i) => (
             <div 
               key={i} 
@@ -83,7 +83,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      <div className="container mx-auto px-4 z-50 relative">
+      <div className="container mx-auto px-4 z-5 relative">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Estética Automotiva de Excelência
@@ -104,7 +104,7 @@ const Hero = () => {
       
       <a 
         href="#services" 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-50"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-5"
       >
         <ChevronDown size={40} />
       </a>
