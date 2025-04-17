@@ -12,37 +12,37 @@ const Gallery = () => {
   const galleryItems = [
     { 
       type: 'image', 
-      src: 'src/img/COMBOPREMIUM-HILUX-1.JPG', 
+      src: '/img/COMBOPREMIUM-HILUX-1.JPG', 
       alt: 'Antes e depois dos bancos do carro', 
       title: 'Polimento automotivo' 
     },
     { 
       type: 'image', 
-      src: 'src/img/LAVAGE-DODGE-RAM-1.JPG', 
+      src: '/img/LAVAGE-DODGE-RAM-1.JPG', 
       alt: 'Polimento automotivo', 
       title: 'Lavagem detalhada' 
     },
     { 
       type: 'image', 
-      src: 'src/img/HIGIENIZACAO-BANCOS-DE-COURO.jpg', 
+      src: '/img/HIGIENIZACAO-BANCOS-DE-COURO.jpg', 
       alt: 'Higienização de banco de couro', 
       title: 'Hidratação de Bancos de Couro' 
     },
     { 
       type: 'image', 
-      src: 'src/img/LAVAGEM-MOTOR-DEPOIS.jpg', 
+      src: '/img/LAVAGEM-MOTOR-DEPOIS.jpg', 
       alt: 'Antes e depois do motor', 
       title: 'Limpeza de Motor' 
     },
     { 
       type: 'image', 
-      src: 'src/img/FAROL.jpg', 
+      src: '/img/FAROL.jpg', 
       alt: 'Antes e depois dos faróis', 
       title: 'Polimento de Faróis' 
     },
     { 
       type: 'image', 
-      src: 'src/img/HARLEY-LAVAGEM-DETALHADA-2.jpg', 
+      src: '/img/HARLEY-LAVAGEM-DETALHADA-2.jpg', 
       title: 'Serviços para Motos' 
     },
   ];
