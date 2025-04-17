@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center">
-            <img src="src/img/PITSTOP-LOGO.png" alt="" className='h-20 md:h-26 mb:4 object-contain PISTOP-LOGO pt-0 pb-0' />
+            <img src="/img/PITSTOP-LOGO.png" alt="" className='h-20 md:h-26 mb:4 object-contain PISTOP-LOGO pt-0 pb-0' />
         </a>
 
         {/* Desktop Navigation */}

@@ -33,7 +33,7 @@ const Hero = () => {
       {/* Car background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url("src/img/COMBOPREMIUM-HILUX-1.JPG")` }}
+        style={{ backgroundImage: `url("/img/COMBOPREMIUM-HILUX-1.JPG")` }}
       ></div>
       
       {/* Water effect that rises based on scroll */}
