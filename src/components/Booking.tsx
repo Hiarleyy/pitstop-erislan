@@ -378,7 +378,7 @@ const Booking = () => {
   const formatWhatsAppMessage = () => {
     const message = [];
     
-    message.push("*Solicitação de Agendamento - PitStop Erislan*");
+    message.push("*Solicitação de Agendamento PitStop Estética Automotiva*");
     
     // Adicionar o nome do cliente
     if (customerName.trim()) {
@@ -388,9 +388,23 @@ const Booking = () => {
     message.push("\n");
     message.push("*Detalhes dos Serviços:*");
     
-    // Resto da função permanece igual
+    // Adicionar detalhes de cada veículo e seus serviços
     vehicles.forEach(vehicle => {
-      // ...código existente
+      message.push(`\n📌 *${vehicle.name}* - ${vehicle.type === 'car' ? `Porte: ${vehicle.size}` : vehicle.size}`);
+      
+      if (vehicle.services.length === 0) {
+        message.push("   _Nenhum serviço selecionado_");
+      } else {
+        vehicle.services.forEach(service => {
+          const priceDisplay = typeof service.price === 'number' ? `R$ ${service.price}` : 'Preço variável';
+          message.push(`   • ${service.name} - ${priceDisplay}`);
+        });
+        
+        // Subtotal para este veículo
+        const subtotal = vehicle.services.reduce((total, service) => 
+          total + (typeof service.price === 'number' ? service.price : 0), 0
+        );
+      }
     });
     
     message.push("\n");
