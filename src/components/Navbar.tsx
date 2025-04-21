@@ -24,11 +24,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Início', href: '/' },
-    { name: 'Serviços', href: '/servicos' },
-    { name: 'Galeria', href: '/' },
-    { name: 'Depoimentos', href: '/' },
-    { name: 'Agendamento', href: '/' },
-    { name: 'Contato', href: '/' },
+    { name: 'Serviços', href: '/servicos' }
   ];
 
   // Define cores diferentes baseadas no caminho
