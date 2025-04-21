@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -70,6 +69,12 @@ export default {
 					silver: '#E5E7E9',
 					black: '#121212',
 					darkGray: '#2C3E50',
+				},
+				auto: {
+					gray: '#6B7280',
+					black: '#111827',
+					lightGray: '#F9FAFB',
+					// add other auto-prefixed colors
 				}
 			},
 			borderRadius: {

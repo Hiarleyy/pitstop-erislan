@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Instagram, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,32 +23,41 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Início', href: '#home' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Galeria', href: '#gallery' },
-    { name: 'Depoimentos', href: '#testimonials' },
-    { name: 'Agendamento', href: '#booking' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: '/' },
+    { name: 'Serviços', href: '/servicos' },
+    { name: 'Galeria', href: '/' },
+    { name: 'Depoimentos', href: '/' },
+    { name: 'Agendamento', href: '/' },
+    { name: 'Contato', href: '/' },
   ];
+
+  // Define cores diferentes baseadas no caminho
+  const getNavItemColor = (href: string) => {
+    if (path === '/servicos') return 'text-gray-500';
+    return scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver';
+  };
+
+  // Verifica se o link está ativo
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center">
+        <Link to="/" className="flex items-center">
             <img src="/img/PITSTOP-LOGO.png" alt="" className='h-20 md:h-26 mb:4 object-contain PISTOP-LOGO pt-0 pb-0' />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <ul className="flex space-x-6">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className={`transition-colors text-lg font-medium ${scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver'}`}
+                <Link 
+                  to={link.href} 
+                  className={`transition-colors text-lg font-medium ${getNavItemColor(link.href)} ${isActive(link.href) ? 'text-auto-blue font-medium' : ''}`}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -53,7 +65,7 @@ const Navbar = () => {
             href="https://www.instagram.com/pitstop_estetica22" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`transition-colors ${scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver'}`}
+            className={`transition-colors ${path === '/servicos' ? 'text-gray-500' : (scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver')}`}
           >
             <Instagram size={24} />
           </a>
@@ -65,7 +77,7 @@ const Navbar = () => {
             href="https://www.instagram.com/pitstop_estetica22" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`mr-4 transition-colors ${scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver'}`}
+            className={`mr-4 transition-colors ${path === '/servicos' ? 'text-gray-500' : (scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver')}`}
           >
             <Instagram size={24} />
           </a>
@@ -73,7 +85,7 @@ const Navbar = () => {
             variant="ghost" 
             size="icon" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={scrolled ? 'text-pitstop-darkGray' : 'text-white'}
+            className={path === '/servicos' ? 'text-gray-500' : (scrolled ? 'text-pitstop-darkGray' : 'text-white')}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
@@ -86,13 +98,13 @@ const Navbar = () => {
           <ul className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className="block py-2 text-pitstop-darkGray hover:text-pitstop-blue transition-colors"
+                <Link 
+                  to={link.href} 
+                  className={`block py-2 ${path === '/servicos' ? 'text-gray-500' : 'text-pitstop-darkGray hover:text-pitstop-blue'} transition-colors ${isActive(link.href) ? 'text-auto-blue font-medium' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
