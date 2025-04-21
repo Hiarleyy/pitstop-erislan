@@ -467,7 +467,7 @@ const Booking = () => {
     <section id="booking" className="section-padding bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Agende seu Serviço</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Continuar</h2>
           <div className="w-20 h-1 bg-pitstop-blue mx-auto mb-6"></div>
           <p className="text-lg text-pitstop-darkGray/80 max-w-2xl mx-auto">
             Escolha os serviços para seus veículos e agende o melhor dia e horário.
