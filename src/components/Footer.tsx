@@ -81,7 +81,7 @@ const Footer = () => {
                 </a>
               </div>
           </div>
-        <img className="w-32 h-auto mt-0" src="public/img/INSILICO-LOGO.png" alt="Insilico Logo" />
+        <img className="w-32 h-auto mt-0" src="img/INSILICO-LOGO.png" alt="Insilico Logo" />
         </div>
          
         <div className="border-t border-gray-700 mt-10 pt-6 text-center">
