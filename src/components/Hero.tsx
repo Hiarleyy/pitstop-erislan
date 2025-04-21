@@ -28,11 +28,11 @@ const Hero = () => {
   const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));
   return (
     <section id="home" className="relative h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-pitstop-black to-pitstop-darkBlue opacity-70 z-1"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-pitstop-black to-pitstop-darkBlue opacity-90 z-5"></div>
       
       {/* Car background image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0"
+        className="absolute inset-0 bg-cover bg-center z-0 opacity-50 transition-opacity duration-300"
         style={{ backgroundImage: `url("/img/COMBOPREMIUM-HILUX-1.JPG")` }}
       ></div>
       
@@ -88,9 +88,9 @@ const Hero = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Estética Automotiva de Excelência
           </h1>
-          <p className="text-lg md:text-xl text-pitstop-silver mb-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <p className="text-lg md:text-xl text-pitstop-silver mb-8 opacity-0 animate-fade-in px-4 py-2 rounded-lg bg-black/5 inline-block" style={{ animationDelay: '0.4s' }}>
             Melhores serviços de estética automotiva de bragança e região você encontra aqui na PitStop Estética Automotiva. 🚗
-          </p>
+            </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <Button asChild className="btn-gradient">
               <a href="#booking">Agendar Serviço</a>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Carousel,
@@ -54,16 +53,16 @@ const Gallery = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Antes e Depois</h2>
           <div className="w-20 h-1 bg-pitstop-blue mx-auto mb-6"></div>
           <p className="text-lg text-pitstop-darkGray/80 max-w-2xl mx-auto">
-            Veja a transformação em nossos trabalhos realizados. A qualidade fala por si mesma.
+            Pitstop Estetica Automotiva trabalha com diversos serviços desde Lavagem completa e detalhada, até processos como vitrificalção para carro e moto.
           </p>
         </div>
 
-        <Carousel className="max-w-5xl mx-auto">
+        <Carousel className="max-w-6xl mx-auto">
           <CarouselContent>
             {galleryItems.map((item, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                 <div className="p-2">
-                  <div className="rounded-lg overflow-hidden shadow-md border border-pitstop-silver/50 h-[250px] relative group">
+                  <div className="rounded-lg overflow-hidden shadow-md border border-pitstop-silver/50 h-[350px] relative group">
                     {item.type === 'image' ? (
                       <img 
                         src={item.src} 

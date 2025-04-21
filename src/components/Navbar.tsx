@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Instagram, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -43,7 +42,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <a 
                   href={link.href} 
-                  className={`transition-colors ${scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver'}`}
+                  className={`transition-colors text-lg font-medium ${scrolled ? 'text-pitstop-darkGray hover:text-pitstop-blue' : 'text-white hover:text-pitstop-silver'}`}
                 >
                   {link.name}
                 </a>
