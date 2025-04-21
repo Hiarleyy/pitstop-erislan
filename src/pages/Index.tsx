@@ -21,7 +21,6 @@ const Index = () => {
       <Booking />
       <Contact />
       <Footer />
-      <WhatsAppButton/>
     </div>
   );
 };

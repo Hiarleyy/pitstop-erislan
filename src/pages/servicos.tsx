@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import ServiceSection from "@/components/ServiceSection";
 import ServiceCard from "@/components/ServiceCard";
 import ScrollToTop from "@/components/ScrollToTop";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 
 
@@ -13,7 +12,6 @@ const servicos = () => {
     <div className="min-h-screen flex flex-col bg-auto-lightgray">
       <ScrollToTop />
       <Navbar />
-      <WhatsAppButton />
       {/* Serviços para Motos */}
       <ServiceSection   
         id="motos" 
