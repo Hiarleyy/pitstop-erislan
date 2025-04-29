@@ -31,182 +31,152 @@ const vehicleSizeExamples = {
 };
 
 const serviceCategories = {
-  higienizacao: {
-    name: "Higienização e Limpeza",
-    description: "Serviços completos de limpeza e higienização para seu veículo",
+  limpezaInterna: {
+    name: "Limpeza Interna",
+    description: "Serviços internos de limpeza para bancos, painéis e carpetes",
     services: [
-      { 
-        id: "lavagem-completa", 
-        name: "Lavagem completa", 
-        description: "Limpeza minuciosa interna e externa do seu veículo.",
-        prices: { Pequeno: 50, Médio: 60, Grande: 70 } 
+      {
+        id: "limpeza-bancos-couro",
+        name: "Limpeza bancos de couro",
+        description: "Limpeza detalhada dos bancos de couro",
+        prices: { Pequeno: 120, Médio: 120, Grande: 120 }
       },
-      { 
-        id: "lavagem-tecnica", 
-        name: "Lavagem técnica interna", 
-        description: "Limpeza profunda de toda parte interna do veículo.",
-        prices: { Pequeno: 100, Médio: 110, Grande: 120 } 
+      {
+        id: "limpeza-tecido",
+        name: "Limpeza bancos de tecido",
+        description: "Limpeza completa de bancos de tecido",
+        prices: { Pequeno: 180, Médio: 180, Grande: 180 }
       },
-      { 
-        id: "higienizacao-tecido", 
-        name: "Higienização interna + banco tecido", 
-        description: "Processo completo de limpeza para eliminar sujeiras, odores e ácaros de bancos de tecido.",
-        prices: { Pequeno: 250, Médio: 280, Grande: 300 } 
+      {
+        id: "limpeza-teto",
+        name: "Limpeza de teto e colunas",
+        description: "Higienização das partes superiores internas do veículo",
+        prices: { Pequeno: 80, Médio: 80, Grande: 80 }
       },
-      { 
-        id: "higienizacao-couro", 
-        name: "Higienização interna + banco couro", 
-        description: "Processo especializado para limpeza e conservação de estofados em couro.",
-        prices: { Pequeno: 200, Médio: 230, Grande: 250 } 
+      {
+        id: "painel-portas",
+        name: "Painel, portas e plásticos",
+        description: "Limpeza de painel, portas e condicionamento de plásticos",
+        prices: { Pequeno: 40, Médio: 40, Grande: 40 }
+      },
+      {
+        id: "carpete-feltro",
+        name: "Limpeza carpete e feltro",
+        description: "Limpeza profunda do carpete e feltro",
+        prices: { Pequeno: 100, Médio: 100, Grande: 100 }
       }
     ]
   },
-  estetica: {
-    name: "Estética da Pintura",
-    description: "Tratamentos para realçar e restaurar a beleza da pintura do seu veículo",
+  estofados: {
+    name: "Tratamentos para Estofados",
+    description: "Serviços especializados para manter o estofamento do veículo conservado",
     services: [
-      { 
-        id: "polimento-comercial", 
-        name: "Polimento comercial", 
-        description: "Tratamento básico para melhorar o brilho da pintura.",
-        prices: { Pequeno: 200, Médio: 250, Grande: 300 } 
-      },
-      { 
-        id: "polimento-1estagio", 
-        name: "Polimento técnico (1 estágio)", 
-        description: "Remoção de riscos superficiais e restauração do brilho da pintura.",
-        prices: { Pequeno: 300, Médio: 350, Grande: 400 } 
-      },
-      { 
-        id: "polimento-2estagios", 
-        name: "Polimento técnico (2 estágios)", 
-        description: "Tratamento avançado para remoção de riscos mais profundos e restauração completa do brilho.",
-        prices: { Pequeno: 400, Médio: 450, Grande: 500 } 
-      },
-      { 
-        id: "polimento-tecnico", 
-        name: "Polimento técnico completo", 
-        description: "Tratamento completo para recuperação total da pintura.",
-        prices: { Pequeno: 300, Médio: 400, Grande: 500 } 
-      },
-      { 
-        id: "descontaminacao", 
-        name: "Descontaminação da pintura + cera", 
-        description: "Remoção de contaminantes impregnados na pintura e proteção com cera de carnaúba.",
-        prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
+      {
+        id: "hidratante-couro",
+        name: "Condicionamento hidratante bancos de couro",
+        description: "Aplicação de condicionador para manter o couro hidratado",
+        prices: { Pequeno: 20, Médio: 20, Grande: 20 }
       }
     ]
   },
-  protecao: {
-    name: "Proteção de Pintura",
-    description: "Produtos e tratamentos que protegem a pintura do seu veículo contra danos",
+  impermeabilizacao: {
+    name: "Impermeabilização",
+    description: "Serviços de proteção contra líquidos e sujeiras",
     services: [
-      { 
-        id: "vitrificacao", 
-        name: "Vitrifica��ão (até 3 anos)", 
-        description: "Proteção premium com durabilidade de até 3 anos, aumentando o brilho e facilitando a limpeza.",
-        prices: { Pequeno: 750, Médio: 850, Grande: 1000 } 
-      },
-      { 
-        id: "vitrificacao-vonixx", 
-        name: "Vitrificação Vonixx", 
-        description: "Proteção premium com tecnologia Vonixx para máxima durabilidade e brilho intenso.",
-        prices: { Pequeno: 1300, Médio: 1500, Grande: 1700 } 
-      },
-      { 
-        id: "vitrificacao-carpro", 
-        name: "Vitrificação Car Pro", 
-        description: "Proteção de alto desempenho com tecnologia Car Pro para proteção superior.",
-        prices: { Pequeno: 1800, Médio: 2200, Grande: 2500 } 
-      },
-      { 
-        id: "selante", 
-        name: "Selante sintético (6 meses)", 
-        description: "Proteção intermediária com durabilidade de até 6 meses.",
-        prices: { Pequeno: 200, Médio: 250, Grande: 300 } 
+      {
+        id: "impermeabilizacao-bancos",
+        name: "Impermeabilização de bancos",
+        description: "Proteção dos bancos contra líquidos e sujeiras",
+        prices: { Pequeno: 300, Médio: 300, Grande: 300 }
       }
     ]
   },
-  interiores: {
-    name: "Interiores",
-    description: "Serviços especializados para as partes internas do seu veículo",
+  combos: {
+    name: "Combos de Higienização",
+    description: "Combinações de serviços para limpeza completa do veículo",
     services: [
-      { 
-        id: "hidratacao", 
-        name: "Hidratação de couro", 
-        description: "Tratamento especial para hidratar e proteger bancos e estofados em couro.",
-        prices: { Pequeno: 100, Médio: 120, Grande: 150 } 
+      {
+        id: "combo-interna-cera",
+        name: "Combo Higienização Interna + Lav. e Cera",
+        description: "Combo de serviços internos com lavagem e cera",
+        prices: { Pequeno: 300, Médio: 350, Grande: 400 }
       },
-      { 
-        id: "lavagem-teto", 
-        name: "Lavagem de teto", 
-        description: "Limpeza profunda do forro do teto.",
-        prices: { Pequeno: 100, Médio: 130, Grande: 150 } 
-      },
-      { 
-        id: "lavagem-banco", 
-        name: "Lavagem de banco (individual)", 
-        description: "Limpeza específica de um único banco.",
-        prices: { Unidade: 60 } 
-      },
-      { 
-        id: "lavagem-carpete", 
-        name: "Lavagem de carpete + forro", 
-        description: "Limpeza completa de carpetes e forros internos.",
-        prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
+      {
+        id: "combo-interna-geral",
+        name: "Combo Higienização Interna + Lavagem Geral",
+        description: "Higienização completa com lavagem total do veículo",
+        prices: { Pequeno: 400, Médio: 450, Grande: 500 }
       }
     ]
   },
-  motos: {
-    name: "Serviços para Motos",
-    description: "Serviços específicos para motocicletas",
+  lavagem: {
+    name: "Lavagem",
+    description: "Lavagens profissionais com diferentes níveis de cuidado",
     services: [
-      { 
-        id: "lavagem-moto-simples", 
-        name: "Lavagem simples", 
-        description: "Limpeza básica para diferentes modelos de motocicletas.",
-        prices: { 
-          "Biz, Pop": 20, 
-          "Titan, Fan, Bros 125/150/160": 25, 
-          "Fazer, CB, Twister, XRE 190/250/300": 30, 
-          "300-600cc": 40, 
-          "Acima de 600cc": 50 
-        } 
+      {
+        id: "lavagem-tradicional",
+        name: "Lavagem tradicional",
+        description: "Shampoo, aspiração, condicionamento de plásticos e pneus, aromatizante",
+        prices: { Pequeno: 40, Médio: 60, Grande: 80 }
       },
-      { 
-        id: "lavagem-moto-detalhada", 
-        name: "Lavagem detalhada", 
-        description: "Desmontagem de carenagem e banco quando necessário, limpeza de couro, aplicação de selante na pintura, selante de pneus, lubrificação.",
-        priceMultiplier: 2,
-        baseService: "lavagem-moto-simples"
+      {
+        id: "lavagem-classica",
+        name: "Lavagem clássica",
+        description: "Adição de cera limpadora ao serviço tradicional",
+        prices: { Pequeno: 50, Médio: 70, Grande: 90 }
       },
-      { 
-        id: "vitrificacao-moto", 
-        name: "Vitrificação para motos", 
-        description: "Proteção de alta durabilidade para a pintura da sua motocicleta.",
-        priceRange: "R$ 150 a R$ 250" 
+      {
+        id: "lavagem-premium",
+        name: "Lavagem premium",
+        description: "Inclui lavagem de chassi, cera premium, selante pneus e aromatizante",
+        prices: { Pequeno: 80, Médio: 100, Grande: 120 }
+      }
+    ]
+  },
+  chassis: {
+    name: "Serviços Chassi e Motor",
+    description: "Tratamentos para parte inferior e motor do veículo",
+    services: [
+      {
+        id: "lavagem-chassi",
+        name: "Lavagem de chassi",
+        description: "Limpeza da parte inferior do carro",
+        prices: { Pequeno: 40, Médio: 40, Grande: 40 }
       },
-      { 
-        id: "polimento-tanque", 
-        name: "Polimento de tanque", 
-        description: "Tratamento específico para o tanque da motocicleta.",
-        fixedPrice: 40 
+      {
+        id: "anticorrosivo",
+        name: "Anticorrosivo chassi",
+        description: "Proteção contra ferrugem no chassi",
+        prices: { Pequeno: 30, Médio: 30, Grande: 30 }
       },
-      { 
-        id: "polimento-moto", 
-        name: "Polimento completo", 
-        description: "Tratamento para toda a pintura da motocicleta.",
-        basePrice: 60 
+      {
+        id: "lavagem-motor",
+        name: "Lavagem motor + proteção",
+        description: "Limpeza do motor com proteção contra oxidação",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
       },
-      { 
-        id: "cera-v80", 
-        name: "Aplicação de cera v80", 
-        description: "Proteção básica para a pintura da motocicleta.",
-        fixedPrice: 10 
+      {
+        id: "impermeabilizacao-brisa",
+        name: "Impermeabilização para brisa",
+        description: "Proteção repelente para o para-brisa",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
+      },
+      {
+        id: "polimento-farois",
+        name: "Polimento faróis",
+        description: "Restauração e polimento dos faróis",
+        prices: { Pequeno: 120, Médio: 120, Grande: 120 }
+      },
+      {
+        id: "vitrificacao-farois",
+        name: "Vitrificação faróis",
+        description: "Aplicação de camada vitrificada para proteção dos faróis",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
       }
     ]
   }
 };
+
 
 const generateId = () => Math.random().toString(36).substring(2, 10);
 
@@ -430,7 +400,7 @@ const Booking = () => {
     const message = formatWhatsAppMessage();
     
     // Número da oficina (substitua pelo número real)
-    const phoneNumber = "5591988939655";
+    const phoneNumber = "5591980588823";
     
     // Criar a URL do WhatsApp com a mensagem
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

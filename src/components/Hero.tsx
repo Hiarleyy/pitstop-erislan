@@ -89,14 +89,15 @@ const Hero = () => {
             Estética Automotiva de Excelência
           </h1>
             <p className="text-lg md:text-xl text-pitstop-silver mb-8 opacity-0 animate-fade-in px-4 py-2 rounded-lg bg-black/5 inline-block" style={{ animationDelay: '0.4s' }}>
-            Melhores serviços de estética automotiva de bragança e região você encontra aqui na PitStop Estética Automotiva. 🚗
+            Pitstop Estética Automotiva estética automotiva oferece uma variedade de serviços para cuidar da beleza e conservação do seu veículo, tanto no exterior quanto no interior, seja carro ou seja moto. Alguns dos nossos serviços incluem lavagem detalhada, lavagem de motor, lavagem de chassis, polimento, cristalização ou vitrificação da pintura, higienização interna, impermeabilização de estofados, restauração de faróis.
+
             </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <Button asChild className="btn-gradient">
               <a href="#booking">Agendar Serviço</a>
             </Button>
             <Button variant="outline" asChild className="bg-transparent text-white border-white hover:bg-white/10">
-              <a href="#services">Nossos Serviços</a>
+              <a href="/servicos">Nossos Serviços</a>
             </Button>
           </div>
         </div>

@@ -55,7 +55,7 @@ const Contact = () => {
                     + `Assunto: Informações sobre serviços`;
       
       // Redirect to WhatsApp
-      window.open(`https://wa.me/5591988939655?text=${message}`, '_blank');
+      window.open(`https://wa.me/5591980588823?text=${message}`, '_blank');
       
       // Show success toast
       toast({
@@ -102,7 +102,7 @@ const Contact = () => {
                 </li>
                 <li className="flex items-center">
                   <Phone className="text-pitstop-blue mr-4" size={24} />
-                  <p className="text-pitstop-darkGray/80">(91) 98893-9655</p>
+                  <p className="text-pitstop-darkGray/80">(91) 98058-8823</p>
                 </li>
                 <li className="flex items-center">
                   <Mail className="text-pitstop-blue mr-4" size={24} />
