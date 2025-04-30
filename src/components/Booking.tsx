@@ -15,7 +15,7 @@ interface Vehicle {
   id: string;
   name: string;
   type: VehicleType;
-  size: CarSize | MotorcycleSize;
+  size: string;
   services: {
     id: string;
     category: string;
@@ -31,152 +31,182 @@ const vehicleSizeExamples = {
 };
 
 const serviceCategories = {
-  limpezaInterna: {
-    name: "Limpeza Interna",
-    description: "Serviços internos de limpeza para bancos, painéis e carpetes",
+  higienizacao: {
+    name: "Higienização",
+    description: "Serviços completos de limpeza e higienização para seu veículo",
     services: [
-      {
-        id: "limpeza-bancos-couro",
-        name: "Limpeza bancos de couro",
-        description: "Limpeza detalhada dos bancos de couro",
-        prices: { Pequeno: 120, Médio: 120, Grande: 120 }
+      { 
+        id: "lavagem-completa", 
+        name: "Lavagem completa", 
+        description: "Limpeza minuciosa interna e externa do seu veículo.",
+        prices: { Pequeno: 50, Médio: 60, Grande: 70 } 
       },
-      {
-        id: "limpeza-tecido",
-        name: "Limpeza bancos de tecido",
-        description: "Limpeza completa de bancos de tecido",
-        prices: { Pequeno: 180, Médio: 180, Grande: 180 }
+      { 
+        id: "lavagem-tecnica", 
+        name: "Lavagem técnica interna", 
+        description: "Limpeza profunda de toda parte interna do veículo.",
+        prices: { Pequeno: 100, Médio: 110, Grande: 120 } 
       },
-      {
-        id: "limpeza-teto",
-        name: "Limpeza de teto e colunas",
-        description: "Higienização das partes superiores internas do veículo",
-        prices: { Pequeno: 80, Médio: 80, Grande: 80 }
+      { 
+        id: "higienizacao-tecido", 
+        name: "Higienização interna + banco tecido", 
+        description: "Processo completo de limpeza para eliminar sujeiras, odores e ácaros de bancos de tecido.",
+        prices: { Pequeno: 250, Médio: 280, Grande: 300 } 
       },
-      {
-        id: "painel-portas",
-        name: "Painel, portas e plásticos",
-        description: "Limpeza de painel, portas e condicionamento de plásticos",
-        prices: { Pequeno: 40, Médio: 40, Grande: 40 }
-      },
-      {
-        id: "carpete-feltro",
-        name: "Limpeza carpete e feltro",
-        description: "Limpeza profunda do carpete e feltro",
-        prices: { Pequeno: 100, Médio: 100, Grande: 100 }
+      { 
+        id: "higienizacao-couro", 
+        name: "Higienização interna + banco couro", 
+        description: "Processo especializado para limpeza e conservação de estofados em couro.",
+        prices: { Pequeno: 200, Médio: 230, Grande: 250 } 
       }
     ]
   },
-  estofados: {
-    name: "Tratamentos para Estofados",
-    description: "Serviços especializados para manter o estofamento do veículo conservado",
+  estetica: {
+    name: "Estética",
+    description: "Tratamentos para realçar e restaurar a beleza da pintura do seu veículo",
     services: [
-      {
-        id: "hidratante-couro",
-        name: "Condicionamento hidratante bancos de couro",
-        description: "Aplicação de condicionador para manter o couro hidratado",
-        prices: { Pequeno: 20, Médio: 20, Grande: 20 }
+      { 
+        id: "polimento-comercial", 
+        name: "Polimento comercial", 
+        description: "Tratamento básico para melhorar o brilho da pintura.",
+        prices: { Pequeno: 200, Médio: 250, Grande: 300 } 
+      },
+      { 
+        id: "polimento-1estagio", 
+        name: "Polimento técnico (1 estágio)", 
+        description: "Remoção de riscos superficiais e restauração do brilho da pintura.",
+        prices: { Pequeno: 300, Médio: 350, Grande: 400 } 
+      },
+      { 
+        id: "polimento-2estagios", 
+        name: "Polimento técnico (2 estágios)", 
+        description: "Tratamento avançado para remoção de riscos mais profundos e restauração completa do brilho.",
+        prices: { Pequeno: 400, Médio: 450, Grande: 500 } 
+      },
+      { 
+        id: "polimento-tecnico", 
+        name: "Polimento técnico completo", 
+        description: "Tratamento completo para recuperação total da pintura.",
+        prices: { Pequeno: 300, Médio: 400, Grande: 500 } 
+      },
+      { 
+        id: "descontaminacao", 
+        name: "Descontaminação da pintura + cera", 
+        description: "Remoção de contaminantes impregnados na pintura e proteção com cera de carnaúba.",
+        prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
       }
     ]
   },
-  impermeabilizacao: {
-    name: "Impermeabilização",
-    description: "Serviços de proteção contra líquidos e sujeiras",
+  protecao: {
+    name: "Proteção",
+    description: "Produtos e tratamentos que protegem a pintura do seu veículo contra danos",
     services: [
-      {
-        id: "impermeabilizacao-bancos",
-        name: "Impermeabilização de bancos",
-        description: "Proteção dos bancos contra líquidos e sujeiras",
-        prices: { Pequeno: 300, Médio: 300, Grande: 300 }
+      { 
+        id: "vitrificacao", 
+        name: "Vitrifica��ão (até 3 anos)", 
+        description: "Proteção premium com durabilidade de até 3 anos, aumentando o brilho e facilitando a limpeza.",
+        prices: { Pequeno: 750, Médio: 850, Grande: 1000 } 
+      },
+      { 
+        id: "vitrificacao-vonixx", 
+        name: "Vitrificação Vonixx", 
+        description: "Proteção premium com tecnologia Vonixx para máxima durabilidade e brilho intenso.",
+        prices: { Pequeno: 1300, Médio: 1500, Grande: 1700 } 
+      },
+      { 
+        id: "vitrificacao-carpro", 
+        name: "Vitrificação Car Pro", 
+        description: "Proteção de alto desempenho com tecnologia Car Pro para proteção superior.",
+        prices: { Pequeno: 1800, Médio: 2200, Grande: 2500 } 
+      },
+      { 
+        id: "selante", 
+        name: "Selante sintético (6 meses)", 
+        description: "Proteção intermediária com durabilidade de até 6 meses.",
+        prices: { Pequeno: 200, Médio: 250, Grande: 300 } 
       }
     ]
   },
-  combos: {
-    name: "Combos de Higienização",
-    description: "Combinações de serviços para limpeza completa do veículo",
+  interiores: {
+    name: "Interiores",
+    description: "Serviços especializados para as partes internas do seu veículo",
     services: [
-      {
-        id: "combo-interna-cera",
-        name: "Combo Higienização Interna + Lav. e Cera",
-        description: "Combo de serviços internos com lavagem e cera",
-        prices: { Pequeno: 300, Médio: 350, Grande: 400 }
+      { 
+        id: "hidratacao", 
+        name: "Hidratação de couro", 
+        description: "Tratamento especial para hidratar e proteger bancos e estofados em couro.",
+        prices: { Pequeno: 100, Médio: 120, Grande: 150 } 
       },
-      {
-        id: "combo-interna-geral",
-        name: "Combo Higienização Interna + Lavagem Geral",
-        description: "Higienização completa com lavagem total do veículo",
-        prices: { Pequeno: 400, Médio: 450, Grande: 500 }
+      { 
+        id: "lavagem-teto", 
+        name: "Lavagem de teto", 
+        description: "Limpeza profunda do forro do teto.",
+        prices: { Pequeno: 100, Médio: 130, Grande: 150 } 
+      },
+      { 
+        id: "lavagem-banco", 
+        name: "Lavagem de banco (individual)", 
+        description: "Limpeza específica de um único banco.",
+        prices: { Unidade: 60 } 
+      },
+      { 
+        id: "lavagem-carpete", 
+        name: "Lavagem de carpete + forro", 
+        description: "Limpeza completa de carpetes e forros internos.",
+        prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
       }
     ]
   },
-  lavagem: {
-    name: "Lavagem",
-    description: "Lavagens profissionais com diferentes níveis de cuidado",
+  motos: {
+    name: "Motos",
+    description: "Serviços específicos para motocicletas",
     services: [
-      {
-        id: "lavagem-tradicional",
-        name: "Lavagem tradicional",
-        description: "Shampoo, aspiração, condicionamento de plásticos e pneus, aromatizante",
-        prices: { Pequeno: 40, Médio: 60, Grande: 80 }
+      { 
+        id: "lavagem-moto-simples", 
+        name: "Lavagem simples", 
+        description: "Limpeza básica para diferentes modelos de motocicletas.",
+        prices: { 
+          "Biz, Pop": 20, 
+          "Titan, Fan, Bros 125/150/160": 25, 
+          "Fazer, CB, Twister, XRE 190/250/300": 30, 
+          "300-600cc": 40, 
+          "Acima de 600cc": 50 
+        } 
       },
-      {
-        id: "lavagem-classica",
-        name: "Lavagem clássica",
-        description: "Adição de cera limpadora ao serviço tradicional",
-        prices: { Pequeno: 50, Médio: 70, Grande: 90 }
+      { 
+        id: "lavagem-moto-detalhada", 
+        name: "Lavagem detalhada", 
+        description: "Desmontagem de carenagem e banco quando necessário, limpeza de couro, aplicação de selante na pintura, selante de pneus, lubrificação.",
+        priceMultiplier: 2,
+        baseService: "lavagem-moto-simples"
       },
-      {
-        id: "lavagem-premium",
-        name: "Lavagem premium",
-        description: "Inclui lavagem de chassi, cera premium, selante pneus e aromatizante",
-        prices: { Pequeno: 80, Médio: 100, Grande: 120 }
-      }
-    ]
-  },
-  chassis: {
-    name: "Serviços Chassi e Motor",
-    description: "Tratamentos para parte inferior e motor do veículo",
-    services: [
-      {
-        id: "lavagem-chassi",
-        name: "Lavagem de chassi",
-        description: "Limpeza da parte inferior do carro",
-        prices: { Pequeno: 40, Médio: 40, Grande: 40 }
+      { 
+        id: "vitrificacao-moto", 
+        name: "Vitrificação para motos", 
+        description: "Proteção de alta durabilidade para a pintura da sua motocicleta.",
+        priceRange: "R$ 150 a R$ 250" 
       },
-      {
-        id: "anticorrosivo",
-        name: "Anticorrosivo chassi",
-        description: "Proteção contra ferrugem no chassi",
-        prices: { Pequeno: 30, Médio: 30, Grande: 30 }
+      { 
+        id: "polimento-tanque", 
+        name: "Polimento de tanque", 
+        description: "Tratamento específico para o tanque da motocicleta.",
+        fixedPrice: 40 
       },
-      {
-        id: "lavagem-motor",
-        name: "Lavagem motor + proteção",
-        description: "Limpeza do motor com proteção contra oxidação",
-        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
+      { 
+        id: "polimento-moto", 
+        name: "Polimento completo", 
+        description: "Tratamento para toda a pintura da motocicleta.",
+        basePrice: 60 
       },
-      {
-        id: "impermeabilizacao-brisa",
-        name: "Impermeabilização para brisa",
-        description: "Proteção repelente para o para-brisa",
-        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
-      },
-      {
-        id: "polimento-farois",
-        name: "Polimento faróis",
-        description: "Restauração e polimento dos faróis",
-        prices: { Pequeno: 120, Médio: 120, Grande: 120 }
-      },
-      {
-        id: "vitrificacao-farois",
-        name: "Vitrificação faróis",
-        description: "Aplicação de camada vitrificada para proteção dos faróis",
-        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
+      { 
+        id: "cera-v80", 
+        name: "Aplicação de cera v80", 
+        description: "Proteção básica para a pintura da motocicleta.",
+        fixedPrice: 10 
       }
     ]
   }
 };
-
 
 const generateId = () => Math.random().toString(36).substring(2, 10);
 
@@ -188,7 +218,7 @@ const Booking = () => {
   const [newVehicle, setNewVehicle] = useState({
     name: '',
     type: 'car' as VehicleType,
-    size: 'Pequeno' as CarSize
+    size: 'Pequeno'
   });
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
   const { toast } = useToast();
@@ -400,7 +430,7 @@ const Booking = () => {
     const message = formatWhatsAppMessage();
     
     // Número da oficina (substitua pelo número real)
-    const phoneNumber = "5591980588823";
+    const phoneNumber = "5591988939655";
     
     // Criar a URL do WhatsApp com a mensagem
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -437,7 +467,7 @@ const Booking = () => {
     <section id="booking" className="section-padding bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Continuar</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Agende seu Serviço</h2>
           <div className="w-20 h-1 bg-pitstop-blue mx-auto mb-6"></div>
           <p className="text-lg text-pitstop-darkGray/80 max-w-2xl mx-auto">
             Escolha os serviços para seus veículos e agende o melhor dia e horário.
@@ -622,22 +652,25 @@ const Booking = () => {
             )}
 
             {selectedVehicleId && getSelectedVehicle() && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-pitstop-darkGray mb-4">
+              <div className="mb-10">
+                <h3 className="text-xl font-semibold text-pitstop-darkGray mb-20">
                   Selecionar Serviços para: {getSelectedVehicle()?.name}
                 </h3>
                 
                 <Tabs 
                   defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : 'higienizacao'}
                   onValueChange={setSelectedCategory}
+                  className="mt-6"
                 >
-                  <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-10 w-full mt-10">
+                  <TabsList className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-1 h-full py-2 bg-gray-100 rounded-xl">
                     {Object.entries(serviceCategories).map(([key, category]) => (
                       <TabsTrigger 
                         key={key} 
                         value={key} 
                         disabled={getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos'}
-                        className={getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos' ? 'opacity-50' : ''}
+                        className={`px-4 py-3 text-base font-medium transition-all ${
+                          getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos' ? 'opacity-50' : ''
+                        }`}
                       >
                         {category.name}
                       </TabsTrigger>
@@ -645,11 +678,11 @@ const Booking = () => {
                   </TabsList>
                   
                   {Object.entries(serviceCategories).map(([key, category]) => (
-                    <TabsContent key={key} value={key} className="pt-4">
-                      <h4 className="text-lg font-medium text-center mb-2">{category.name}</h4>
-                      <p className="text-center text-pitstop-darkGray/80 mb-6">{category.description}</p>
+                    <TabsContent key={key} value={key} className="pt-20">
+                      <h4 className="text-xl font-medium text-center mb-4">{category.name}</h4>
+                      <p className="text-center text-pitstop-darkGray/80 mb-8 text-base">{category.description}</p>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {category.services.map(service => {
                           const selectedVehicle = getSelectedVehicle();
                           const isServiceSelected = selectedVehicle?.services.some(s => s.id === service.id);

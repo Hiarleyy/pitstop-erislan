@@ -50,7 +50,7 @@ const Gallery = () => {
     <section id="gallery" className="section-padding bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Antes e Depois</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Galeria de Serviços</h2>
           <div className="w-20 h-1 bg-pitstop-blue mx-auto mb-6"></div>
           <p className="text-lg text-pitstop-darkGray/80 max-w-2xl mx-auto">
             Pitstop Estetica Automotiva trabalha com diversos serviços desde Lavagem completa e detalhada, até processos como vitrificalção para carro e moto.
