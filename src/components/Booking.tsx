@@ -561,7 +561,7 @@ const Booking = () => {
                       id="vehicle-name"
                       value={newVehicle.name}
                       onChange={(e) => setNewVehicle({...newVehicle, name: e.target.value})}
-                      placeholder="Ex: Meu Carro, Minha Moto"
+                      placeholder="Ex: Cb 500, Civic, etc."
                       className="w-full"
                     />
                   </div>
