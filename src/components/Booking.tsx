@@ -743,8 +743,7 @@ const Booking = () => {
                         value={newVehicle.size}
                         onChange={(e) => setNewVehicle({...newVehicle, size: e.target.value})}
                         className="w-full p-2 border border-gray-300 rounded-md"
-                      > <option value="nao exibe">nao exibe</option>
-                        <option value="Biz, Pop">Biz, Pop (R$ 20)</option>
+                      > <option value="Biz, Pop">Biz, Pop (R$ 20)</option>
                         <option value="Titan, Fan, Bros 125/150/160">Titan, Fan, Bros 125/150/160 (R$ 25)</option>
                         <option value="Fazer, CB, Twister, XRE 190/250/300">Fazer, CB, Twister, XRE 190/250/300 (R$ 30)</option>
                         <option value="300-600cc">300-600cc (R$ 40)</option>
