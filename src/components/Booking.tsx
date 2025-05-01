@@ -36,35 +36,70 @@ const serviceCategories = {
     description: "Serviços completos de limpeza e higienização para seu veículo",
     services: [
       { 
-        id: "lavagem-completa", 
-        name: "Lavagem completa", 
-        description: "Limpeza minuciosa interna e externa do seu veículo.",
-        prices: { Pequeno: 50, Médio: 60, Grande: 70 } 
+        id: "lavagem-classica", 
+        name: "Lavagem Clássica", 
+        description: "Limpeza minuciosa externa, com aspiração interna, revitalização dos plasticos externos e revitalização dos pneus",
+        prices: { Pequeno: 60, Médio: 70, Grande: 80 } 
       },
       { 
-        id: "lavagem-tecnica", 
-        name: "Lavagem técnica interna", 
-        description: "Limpeza profunda de toda parte interna do veículo.",
+        id: "lavagem-premium", 
+        name: "Lavagem Premium", 
+        description: "Lavagem externa com Aspiração interna etalhada, revitalização dos plasticos externos, aplicação de cera premium e aromatizador Little Trees",
         prices: { Pequeno: 100, Médio: 110, Grande: 120 } 
       },
+      
       { 
-        id: "higienizacao-tecido", 
-        name: "Higienização interna + banco tecido", 
-        description: "Processo completo de limpeza para eliminar sujeiras, odores e ácaros de bancos de tecido.",
-        prices: { Pequeno: 250, Médio: 280, Grande: 300 } 
+        id: "lavagem-motor-2", 
+        name: "Lavagem de Motor", 
+        description: "Limpeza detalhada do motor do veiculo",
+        prices: { Pequeno: 100 , Médio: 100, Grande: 100 } 
+      },
+      
+      { 
+        id: "lavagem-motor-2", 
+        name: "Lavagem de Motor Nivel 2", 
+        description: "Limpeza detalhada do motor do veiculo",
+        prices: { Pequeno: 50 , Médio: 50, Grande: 50 } 
+      },
+
+      { 
+        id: "higienizacao-completa", 
+        name: "Pacote higienização completa", 
+        description: "Processo detalhado de higienizacao dos bancos, tetos, colunas,cintos, carpete, painel e portas. Inclui a Lavagem Clássica.",
+        prices: { Pequeno: 400, Médio: 450, Grande: 500 } 
+
       },
       { 
-        id: "higienizacao-couro", 
-        name: "Higienização interna + banco couro", 
-        description: "Processo especializado para limpeza e conservação de estofados em couro.",
-        prices: { Pequeno: 200, Médio: 230, Grande: 250 } 
-      }
+        id: "Lavagem de Chassis-1", 
+        name: "Lavagem de Chassis nivel 1", 
+        description: "Processo detalhado de lavagem do chassis do veiculo, com desengraxante e escovação",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 } 
+
+      },
+      { 
+        id: "Lavagem de Chassis-2", 
+        name: "Lavagem de Chassis nivel 1", 
+        description: "Processo detalhado de lavagem do chassis do veiculo, com desengraxante e escovação",
+        prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
+      },
+      { 
+        id: "AntiCorrosivo", 
+        name: "Aplicação de Anticorrosivo", 
+        description: "Processo detalhado de aplicação de anticorrosivo no chassis do veiculo, com desengraxante e escovação",
+        prices: { Pequeno: 30, Médio: 30, Grande: 30} 
+      } 
     ]
   },
   estetica: {
     name: "Estética",
     description: "Tratamentos para realçar e restaurar a beleza da pintura do seu veículo",
     services: [
+      { 
+        id: "descontaminacao", 
+        name: "Descontaminação da pintura + cera", 
+        description: "Remoção de contaminantes impregnados na pintura e proteção com cera de carnaúba.",
+        prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
+      },
       { 
         id: "polimento-comercial", 
         name: "Polimento comercial", 
@@ -90,10 +125,16 @@ const serviceCategories = {
         prices: { Pequeno: 300, Médio: 400, Grande: 500 } 
       },
       { 
-        id: "descontaminacao", 
-        name: "Descontaminação da pintura + cera", 
-        description: "Remoção de contaminantes impregnados na pintura e proteção com cera de carnaúba.",
-        prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
+        id: "polimento de Farol",	 
+        name: "Polimento de farol", 
+        description: "Tratamento completo para recuperação de faróis com tratamento com produto Vonixx.",
+        prices: { Pequeno: 300, Médio: 400, Grande: 500 } 
+      },
+      { 
+        id: "polimento de Farol + Vitrificação",	 
+        name: "Polimento de farol + Vitrificação", 
+        description: "Tratamento completo para recuperação de faróis com desgaste.",
+        prices: { Pequeno: 300, Médio: 400, Grande: 500 } 
       }
     ]
   },
@@ -147,11 +188,23 @@ const serviceCategories = {
         id: "lavagem-banco", 
         name: "Lavagem de banco (individual)", 
         description: "Limpeza específica de um único banco.",
-        prices: { Unidade: 60 } 
+        prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
+      },
+      { 
+        id: "lavagem-banco-couro-1", 
+        name: "Lavagem de banco de couro (5 lugares)", 
+        description: "Limpeza específica de banco de couro de 5 lugares.",
+        prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
+      },
+      { 
+        id: "lavagem-banco-couro-2", 
+        name: "Lavagem de banco de couro (7 lugares)", 
+        description: "Limpeza específica de banco de couro de 7 lugares.",
+        prices: { Pequeno: 200, Médio: 200, Grande: 200 } 
       },
       { 
         id: "lavagem-carpete", 
-        name: "Lavagem de carpete + forro", 
+        name: "Lavagem de carpete + forro de porta", 
         description: "Limpeza completa de carpetes e forros internos.",
         prices: { Pequeno: 150, Médio: 180, Grande: 200 } 
       }
@@ -184,12 +237,30 @@ const serviceCategories = {
         id: "vitrificacao-moto", 
         name: "Vitrificação para motos", 
         description: "Proteção de alta durabilidade para a pintura da sua motocicleta.",
-        priceRange: "R$ 150 a R$ 250" 
+        prices: {
+          "Biz, Pop": 150,
+          "Titan, Fan, Bros 125/150/160": 180,
+          "Fazer, CB, Twister, XRE 190/250/300": 200,
+          "300-600cc": 230,
+          "Acima de 600cc": 250
+        }
       },
       { 
         id: "polimento-tanque", 
         name: "Polimento de tanque", 
         description: "Tratamento específico para o tanque da motocicleta.",
+        prices: {
+          "Biz, Pop": 35,
+          "Titan, Fan, Bros 125/150/160": 40,
+          "Fazer, CB, Twister, XRE 190/250/300": 45,
+          "300-600cc": 50,
+          "Acima de 600cc": 60
+        }
+      },
+      { 
+        id: "Descontaminaçao de Escapamento", 
+        name: "Descontaminação de escapamento", 
+        description: "Proteção do escapamento.",
         fixedPrice: 40 
       },
       { 
@@ -203,7 +274,44 @@ const serviceCategories = {
         name: "Aplicação de cera v80", 
         description: "Proteção básica para a pintura da motocicleta.",
         fixedPrice: 10 
-      }
+      },
+    ]
+  },
+  Adicionais: {
+    name: "Adicionais",
+    description: "Serviços adicionais e personalizados",
+    services: [
+      { 
+        id: "Remoção de chuva ácida", 
+        name: "Remoção de chuva ácida", 
+        description: "Tratamento para remoção de manchas causadas por chuva ácida.",
+        prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
+      },
+      { 
+        id: "Higienização de ar-condicionado", 
+        name: "Higienização de ar-condicionado", 
+        description: "Limpeza e desinfecção do sistema de ar-condicionado.",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 } 
+      },
+      {
+        id: "Higienização de bancos",
+        name: "Higienização de Bancos (Por Unidade)",
+        description: "Tratamento de limpeza e higienização de bancos.",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
+
+      },
+      { 
+        id: "Cristalização de Para-brisa", 
+        name: "Cristalização de Para-brisa", 
+        description: "Tratamento para aumentar a resistência e durabilidade dos vidros.",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 } 
+      },
+      { 
+        id: "Aromatizantes", 
+        name: "Aromatizantes Little Trees", 
+        description: "Aromatizantes para o interior do veículo.",
+        prices: { Pequeno: 15, Médio: 15, Grande: 15 } 
+      },
     ]
   }
 };
@@ -218,48 +326,54 @@ const Booking = () => {
   const [newVehicle, setNewVehicle] = useState({
     name: '',
     type: 'car' as VehicleType,
-    size: 'Pequeno'
+    size: 'Biz, Pop'
   });
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
   const { toast } = useToast();
 
   const calculateServicePrice = (service: any, vehicle: Vehicle) => {
     if (vehicle.type === 'car') {
-      if (service.prices && service.prices[vehicle.size as CarSize] !== undefined) {
-        return service.prices[vehicle.size as CarSize];
-      }
-      return 0;
-    } else if (vehicle.type === 'motorcycle') {
+      return service.prices?.[vehicle.size] ?? 0;
+    }
+  
+    if (vehicle.type === 'motorcycle') {
+      const model = vehicle.size; // Ex: "Biz, Pop"
+  
+      // 1. Preço baseado em outro serviço com multiplicador
       if (service.priceMultiplier && service.baseService) {
         const baseService = serviceCategories.motos.services.find(s => s.id === service.baseService);
-        if (baseService && baseService.prices) {
-          const basePrice = Object.entries(baseService.prices).reduce((acc, [model, price]) => {
-            const motorcycleSize = vehicle.size as string;
-            if (motorcycleSize && model.includes(motorcycleSize)) return price as number;
-            return acc;
-          }, 0);
-          return basePrice * service.priceMultiplier;
+        if (baseService?.prices?.[model]) {
+          return baseService.prices[model] * service.priceMultiplier;
         }
       }
-      
-      if (service.priceRange) return service.priceRange;
-      
-      if (service.fixedPrice) return service.fixedPrice;
-      
-      if (service.basePrice) return service.basePrice;
-      
-      if (service.prices) {
-        return Object.entries(service.prices).reduce((acc, [model, price]) => {
-          const motorcycleSize = vehicle.size as string;
-          if (motorcycleSize && model.includes(motorcycleSize)) return price;
-          return acc;
-        }, 'Preço variável');
+  
+      // 2. Preço direto
+      if (service.prices?.[model] !== undefined) {
+        return service.prices[model];
       }
-      
-      return 'Consultar';
+  
+      // 3. Match parcial (por segurança)
+      if (service.prices) {
+        for (const [pattern, price] of Object.entries(service.prices)) {
+          const keywords = pattern.split(/,\s*/);
+          if (keywords.some(k => model.includes(k))) {
+            return price;
+          }
+        }
+      }
+  
+      // 4. Fallback para fixed/basePrice
+      if (typeof service.fixedPrice === 'number') return service.fixedPrice;
+      if (typeof service.basePrice === 'number') return service.basePrice;
+  
+      return 0;
     }
+  
     return 0;
   };
+  
+  
+  
 
   const handleAddVehicle = () => {
     if (!newVehicle.name.trim()) {
@@ -279,7 +393,7 @@ const Booking = () => {
       type: newVehicle.type,
       size: newVehicle.type === 'car' ? 
         (newVehicle.size as CarSize) : 
-        (newVehicle.name as MotorcycleSize),
+        (newVehicle.size as MotorcycleSize),
       services: []
     };
     
@@ -629,7 +743,7 @@ const Booking = () => {
                         value={newVehicle.size}
                         onChange={(e) => setNewVehicle({...newVehicle, size: e.target.value})}
                         className="w-full p-2 border border-gray-300 rounded-md"
-                      >
+                      > <option value="nao exibe">nao exibe</option>
                         <option value="Biz, Pop">Biz, Pop (R$ 20)</option>
                         <option value="Titan, Fan, Bros 125/150/160">Titan, Fan, Bros 125/150/160 (R$ 25)</option>
                         <option value="Fazer, CB, Twister, XRE 190/250/300">Fazer, CB, Twister, XRE 190/250/300 (R$ 30)</option>
