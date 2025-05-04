@@ -100,7 +100,7 @@ const Servicos = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-auto-lightgray">
+    <div className="min-h-screen flex flex-col bg-auto-lightgray z-10">
       <ScrollToTop />
       <div className="min-h-screen container mx-auto px-4 py-10">
         {/* SEÇÃO DE SERVIÇOS DE HIGIENIZAÇÃO */}

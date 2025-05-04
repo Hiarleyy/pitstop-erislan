@@ -45,24 +45,6 @@ const Hero = () => {
           backdropFilter: 'blur(1px)',
         }}
       >
-        {/* Soap bubbles */}
-        <div className="absolute top-0 left-0 right-0 h-20 bg-white bg-opacity-70 z-5">
-          {Array.from({ length: 40 }).map((_, i) => (
-            <div 
-              key={i} 
-              className="absolute rounded-full bg-white"
-              style={{ 
-                width: `${Math.random() * 40 + 5}px`, 
-                height: `${Math.random() * 40 + 5}px`, 
-                left: `${Math.random() * 100}%`, 
-                top: `${Math.random() * 120}%`,
-                opacity: Math.random() * 0.5 + 0.3,
-                animation: `bubble-float ${Math.random() * 8 + 3}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
-        </div>
         
         {/* Water ripples */}
         <div className="absolute inset-0 z-5">

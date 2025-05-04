@@ -6,177 +6,230 @@
     "categoria": "interiores"
   },
   {
-    "titulo": "Limpeza de Bancos de Tecido",
-    "descricao": "Higienização profunda dos bancos de tecido (R$180,00)",
-    "icone": "cleaning",
-    "categoria": "interiores"
-  },
-  {
-    "titulo": "Limpeza de Teto e Colunas",
-    "descricao": "Higienização do teto e colunas internas do veículo (R$80,00)",
-    "icone": "cleaning",
-    "categoria": "higienizacao"
-  },
-  {
-    "titulo": "Combo Higienização + Lavagem + Cera",
-    "descricao": "Combo completo com higienização interna + lavagem e aplicação de cera (P: R$300, M: R$350, G: R$400)",
-    "icone": "sparkles",
-    "categoria": "higienizacao"
-  },
-  {
-    "titulo": "Combo Higienização + Lavagem Geral",
-    "descricao": "Combo completo com higienização interna e lavagem geral (P: R$400, M: R$450, G: R$500)",
-    "icone": "sparkles",
-    "categoria": "higienizacao"
-  },
-  {
-    "titulo": "Lavagem Tradicional",
-    "descricao": "Shampoo, aspiração, condicionador de plásticos e pneus, aromatizante (P: R$40, M: R$60, G: R$80)",
-    "icone": "droplet",
-    "categoria": "estetica"
-  },
-  {
     "titulo": "Lavagem Clássica",
-    "descricao": "Shampoo, cera limpadora, aspiração, plástico, pneus e aromatizante (P: R$50, M: R$70, G: R$90)",
-    "icone": "droplet",
-    "categoria": "estetica"
+    "descricao": "Limpeza minuciosa externa, com aspiração interna, revitalização dos plásticos externos e revitalização dos pneus (P: R$60, M: R$70, G: R$80)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
   },
   {
     "titulo": "Lavagem Premium",
-    "descricao": "Chassi, cera premium, aspiração, plásticos internos/externos, selante pneus e aromatizante (P: R$80, M: R$100, G: R$120)",
+    "descricao": "Lavagem externa com aspiração interna detalhada, revitalização dos plásticos externos, aplicação de cera premium e aromatizador Little Trees (P: R$100, M: R$110, G: R$120)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Lavagem de Motor",
+    "descricao": "Limpeza detalhada do motor do veículo (R$100)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Lavagem de Motor Nível 2",
+    "descricao": "Limpeza detalhada do motor do veículo com aplicação de produtos específicos (R$50)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Pacote de Higienização Completa",
+    "descricao": "Processo detalhado de higienização dos bancos, tetos, colunas, cintos, carpete, painel e portas. Inclui a Lavagem Clássica (P: R$400, M: R$450, G: R$500)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Lavagem de Chassis Nível 1",
+    "descricao": "Processo detalhado de lavagem do chassis do veículo, com desengraxante e escovação (R$50)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Lavagem de Chassis Nível 2",
+    "descricao": "Processo minucioso de lavagem do chassis do veículo com desengraxante e escovação, com aplicação de anticorrosivo (R$100)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Aplicação de Anticorrosivo",
+    "descricao": "Processo detalhado de aplicação de anticorrosivo no chassis do veículo (R$30)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  
+  {
+    "titulo": "Descontaminação da Pintura + Cera",
+    "descricao": "Remoção de contaminantes impregnados na pintura e proteção com cera de carnaúba (P: R$150, M: R$180, G: R$200)",
     "icone": "sparkles",
-    "categoria": "lavagem"
+    "categoria": "estetica"
   },
   {
     "titulo": "Polimento Comercial",
-    "descricao": "Polimento comercial com acabamento padrão (P: R$200, M: R$250, G: R$300)",
-    "icone": "shield",
-    "categoria": "polimento"
+    "descricao": "Tratamento básico para melhorar o brilho da pintura (P: R$200, M: R$250, G: R$300)",
+    "icone": "sparkles",
+    "categoria": "estetica"
   },
   {
-    "titulo": "Polimento Técnico",
-    "descricao": "Polimento técnico com acabamento detalhado (P: R$300, M: R$400, G: R$500)",
-    "icone": "shield",
-    "categoria": "polimento"
+    "titulo": "Polimento Técnico (1 estágio)",
+    "descricao": "Remoção de riscos superficiais e restauração do brilho da pintura (P: R$300, M: R$350, G: R$400)",
+    "icone": "sparkles",
+    "categoria": "estetica"
   },
   {
-    "titulo": "Polimento de Faróis",
-    "descricao": "Restauração e polimento dos faróis (R$120,00)",
+    "titulo": "Polimento Técnico (2 estágios)",
+    "descricao": "Tratamento avançado para remoção de riscos mais profundos e restauração completa do brilho (P: R$400, M: R$450, G: R$500)",
+    "icone": "sparkles",
+    "categoria": "estetica"
+  },
+  {
+    "titulo": "Polimento Técnico Completo",
+    "descricao": "Tratamento completo para recuperação total da pintura (P: R$300, M: R$400, G: R$500)",
+    "icone": "sparkles",
+    "categoria": "estetica"
+  },
+  {
+    "titulo": "Polimento de Farol",
+    "descricao": "Tratamento completo para recuperação de faróis com tratamento com produto Vonixx (R$300)",
     "icone": "lightbulb",
-    "categoria": "polimento"
+    "categoria": "estetica"
+  },
+  {
+    "titulo": "Polimento de Farol + Vitrificação",
+    "descricao": "Tratamento completo para recuperação de faróis com desgaste e proteção adicional (R$350)",
+    "icone": "lightbulb",
+    "categoria": "estetica"
+  },
+  
+  {
+    "titulo": "Vitrificação (até 3 anos)",
+    "descricao": "Proteção premium com durabilidade de até 3 anos, aumentando o brilho e facilitando a limpeza (P: R$750, M: R$850, G: R$1000)",
+    "icone": "shield",
+    "categoria": "protecao"
   },
   {
     "titulo": "Vitrificação Vonixx",
-    "descricao": "Aplicação de vitrificação com produtos Vonixx (P: R$1.300, M: R$1.500, G: R$1.700)",
+    "descricao": "Proteção premium com tecnologia Vonixx para máxima durabilidade e brilho intenso (P: R$1300, M: R$1500, G: R$1700)",
     "icone": "shield",
     "categoria": "protecao"
   },
   {
     "titulo": "Vitrificação Car Pro",
-    "descricao": "Proteção premium com vitrificação Car Pro (P: R$1.800, M: R$2.200, G: R$2.500)",
+    "descricao": "Proteção de alto desempenho com tecnologia Car Pro para proteção superior (P: R$1800, M: R$2200, G: R$2500)",
     "icone": "shield",
     "categoria": "protecao"
   },
   {
-    "titulo": "Impermeabilização de Bancos",
-    "descricao": "Proteção contra líquidos e manchas em bancos (R$300,00)",
+    "titulo": "Selante Sintético (6 meses)",
+    "descricao": "Proteção intermediária com durabilidade de até 6 meses (P: R$200, M: R$250, G: R$300)",
     "icone": "shield",
+    "categoria": "protecao"
+  },
+  
+  {
+    "titulo": "Hidratação de Couro",
+    "descricao": "Tratamento especial para hidratar e proteger bancos e estofados em couro (P: R$100, M: R$120, G: R$150)",
+    "icone": "cleaning",
     "categoria": "interiores"
   },
   {
-    "titulo": "Anticorrosivo para Chassi",
-    "descricao": "Aplicação de proteção anticorrosiva no chassi (R$30,00)",
-    "icone": "shield",
-    "categoria": "protecao"
-  },
-  {
-    "titulo": "Impermeabilização para Brisa",
-    "descricao": "Aplicação de produto repelente de água no para-brisa (R$50,00)",
-    "icone": "shield",
-    "categoria": "protecao"
-  },
-  {
-    "titulo": "Vitrificação de Faróis",
-    "descricao": "Aplicação de vitrificação para proteção dos faróis (R$50,00)",
-    "icone": "shield",
-    "categoria": "protecao"
-  },
-  {
-    "titulo": "Condicionamento Hidratante para Couro",
-    "descricao": "Aplicação de hidratante para manter o couro conservado (R$20,00)",
+    "titulo": "Lavagem de Teto",
+    "descricao": "Limpeza profunda do forro do teto (P: R$100, M: R$130, G: R$150)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "interiores"
   },
   {
-    "titulo": "Painel, Portas e Condicionamento de Plásticos",
-    "descricao": "Limpeza e acabamento em plásticos internos (R$40,00)",
+    "titulo": "Lavagem de Banco (individual)",
+    "descricao": "Limpeza específica de um único banco (R$100)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "interiores"
   },
   {
-    "titulo": "Limpeza de Carpete e Feltro",
-    "descricao": "Remoção de sujeiras profundas do carpete e feltro (R$100,00)",
+    "titulo": "Lavagem de Banco de Couro (5 lugares)",
+    "descricao": "Limpeza específica de banco de couro de 5 lugares (R$100)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "interiores"
   },
   {
-    "titulo": "Lavagem - Biz/Pop",
-    "descricao": "Lavagem básica para motos Biz ou Pop (R$20,00)",
+    "titulo": "Lavagem de Banco de Couro (7 lugares)",
+    "descricao": "Limpeza específica de banco de couro de 7 lugares (R$200)",
+    "icone": "cleaning",
+    "categoria": "interiores"
+  },
+  {
+    "titulo": "Lavagem de Carpete + Forro de Porta",
+    "descricao": "Limpeza completa de carpetes e forros internos (P: R$150, M: R$180, G: R$200)",
+    "icone": "cleaning",
+    "categoria": "interiores"
+  },
+  
+  {
+    "titulo": "Lavagem Simples - Motos",
+    "descricao": "Limpeza básica para diferentes modelos (Biz, Pop: R$20 | Titan, Fan, Bros 125/150/160: R$25 | Fazer, CB, Twister, XRE 190/250/300: R$30 | 300-600cc: R$40 | Acima de 600cc: R$50)",
     "icone": "bike",
     "categoria": "moto"
   },
   {
-    "titulo": "Lavagem - Titan, Fan, Bros (125/150/160)",
-    "descricao": "Lavagem básica para motos de baixa cilindrada (R$25,00)",
+    "titulo": "Lavagem Detalhada - Motos",
+    "descricao": "Desmontagem parcial, limpeza de couro, aplicação de selante (Preço: dobro da lavagem simples)",
     "icone": "bike",
     "categoria": "moto"
   },
   {
-    "titulo": "Lavagem - Fazer, CB, Twister, XRE (250–300)",
-    "descricao": "Lavagem para motos intermediárias (R$30,00)",
-    "icone": "bike",
-    "categoria": "moto"
-  },
-  {
-    "titulo": "Lavagem - Motos de 300cc até 600cc",
-    "descricao": "Lavagem para motos médias (R$40,00)",
-    "icone": "bike",
-    "categoria": "moto"
-  },
-  {
-    "titulo": "Lavagem - Motos acima de 600cc",
-    "descricao": "Lavagem completa para motos de alta cilindrada (R$50,00)",
-    "icone": "bike",
-    "categoria": "moto"
-  },
-  {
-    "titulo": "Lavagem Detalhada de Moto",
-    "descricao": "Desmontagem parcial e detalhamento completo (dobro do valor da lavagem básica)",
-    "icone": "sparkles",
-    "categoria": "moto"
-  },
-  {
-    "titulo": "Vitrificação de Moto",
-    "descricao": "Varia entre R$150,00 e R$250,00 conforme o modelo e necessidade",
+    "titulo": "Vitrificação para Motos",
+    "descricao": "Proteção de alta durabilidade (Biz, Pop: R$150 | Titan, Fan, Bros: R$180 | Fazer, CB, Twister, XRE: R$200 | 300-600cc: R$230 | Acima de 600cc: R$250)",
     "icone": "shield",
     "categoria": "moto"
   },
   {
     "titulo": "Polimento de Tanque",
-    "descricao": "Polimento do tanque da moto (R$40,00)",
+    "descricao": "Tratamento específico para o tanque da motocicleta (Biz, Pop: R$35 | Titan, Fan, Bros: R$40 | Fazer, CB, Twister, XRE: R$45 | 300-600cc: R$50 | Acima de 600cc: R$60)",
     "icone": "sparkles",
     "categoria": "moto"
   },
   {
-    "titulo": "Polimento de Moto (geral)",
-    "descricao": "Serviço completo de polimento da moto a partir de R$60,00",
+    "titulo": "Descontaminação de Escapamento",
+    "descricao": "Limpeza e proteção do escapamento da moto (R$40)",
+    "icone": "cleaning",
+    "categoria": "moto"
+  },
+  {
+    "titulo": "Polimento Completo - Motos",
+    "descricao": "Tratamento para toda a pintura da motocicleta (A partir de R$60)",
     "icone": "sparkles",
     "categoria": "moto"
   },
   {
     "titulo": "Aplicação de Cera V80",
-    "descricao": "Finalização com cera especial V80 (R$10,00)",
+    "descricao": "Proteção básica para a pintura da motocicleta (R$10)",
     "icone": "droplet",
     "categoria": "moto"
+  },
+  
+  {
+    "titulo": "Remoção de Chuva Ácida",
+    "descricao": "Tratamento para remoção de manchas causadas por chuva ácida (R$100)",
+    "icone": "droplet",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Higienização de Ar-condicionado",
+    "descricao": "Limpeza e desinfecção do sistema de ar-condicionado (R$50)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Higienização de Bancos (Por Unidade)",
+    "descricao": "Tratamento de limpeza e higienização de bancos individuais (R$50)",
+    "icone": "cleaning",
+    "categoria": "higienizacao"
+  },
+  {
+    "titulo": "Cristalização de Para-brisa",
+    "descricao": "Tratamento para aumentar a resistência e durabilidade dos vidros (R$50)",
+    "icone": "shield",
+    "categoria": "protecao"
+  },
+  {
+    "titulo": "Aromatizantes Little Trees",
+    "descricao": "Aromatizantes premium para o interior do veículo (R$15)",
+    "icone": "droplet",
+    "categoria": "interiores"
   }
 ]
