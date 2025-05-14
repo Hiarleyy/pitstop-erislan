@@ -55,7 +55,7 @@ const Contact = () => {
                     + `Assunto: Informações sobre serviços`;
       
       // Redirect to WhatsApp
-      window.open(`https://wa.me/5591980588823?text=${message}`, '_blank');
+      window.open(`https://wa.me/559180588823?text=${message}`, '_blank');
       
       // Show success toast
       toast({
@@ -96,17 +96,17 @@ const Contact = () => {
                 <li className="flex items-start">
                   <MapPin className="text-pitstop-blue mr-4 mt-1" size={24} />
                   <div>
-                    <p className="text-pitstop-darkGray/80">Av. Principal, 123</p>
-                    <p className="text-pitstop-darkGray/80">Centro, Bragança - PA</p>
+                    <p className="text-pitstop-darkGray/80"> - Tv. Domingos Souza - Aldeia, Bragança - PA</p>
+                    <p className="text-pitstop-darkGray/80"> 68600-000</p>
                   </div>
                 </li>
                 <li className="flex items-center">
                   <Phone className="text-pitstop-blue mr-4" size={24} />
-                  <p className="text-pitstop-darkGray/80">(91) 98058-8823</p>
+                  <p className="text-pitstop-darkGray/80">(91) 8058-8823</p>
                 </li>
                 <li className="flex items-center">
                   <Mail className="text-pitstop-blue mr-4" size={24} />
-                  <p className="text-pitstop-darkGray/80">contato@pitstopestetica.com.br</p>
+                  <p className="text-pitstop-darkGray/80">erislan-oliveira@hotmail.com</p>
                 </li>
               </ul>
             </div>

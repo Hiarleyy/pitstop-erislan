@@ -143,7 +143,7 @@ const serviceCategories = {
     services: [
       { 
         id: "vitrificacao", 
-        name: "Vitrifica��ão (até 3 anos)", 
+        name: "Vitrificação (até 3 anos)", 
         description: "Proteção premium com durabilidade de até 3 anos, aumentando o brilho e facilitando a limpeza.",
         prices: { Pequeno: 750, Médio: 850, Grande: 1000 } 
       },
@@ -191,15 +191,9 @@ const serviceCategories = {
       },
       { 
         id: "lavagem-banco-couro-1", 
-        name: "Lavagem de banco de couro (5 lugares)", 
+        name: "Lavagem de banco de couro", 
         description: "Limpeza específica de banco de couro de 5 lugares.",
-        prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
-      },
-      { 
-        id: "lavagem-banco-couro-2", 
-        name: "Lavagem de banco de couro (7 lugares)", 
-        description: "Limpeza específica de banco de couro de 7 lugares.",
-        prices: { Pequeno: 200, Médio: 200, Grande: 200 } 
+        prices: { Pequeno: 100, Médio: 100, Grande: 200 } 
       },
       { 
         id: "lavagem-carpete", 
@@ -543,10 +537,9 @@ const Booking = () => {
     const message = formatWhatsAppMessage();
     
     // Número da oficina (substitua pelo número real)
-    const phoneNumber = "5591988939655";
     
     // Criar a URL do WhatsApp com a mensagem
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/559180588823?text=${encodeURIComponent(message)}`;
     
     // Abrir em uma nova janela/aba
     window.open(whatsappUrl, '_blank');
@@ -771,7 +764,18 @@ const Booking = () => {
                 
                 <Tabs 
                   defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : 'higienizacao'}
-                  onValueChange={setSelectedCategory}
+                  value={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : selectedCategory === 'motos' ? 'higienizacao' : selectedCategory}
+                  onValueChange={(value) => {
+                    // Se for moto, só permite a categoria "motos"
+                    if (getSelectedVehicle()?.type === 'motorcycle' && value !== 'motos') {
+                      return;
+                    }
+                    // Se for carro, impede a seleção da categoria "motos"
+                    if (getSelectedVehicle()?.type === 'car' && value === 'motos') {
+                      return;
+                    }
+                    setSelectedCategory(value);
+                  }}
                   className="mt-6"
                 >
                   <TabsList className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-1 h-full py-2 bg-gray-100 rounded-xl">
@@ -779,9 +783,15 @@ const Booking = () => {
                       <TabsTrigger 
                         key={key} 
                         value={key} 
-                        disabled={getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos'}
+                        // Desabilita qualquer categoria que não seja "motos" para motos
+                        // E desabilita a categoria "motos" para carros
+                        disabled={(getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos') || 
+                                 (getSelectedVehicle()?.type === 'car' && key === 'motos')}
                         className={`px-4 py-3 text-base font-medium transition-all ${
-                          getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos' ? 'opacity-50' : ''
+                          (getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos') || 
+                          (getSelectedVehicle()?.type === 'car' && key === 'motos') 
+                            ? 'opacity-50 cursor-not-allowed' 
+                            : ''
                         }`}
                       >
                         {category.name}

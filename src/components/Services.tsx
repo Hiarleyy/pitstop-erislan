@@ -125,7 +125,7 @@ const Services = () => {
         {
           title: "Lavagem detalhada",
           description: "Desmontagem de carenagem e banco quando necessário, limpeza de couro, aplicação de selante na pintura, selante de pneus, lubrificação.",
-          sizes: "Valor dobrado em relação à lavagem simples"
+          sizes: "Biz, Pop (R$ 40), Titan, Fan, Bros 125/150/160 (R$ 50), Fazer, CB, Twister, XRE 190/250/300 (R$ 60), 300-600cc (R$ 80), Acima de 600cc (R$ 100)"
         },
         {
           title: "Vitrificação para motos",
