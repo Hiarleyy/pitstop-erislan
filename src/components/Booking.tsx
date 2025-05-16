@@ -315,11 +315,14 @@ const Booking = () => {
   const [customerName, setCustomerName] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('higienizacao');
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [isAddingVehicle, setIsAddingVehicle] = useState(false);
-  const [newVehicle, setNewVehicle] = useState({
+  const [isAddingVehicle, setIsAddingVehicle] = useState(false);  const [newVehicle, setNewVehicle] = useState<{
+    name: string;
+    type: VehicleType;
+    size: string;
+  }>({
     name: '',
-    type: 'car' as VehicleType,
-    size: 'Biz, Pop'
+    type: 'car',
+    size: 'Pequeno'
   });
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
   const { toast } = useToast();
@@ -378,6 +381,36 @@ const Booking = () => {
       return;
     }
 
+    // Add validation for vehicle size selection
+    if (!newVehicle.size || newVehicle.size.trim() === '') {
+      toast({
+        title: "Porte do veículo obrigatório",
+        description: "Por favor, selecione o porte do seu veículo.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Additional validation for car type to ensure it has one of the valid sizes
+    if (newVehicle.type === 'car' && !['Pequeno', 'Médio', 'Grande'].includes(newVehicle.size)) {
+      toast({
+        title: "Porte do carro inválido",
+        description: "Por favor, selecione um porte válido para o carro: Pequeno, Médio ou Grande.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Additional validation specific to car type
+    if (newVehicle.type === 'car' && !['Pequeno', 'Médio', 'Grande'].includes(newVehicle.size as string)) {
+      toast({
+        title: "Porte do carro inválido",
+        description: "Por favor, selecione um porte válido para o carro.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     const vehicleId = generateId();
     
     const vehicle: Vehicle = {
@@ -391,11 +424,10 @@ const Booking = () => {
     };
     
     setVehicles([...vehicles, vehicle]);
-    
-    setNewVehicle({
+      setNewVehicle({
       name: '',
       type: 'car',
-      size: 'Pequeno' as CarSize
+      size: 'Pequeno'
     });
     
     setIsAddingVehicle(false);
@@ -677,11 +709,10 @@ const Booking = () => {
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="radio"
-                          checked={newVehicle.type === 'car'}
-                          onChange={() => setNewVehicle({
+                          checked={newVehicle.type === 'car'}                          onChange={() => setNewVehicle({
                             ...newVehicle, 
                             type: 'car', 
-                            size: 'Pequeno' // Reset size to default for cars
+                            size: 'Pequeno' // Always set default car size
                           })}
                           className="w-4 h-4"
                         />
@@ -691,11 +722,10 @@ const Booking = () => {
                       <label className="flex items-center gap-2 cursor-pointer">
                         <input
                           type="radio"
-                          checked={newVehicle.type === 'motorcycle'}
-                          onChange={() => setNewVehicle({
+                          checked={newVehicle.type === 'motorcycle'}                          onChange={() => setNewVehicle({
                             ...newVehicle, 
-                            type: 'motorcycle' as const,
-                            size: 'Biz, Pop' // Reset size to default for motorcycles
+                            type: 'motorcycle',
+                            size: 'Biz, Pop' // Always set default motorcycle size
                           })}
                           className="w-4 h-4"
                         />
