@@ -678,7 +678,11 @@ const Booking = () => {
                         <input
                           type="radio"
                           checked={newVehicle.type === 'car'}
-                          onChange={() => setNewVehicle({...newVehicle, type: 'car'})}
+                          onChange={() => setNewVehicle({
+                            ...newVehicle, 
+                            type: 'car', 
+                            size: 'Pequeno' // Reset size to default for cars
+                          })}
                           className="w-4 h-4"
                         />
                         <Car size={18} />
@@ -688,7 +692,11 @@ const Booking = () => {
                         <input
                           type="radio"
                           checked={newVehicle.type === 'motorcycle'}
-                          onChange={() => setNewVehicle({...newVehicle, type: 'motorcycle' as const})}
+                          onChange={() => setNewVehicle({
+                            ...newVehicle, 
+                            type: 'motorcycle' as const,
+                            size: 'Biz, Pop' // Reset size to default for motorcycles
+                          })}
                           className="w-4 h-4"
                         />
                         <Bike size={18} />
@@ -735,7 +743,8 @@ const Booking = () => {
                         value={newVehicle.size}
                         onChange={(e) => setNewVehicle({...newVehicle, size: e.target.value})}
                         className="w-full p-2 border border-gray-300 rounded-md"
-                      > <option value="Biz, Pop">Biz, Pop</option>
+                      >
+                        <option value="Biz, Pop">Biz, Pop</option>
                         <option value="Titan, Fan, Bros 125/150/160">Titan, Fan, Bros 125/150/160</option>
                         <option value="Fazer, CB, Twister, XRE 190/250/300">Fazer, CB, Twister, XRE 190/250/300</option>
                         <option value="300-600cc">300-600cc</option>
