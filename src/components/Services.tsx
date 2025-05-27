@@ -5,8 +5,30 @@ import { Car, Home, ThumbsUp, Timer, Sparkles, Shield, Wrench, Droplet, Bike } f
 const Services = () => {
   const serviceCategories = [
     {
+    
+
+
+
+
       name: "Higienização e Limpeza",
       icon: <Droplet className="text-pitstop-blue mb-4" size={40} />,
+      services: [
+        
+        {
+          title: "Higienização interna com banco de tecido",
+          description: "Processo completo de limpeza para eliminar sujeiras, odores e ácaros de bancos de tecido.",
+          sizes: "Pequeno (R$ 250), Médio (R$ 280), Grande (R$ 300)"
+        },
+        {
+          title: "Higienização interna com banco de couro",
+          description: "Processo especializado para limpeza e conservação de estofados em couro.",
+          sizes: "Pequeno (R$ 200), Médio (R$ 230), Grande (R$ 250)"
+        }
+      ]
+    },
+    {
+      name: "Lavagens",
+      icon : <Wrench className="text-pitstop-blue mb-4" size={40} />,
       services: [
         {
           title: "Lavagem completa",
@@ -18,16 +40,6 @@ const Services = () => {
           description: "Limpeza profunda de toda parte interna do veículo.",
           sizes: "Pequeno (R$ 100), Médio (R$ 110), Grande (R$ 120)"
         },
-        {
-          title: "Higienização interna com banco de tecido",
-          description: "Processo completo de limpeza para eliminar sujeiras, odores e ácaros de bancos de tecido.",
-          sizes: "Pequeno (R$ 250), Médio (R$ 280), Grande (R$ 300)"
-        },
-        {
-          title: "Higienização interna com banco de couro",
-          description: "Processo especializado para limpeza e conservação de estofados em couro.",
-          sizes: "Pequeno (R$ 200), Médio (R$ 230), Grande (R$ 250)"
-        }
       ]
     },
     {

@@ -14,7 +14,7 @@ type Servico = {
   titulo: string;
   descricao: string;
   icone: "car" | "wrench" | "shield" | "camera" | "bike" | "sparkles" | "cleaning" | "droplet"| "lightbulb";
-  categoria: "higienizacao" | "estetica" | "protecao" | "interiores" | "moto";
+  categoria: "higienizacao" | "estetica" | "protecao" | "interiores" | "moto" | "lavagem";
 }
 
 const Servicos = () => {
@@ -152,6 +152,31 @@ const Servicos = () => {
               </Card>
             ))}
         </div>
+
+          <h1 className="text-4xl font-bold text-center py-10 mt-10">Serviços de Lavagem</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+          {todosServicos
+            .filter(servico => servico.categoria === "lavagem")
+            .map((servico, index) => (
+              <Card 
+              key={index} 
+              className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
+              >
+                <CardHeader>
+                  <div className="flex items-center justify-center">
+                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
+                      {servico.titulo}
+                    </CardTitle>
+                    {renderIcon(servico.icone)}
+                  </div>
+                  <CardDescription>
+                    {servico.descricao}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+        </div>
+
 
         {/* SEÇÃO DE SERVIÇOS DE PROTEÇÃO */}
         <h1 className="text-4xl font-bold text-center py-10 mt-10">Serviços de Proteção</h1>

@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Car, Bike, Plus, Check } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { CheckCircle } from 'lucide-react';
+import { describe } from 'node:test';
 
 type VehicleType = 'car' | 'motorcycle';
 type CarSize = 'Pequeno' | 'Médio' | 'Grande';
@@ -30,11 +31,11 @@ const vehicleSizeExamples = {
 };
 
 const serviceCategories = {
-  higienizacao: {
-    name: "Higienização",
-    description: "Serviços completos de limpeza e higienização para seu veículo",
+  lavagem:{
+    name: "Lavagens",
+    description: "Serviços de lavagem e limpeza externa do veículo",
     services: [
-      { 
+        { 
         id: "lavagem-classica", 
         name: "Lavagem Clássica", 
         description: "Limpeza minuciosa externa, com aspiração interna, revitalização dos plasticos externos e revitalização dos pneus",
@@ -46,40 +47,43 @@ const serviceCategories = {
         description: "Lavagem externa com Aspiração interna etalhada, revitalização dos plasticos externos, aplicação de cera premium e aromatizador Little Trees",
         prices: { Pequeno: 100, Médio: 110, Grande: 120 } 
       },
-      
       { 
         id: "lavagem-motor-2", 
         name: "Lavagem de Motor", 
         description: "Limpeza detalhada do motor do veiculo",
         prices: { Pequeno: 100 , Médio: 100, Grande: 100 } 
       },
-      
       { 
-        id: "lavagem-motor-2", 
+        id: "lavagem-motor-N2", 
         name: "Lavagem de Motor Nivel 2", 
         description: "Limpeza detalhada do motor do veiculo",
-        prices: { Pequeno: 50 , Médio: 50, Grande: 50 } 
-      },
-
-      { 
-        id: "higienizacao-completa", 
-        name: "Pacote higienização completa", 
-        description: "Processo detalhado de higienizacao dos bancos, tetos, colunas,cintos, carpete, painel e portas. Inclui a Lavagem Clássica.",
-        prices: { Pequeno: 400, Médio: 450, Grande: 500 } 
-
+        prices: { Pequeno: 150 , Médio: 150, Grande: 150 } 
       },
       { 
         id: "Lavagem de Chassis-1", 
         name: "Lavagem de Chassis nivel 1", 
         description: "Processo detalhado de lavagem do chassis do veiculo, com desengraxante e escovação",
-        prices: { Pequeno: 50, Médio: 50, Grande: 50 } 
-
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 }
       },
       { 
         id: "Lavagem de Chassis-2", 
         name: "Lavagem de Chassis nivel 1", 
         description: "Processo detalhado de lavagem do chassis do veiculo, com desengraxante e escovação",
         prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
+      },
+    ]
+
+  },
+  higienizacao: {
+    name: "Higienização",
+    description: "Serviços completos de limpeza e higienização para seu veículo",
+    services: [
+      { 
+        id: "higienizacao-completa", 
+        name: "Pacote higienização completa", 
+        description: "Processo detalhado de higienizacao dos bancos, tetos, colunas,cintos, carpete, painel e portas. Inclui a Lavagem Clássica.",
+        prices: { Pequeno: 400, Médio: 450, Grande: 500 } 
+
       },
       { 
         id: "AntiCorrosivo", 
@@ -311,9 +315,8 @@ const serviceCategories = {
 
 const generateId = () => Math.random().toString(36).substring(2, 10);
 
-const Booking = () => {
-  const [customerName, setCustomerName] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('higienizacao');
+const Booking = () => {  const [customerName, setCustomerName] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("lavagem");
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [isAddingVehicle, setIsAddingVehicle] = useState(false);  const [newVehicle, setNewVehicle] = useState<{
     name: string;
@@ -800,10 +803,9 @@ const Booking = () => {
                 <h3 className="text-xl font-semibold text-pitstop-darkGray mb-20">
                   Selecionar Serviços para: {getSelectedVehicle()?.name}
                 </h3>
-                
-                <Tabs 
-                  defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : 'higienizacao'}
-                  value={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : selectedCategory === 'motos' ? 'higienizacao' : selectedCategory}
+                  <Tabs 
+                  defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : 'lavagem'}
+                  value={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : selectedCategory === 'motos' ? 'lavagem' : selectedCategory}
                   onValueChange={(value) => {
                     // Se for moto, só permite a categoria "motos"
                     if (getSelectedVehicle()?.type === 'motorcycle' && value !== 'motos') {

@@ -9,25 +9,25 @@
     "titulo": "Lavagem Clássica",
     "descricao": "Limpeza minuciosa externa, com aspiração interna, revitalização dos plásticos externos e revitalização dos pneus (P: R$60, M: R$70, G: R$80)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "lavagem"
   },
   {
     "titulo": "Lavagem Premium",
     "descricao": "Lavagem externa com aspiração interna detalhada, revitalização dos plásticos externos, aplicação de cera premium e aromatizador Little Trees (P: R$100, M: R$110, G: R$120)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "lavagem"
   },
   {
     "titulo": "Lavagem de Motor",
     "descricao": "Limpeza detalhada do motor do veículo (R$100)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "lavagem"
   },
   {
     "titulo": "Lavagem de Motor Nível 2",
     "descricao": "Limpeza detalhada do motor do veículo com aplicação de produtos específicos (R$50)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "lavagem"
   },
   {
     "titulo": "Pacote de Higienização Completa",
@@ -39,13 +39,13 @@
     "titulo": "Lavagem de Chassis Nível 1",
     "descricao": "Processo detalhado de lavagem do chassis do veículo, com desengraxante e escovação (R$50)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "lavagem"
   },
   {
     "titulo": "Lavagem de Chassis Nível 2",
     "descricao": "Processo minucioso de lavagem do chassis do veículo com desengraxante e escovação, com aplicação de anticorrosivo (R$100)",
     "icone": "cleaning",
-    "categoria": "higienizacao"
+    "categoria": "lavagem"
   },
   {
     "titulo": "Aplicação de Anticorrosivo",
