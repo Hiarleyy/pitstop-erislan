@@ -59,10 +59,16 @@ const serviceCategories = {
         description: "Limpeza detalhada do motor do veiculo",
         prices: { Pequeno: 150 , Médio: 150, Grande: 150 } 
       },
+       { 
+        id: "Lavagem de Chassis-1", 
+        name: "Lavagem de Chassis nivel 1", 
+        description: "Processo de lavagem do chassis do veiculo com desengraxante e escovação",
+        prices: { Pequeno: 50, Médio: 50, Grande: 50 } 
+      },
       { 
         id: "Lavagem de Chassis-2", 
-        name: "Lavagem de Chassis nivel 1", 
-        description: "Processo detalhado de lavagem do chassis do veiculo, com desengraxante e escovação",
+        name: "Lavagem de Chassis nivel 2", 
+        description: "Processamento de lavagem do chassis do veiculo com desengraxante, escovação e aplicação de anticorrosivo",
         prices: { Pequeno: 100, Médio: 100, Grande: 100 } 
       },
     ]
