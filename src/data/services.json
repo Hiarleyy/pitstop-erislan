@@ -1,432 +1,414 @@
 [
-{
-  "titulo": "Lavagem Clássica",
-  "descricao": "Lavagem externa, limpeza de plásticos, rodas, vidros, caixa de rodas e interior (tapetes, painel, portas e console). Finalização com cera Carnaúba, revitalizador e pneus pretinhos.",
-  "icone": "cleaning",
-  "categoria": "lavagem",
-  "precos": {
-    "pequeno": "R$ 60,00",
-    "medio": "R$ 70,00",
-    "grande": "R$ 80,00"
-  }
-},
-{
-  "titulo": "Lavagem Premium",
-  "descricao": "Lavagem completa externa e interna, incluindo grades, emblemas, pedais e bancos. Proteção com cera premium, revitalizadores e selante nos pneus. Aromatizador incluso.",
-  "icone": "cleaning",
-  "categoria": "lavagem",
-  "precos": {
-    "pequeno": "R$ 100,00",
-    "medio": "R$ 110,00",
-    "grande": "R$ 120,00"
-  }
-},
-
-{
-  "titulo": "Lavagem Premium Geral (Pacote)",
-  "descricao": "Lavagem premium completa + motor, chassi e dutos de ar-condicionado. Proteção com cera premium, revitalizadores e selante. Serviço nível hard pra quem ama o carro impecável.",
-  "icone": "cleaning",
-  "categoria": "lavagem",
-  "precos": {
-    "pequeno": "R$ 180,00",
-    "medio": "R$ 190,00",
-    "grande": "R$ 200,00"
-  }
-},
- {
-  "titulo": "Polimento de Entrada",
-  "descricao": "Lavagem clássica + descontaminação da pintura, correção de verniz e remoção de até 90% dos riscos superficiais e 70% dos profundos. Brilho renovado, plásticos revitalizados, selante com 6 meses de proteção e pneus no grau. É aquele tapa no visual pra já impressionar na primeira curva.",
-  "icone": "sparkles",
-  "categoria": "polimento",
-  "precos": {
-    "pequeno": "R$ 300,00",
-    "medio": "R$ 350,00",
-    "grande": "R$ 400,00"
-  }
-},
-{
-  "titulo": "Polimento Técnico (Premium)",
-  "descricao": "O pacote completo dos sonhos: lavagem premium geral + descontaminação, polimento técnico com remoção de até 99% dos riscos (profundos e superficiais), regeneração total do brilho, cera em pasta (1 ano de proteção), impermeabilização dos vidros e para-brisa, revitalização total dos plásticos e selante nos pneus. Seu carro sai mais bonito que lançamento de concessionária.",
-  "icone": "sparkles",
-  "categoria": "polimento",
-  "precos": {
-    "pequeno": "R$ 500,00",
-    "medio": "R$ 550,00",
-    "grande": "R$ 600,00"
-}
-},
-  {
-    "titulo": "Polimento dos Faróis",
-    "descricao": "Isolamento de áreas sensíveis, correção e nivelamento do farol, escala de lixa apropriada, remoção de 99% de riscos profundos, remoção de 99% de riscos superficiais, regeneração de brilho intenso e gloss, aplicação de vitrificador, garantia de 6 meses",
-    "icone": "lightbulb",
-    "categoria": "polimento",
-    "precos": {
-      "valor_fixo": "R$ 150,00"
+    {
+        "titulo": "Lavagem Cl\u00e1ssica",
+        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos externos, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes e carpete, limpeza do painel, forros de portas e console, limpeza dos vidros internos, limpeza dos pl\u00e1sticos internos. Prote\u00e7\u00e3o: Cera Carna\u00faba Plus (1 m\u00eas de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos externos, condicionamento dos pneus.",
+        "icone": "cleaning",
+        "categoria": "lavagem",
+        "precos": {
+            "pequeno": "R$ 60,00",
+            "medio": "R$ 70,00",
+            "grande": "R$ 80,00"
+        }
+    },
+    {
+        "titulo": "Lavagem Premium",
+        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos externos, limpeza dos emblemas e grades, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e bancos, limpeza do painel, forros de portas e console, limpeza dos pl\u00e1sticos internos, limpeza dos vidros internos, limpeza dos pedais, aromatizador Little Trees. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos (3 meses de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos internos (3 meses de prote\u00e7\u00e3o), cera premium (3 meses de prote\u00e7\u00e3o), selante nos pneus (1 m\u00eas de prote\u00e7\u00e3o).",
+        "icone": "cleaning",
+        "categoria": "lavagem",
+        "precos": {
+            "pequeno": "R$ 100,00",
+            "medio": "R$ 110,00",
+            "grande": "R$ 120,00"
+        }
+    },
+    {
+        "titulo": "Lavagem Premium Geral (Pacote)",
+        "descricao": "Externa: Lavagem externa com shampoo neutro, lavagem do chassi n\u00edvel 1 (baixo), lavagem do motor n\u00edvel 1, limpeza dos pl\u00e1sticos externos, limpeza dos emblemas e grades, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e bancos, limpeza do painel, forros de portas e console, limpeza dos pl\u00e1sticos internos, limpeza dos vidros internos, limpeza duto ar-condicionado, limpeza dos pedais. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos (3 meses de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos internos (3 meses de prote\u00e7\u00e3o), cera premium (3 meses de prote\u00e7\u00e3o), selante nos pneus (1 m\u00eas de prote\u00e7\u00e3o).",
+        "icone": "cleaning",
+        "categoria": "lavagem",
+        "precos": {
+            "pequeno": "R$ 180,00",
+            "medio": "R$ 190,00",
+            "grande": "R$ 200,00"
+        }
+    },
+    {
+        "titulo": "Polimento de Entrada",
+        "descricao": "Limpeza: Lavagem Cl\u00e1ssica. Processos: Descontamina\u00e7\u00e3o de pintura, isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do verniz, remo\u00e7\u00e3o de 70% de riscos profundos, remo\u00e7\u00e3o de 90% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, aplica\u00e7\u00e3o de selante (6 meses de prote\u00e7\u00e3o), selante nos pneus.",
+        "icone": "sparkles",
+        "categoria": "polimento",
+        "precos": {
+            "pequeno": "R$ 300,00",
+            "medio": "R$ 350,00",
+            "grande": "R$ 400,00"
+        }
+    },
+    {
+        "titulo": "Polimento T\u00e9cnico (Premium)",
+        "descricao": "Limpeza: Lavagem Premium Geral (Pacote). Processos: Descontamina\u00e7\u00e3o de pintura, isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do verniz, remo\u00e7\u00e3o de 99% de riscos profundos, remo\u00e7\u00e3o de 99% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, cera em pasta (1 ano de prote\u00e7\u00e3o), impermeabilizador do para-brisa, impermeabilizador dos vidros, selante nos pneus.",
+        "icone": "sparkles",
+        "categoria": "polimento",
+        "precos": {
+            "pequeno": "R$ 500,00",
+            "medio": "R$ 550,00",
+            "grande": "R$ 600,00"
+        }
+    },
+    {
+        "titulo": "Polimento dos Far\u00f3is",
+        "descricao": "Processos: Isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do farol, escala de lixa apropriada, remo\u00e7\u00e3o de 99% de riscos profundos, remo\u00e7\u00e3o de 99% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso e gloss. Prote\u00e7\u00e3o: Aplica\u00e7\u00e3o de vitrificador, garantia de 6 meses.",
+        "icone": "lightbulb",
+        "categoria": "polimento",
+        "precos": {
+            "valor_fixo": "R$ 150,00"
+        }
+    },
+    {
+        "titulo": "Vitrifica\u00e7\u00e3o 1 Ano",
+        "descricao": "Limpeza: Lavagem Premium Geral. Processos: Descontamina\u00e7\u00e3o de pintura, polimento t\u00e9cnico. Prote\u00e7\u00e3o: Vitrificador de 1 ano de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos de prote\u00e7\u00e3o), impermeabilizador do para-brisa, aplica\u00e7\u00e3o do GYEON CanCoat Q2, aplica\u00e7\u00e3o do V-Plastic Vonixx.",
+        "icone": "shield",
+        "categoria": "protecao",
+        "precos": {
+            "pequeno": "R$ 800,00",
+            "medio": "R$ 900,00",
+            "grande": "R$ 1.000,00"
+        }
+    },
+    {
+        "titulo": "Vitrifica\u00e7\u00e3o 3 Anos",
+        "descricao": "Limpeza: Lavagem Premium Geral. Processos: Descontamina\u00e7\u00e3o de pintura, polimento t\u00e9cnico. Prote\u00e7\u00e3o: Vitrificador de 3 anos de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos de prote\u00e7\u00e3o), impermeabilizador do para-brisa, aplica\u00e7\u00e3o do CARPRO CQUARTZ UK-3.0, aplica\u00e7\u00e3o do V-Plastic Vonixx.",
+        "icone": "shield",
+        "categoria": "protecao",
+        "precos": {
+            "pequeno": "R$ 1.800,00",
+            "medio": "R$ 2.000,00",
+            "grande": "R$ 2.300,00"
+        }
+    },
+    {
+        "titulo": "Higieniza\u00e7\u00e3o Interna",
+        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos externos, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e banco, extra\u00e7\u00e3o dos carpetes com antibactericida, extra\u00e7\u00e3o dos bancos com antibactericida, limpeza do quebra-sol, colunas, console, remo\u00e7\u00e3o de manchas dos bancos, limpeza dos pl\u00e1sticos internos, remo\u00e7\u00e3o de odores internos, limpeza dos vidros internos, painel e forros de portas, limpeza do teto. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, impermeabilizador dos espelhos, cera Carna\u00faba Plus (1 m\u00eas de prote\u00e7\u00e3o), impermeabilizador do para-brisa, selante nos pneus.",
+        "icone": "cleaning",
+        "categoria": "higienizacao",
+        "precos": {
+            "pequeno": "R$ 300,00",
+            "medio": "R$ 350,00",
+            "grande": "R$ 400,00"
+        }
+    },
+    {
+        "titulo": "Higieniza\u00e7\u00e3o Profunda",
+        "descricao": "Externa: Lavagem externa com Snow Foam, limpeza das canaletas de porta, limpeza dos pl\u00e1sticos externos, limpeza dos emblemas e grades, limpeza das rodas (externa), limpeza das rodas (interna), limpeza de vidros externos, limpeza da caixa de rodas, limpeza da churrasqueira, limpeza dos pneus, limpeza do escape. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e banco, desmontagem e remo\u00e7\u00e3o completa do carpete, desmontagem e remo\u00e7\u00e3o completa dos bancos, extra\u00e7\u00e3o dos carpetes com antibactericida, extra\u00e7\u00e3o dos bancos com antibactericida, limpeza do quebra-sol, colunas, console, remo\u00e7\u00e3o de manchas dos bancos, limpeza dos pl\u00e1sticos internos, remo\u00e7\u00e3o de odores internos, limpeza dos vidros internos, painel e forros de portas, limpeza das borrachas, limpeza do teto. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, cera premium (3 meses de prote\u00e7\u00e3o), impermeabilizador do para-brisa, selante nos pneus.",
+        "icone": "cleaning",
+        "categoria": "higienizacao",
+        "precos": {
+            "pequeno": "R$ 400,00",
+            "medio": "R$ 500,00",
+            "grande": "R$ 600,00"
+        }
+    },
+    {
+        "titulo": "Higieniza\u00e7\u00e3o de Bancos",
+        "descricao": "Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes e bancos, extra\u00e7\u00e3o dos bancos com antibactericida.",
+        "icone": "cleaning",
+        "categoria": "higienizacao",
+        "precos": {
+            "assento_unitario": "R$ 50,00",
+            "todos_bancos": "R$ 200,00"
+        }
+    },
+    {
+        "titulo": "Lavagem Cl\u00e1ssica Moto",
+        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos e borrachas, limpeza das rodas. Prote\u00e7\u00e3o: Cera Carna\u00faba Plus (1 m\u00eas de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos externos.",
+        "icone": "bike",
+        "categoria": "moto",
+        "precos": {
+            "pequeno": "R$ 30,00",
+            "medio": "R$ 40,00",
+            "grande": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Lavagem Premium Moto",
+        "descricao": "Externa: Lavagem externa com Snow Foam, limpeza dos pl\u00e1sticos e borrachas, limpeza detalhada das rodas, limpeza detalhada dos pneus, limpeza detalhada da corrente, limpeza detalhada da carenagem, limpeza detalhada do painel, limpeza do banco, limpeza detalhada do escape. Prote\u00e7\u00e3o: Cera premium (6 semanas de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos externos (3 meses de prote\u00e7\u00e3o), lubrifica\u00e7\u00e3o da corrente.",
+        "icone": "bike",
+        "categoria": "moto",
+        "precos": {
+            "pequeno": "R$ 100,00",
+            "medio": "R$ 120,00",
+            "grande": "R$ 150,00"
+        }
+    },
+    {
+        "titulo": "Vitrifica\u00e7\u00e3o Moto",
+        "descricao": "Externa: Lavagem Premium Detalhada. Processos: Descontamina\u00e7\u00e3o de pintura, isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do verniz, remo\u00e7\u00e3o de 99% de riscos profundos, remo\u00e7\u00e3o de 99% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso. Prote\u00e7\u00e3o: Vitrificador de 1 ano de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos de prote\u00e7\u00e3o), aplica\u00e7\u00e3o de verniz de motor, aplica\u00e7\u00e3o do GYEON CanCoat Q2, aplica\u00e7\u00e3o do V-Plastic Vonixx.",
+        "icone": "shield",
+        "categoria": "moto",
+        "precos": {
+            "pequeno": "R$ 300,00",
+            "medio": "R$ 350,00",
+            "grande": "R$ 400,00"
+        }
+    },
+    {
+        "titulo": "Revitaliza\u00e7\u00e3o de Pintura",
+        "descricao": "Tratamento para revitalizar e restaurar o brilho da pintura do ve\u00edculo.",
+        "icone": "sparkles",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Aplica\u00e7\u00e3o de Anticorrosivo Chassis",
+        "descricao": "Prote\u00e7\u00e3o anticorrosiva para o chassis do ve\u00edculo.",
+        "icone": "shield",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 30,00"
+        }
+    },
+    {
+        "titulo": "Cristaliza\u00e7\u00e3o de Para-brisa",
+        "descricao": "Tratamento de cristaliza\u00e7\u00e3o para melhor visibilidade e prote\u00e7\u00e3o do para-brisa.",
+        "icone": "shield",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Aromatizador Little Trees",
+        "descricao": "Aplica\u00e7\u00e3o de aromatizador para deixar o interior do ve\u00edculo com aroma agrad\u00e1vel.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 20,00"
+        }
+    },
+    {
+        "titulo": "Remo\u00e7\u00e3o de Chuva \u00c1cida",
+        "descricao": "Tratamento especializado para remo\u00e7\u00e3o de danos causados por chuva \u00e1cida na pintura.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 100,00"
+        }
+    },
+    {
+        "titulo": "Remo\u00e7\u00e3o de Piche e Cola",
+        "descricao": "Servi\u00e7o especializado para remo\u00e7\u00e3o de piche e cola da pintura.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "a_partir_de": "R$ 10,00"
+        }
+    },
+    {
+        "titulo": "Lavagem de Motor",
+        "descricao": "Limpeza completa do motor do ve\u00edculo.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "a_partir_de": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Lavagem de Chassis",
+        "descricao": "Limpeza completa do chassis do ve\u00edculo.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "a_partir_de": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Hidrata\u00e7\u00e3o de Pl\u00e1sticos Internos",
+        "descricao": "Tratamento e hidrata\u00e7\u00e3o dos pl\u00e1sticos internos do ve\u00edculo.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Limpeza de Ar-condicionado C/ Vapor",
+        "descricao": "Limpeza do sistema de ar-condicionado utilizando vapor.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Limpeza Simples e Hidrata\u00e7\u00e3o de Bancos de Couro",
+        "descricao": "Limpeza e hidrata\u00e7\u00e3o b\u00e1sica para bancos de couro.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Higieniza\u00e7\u00e3o e Hidrata\u00e7\u00e3o de Bancos de Couro",
+        "descricao": "Higieniza\u00e7\u00e3o completa e hidrata\u00e7\u00e3o profunda para bancos de couro.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "valor_fixo": "R$ 150,00"
+        }
+    },
+    {
+        "titulo": "Higieniza\u00e7\u00e3o de Teto",
+        "descricao": "Limpeza e higieniza\u00e7\u00e3o do teto do ve\u00edculo.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais",
+        "precos": {
+            "a_partir_de": "R$ 30,00"
+        }
+    },
+    {
+        "titulo": "Aplica\u00e7\u00e3o de Cera Premium (Moto)",
+        "descricao": "Aplica\u00e7\u00e3o de cera premium para motos.",
+        "icone": "sparkles",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "valor_fixo": "R$ 20,00"
+        }
+    },
+    {
+        "titulo": "Limpeza e Lubrifica\u00e7\u00e3o da Corrente",
+        "descricao": "Limpeza e lubrifica\u00e7\u00e3o da corrente da motocicleta.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "valor_fixo": "R$ 20,00"
+        }
+    },
+    {
+        "titulo": "Descontamina\u00e7\u00e3o de Escapamento",
+        "descricao": "Limpeza e descontamina\u00e7\u00e3o do escapamento da moto.",
+        "icone": "cleaning",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "a_partir_de": "R$ 30,00"
+        }
+    },
+    {
+        "titulo": "Pintura de Escapamento",
+        "descricao": "Pintura do escapamento da motocicleta.",
+        "icone": "sparkles",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "valor_fixo": "R$ 20,00"
+        }
+    },
+    {
+        "titulo": "Restaurax",
+        "descricao": "Tratamento Restaurax para motocicletas.",
+        "icone": "sparkles",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "valor_fixo": "R$ 10,00"
+        }
+    },
+    {
+        "titulo": "Polimento de Tanque",
+        "descricao": "Polimento especializado do tanque da motocicleta.",
+        "icone": "sparkles",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "valor_fixo": "R$ 70,00"
+        }
+    },
+    {
+        "titulo": "Polimento Completo de Motor",
+        "descricao": "Polimento completo do motor da motocicleta.",
+        "icone": "sparkles",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "a_partir_de": "R$ 100,00"
+        }
+    },
+    {
+        "titulo": "Aplica\u00e7\u00e3o de Verniz de Motor",
+        "descricao": "Aplica\u00e7\u00e3o de verniz protetor no motor da moto.",
+        "icone": "shield",
+        "categoria": "servicos_adicionais_moto",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Sof\u00e1 2 Lugares",
+        "descricao": "Higieniza\u00e7\u00e3o completa de sof\u00e1 de 2 lugares.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "valor_fixo": "R$ 200,00"
+        }
+    },
+    {
+        "titulo": "Sof\u00e1 3 Lugares",
+        "descricao": "Higieniza\u00e7\u00e3o completa de sof\u00e1 de 3 lugares.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "valor_fixo": "R$ 250,00"
+        }
+    },
+    {
+        "titulo": "Sof\u00e1 4 Lugares",
+        "descricao": "Higieniza\u00e7\u00e3o completa de sof\u00e1 de 4 lugares.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "valor_fixo": "R$ 300,00"
+        }
+    },
+    {
+        "titulo": "Poltrona",
+        "descricao": "Higieniza\u00e7\u00e3o de poltrona residencial.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "valor_fixo": "R$ 80,00"
+        }
+    },
+    {
+        "titulo": "Cadeira de Escrit\u00f3rio",
+        "descricao": "Higieniza\u00e7\u00e3o de cadeira de escrit\u00f3rio.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "valor_fixo": "R$ 50,00"
+        }
+    },
+    {
+        "titulo": "Tapetes Residenciais",
+        "descricao": "Higieniza\u00e7\u00e3o de tapetes residenciais.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "a_partir_de": "R$ 40,00"
+        }
+    },
+    {
+        "titulo": "Travesseiros e Almofadas",
+        "descricao": "Higieniza\u00e7\u00e3o de travesseiros e almofadas.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "valor_unitario": "R$ 15,00"
+        }
+    },
+    {
+        "titulo": "Impermeabiliza\u00e7\u00e3o de Estofados",
+        "descricao": "Impermeabiliza\u00e7\u00e3o de estofados residenciais.",
+        "icone": "shield",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "a_partir_de": "R$ 80,00"
+        }
     }
-  },
-  {
-    "titulo": "Vitrificação 1 Ano",
-    "descricao": "Lavagem Premium Geral, descontaminação de pintura, polimento técnico, vitrificador de 1 ano de proteção, vitrificador de plástico (2 anos de proteção), impermeabilizador do para-brisa, aplicação do GYEON CanCoat Q2, aplicação do V-Plastic Vonixx",
-    "icone": "shield",
-    "categoria": "protecao",
-    "precos": {
-      "pequeno": "R$ 800,00",
-      "medio": "R$ 900,00",
-      "grande": "R$ 1.000,00"
-    }
-  },
-  {
-    "titulo": "Vitrificação 3 Anos",
-    "descricao": "Lavagem Premium Geral, descontaminação de pintura, polimento técnico, vitrificador de 3 anos de proteção, vitrificador de plástico (2 anos de proteção), impermeabilizador do para-brisa, aplicação do CARPRO CQUARTZ UK-3.0, aplicação do V-Plastic Vonixx",
-    "icone": "shield",
-    "categoria": "protecao",
-    "precos": {
-      "pequeno": "R$ 1.800,00",
-      "medio": "R$ 2.000,00",
-      "grande": "R$ 2.300,00"
-    }
-  },
- {
-  "titulo": "Higienização Interna",
-  "descricao": "Lavagem externa + higienização completa interna: bancos, carpetes, teto, painel e forros, remoção de manchas e odores, proteção com cera Carnaúba e revitalização dos plásticos. Seu carro cheira a novo — e parece também.",
-  "icone": "cleaning",
-  "categoria": "higienizacao",
-  "precos": {
-    "pequeno": "R$ 300,00",
-    "medio": "R$ 350,00",
-    "grande": "R$ 400,00"
-  }
-},
-{
-  "titulo": "Higienização Profunda",
-  "descricao": "Higienização nível hard: inclui desmontagem dos bancos e carpete, extração profunda, lavagem detalhada externa e interna, remoção de manchas e odores, cera premium, revitalização e impermeabilização. É praticamente um detox automotivo.",
-  "icone": "cleaning",
-  "categoria": "higienizacao",
-  "precos": {
-    "pequeno": "R$ 400,00",
-    "medio": "R$ 500,00",
-    "grande": "R$ 600,00"
-  }
-},
-  {
-    "titulo": "Higienização de Bancos",
-    "descricao": "Aspiração e limpeza dos tapetes e bancos, extração dos bancos com antibactericida",
-    "icone": "cleaning",
-    "categoria": "higienizacao",
-    "precos": {
-      "valor_fixo": "Cada assento: R$ 50,00; Todos os bancos: R$ 200,00"
-    }
-  },
-  {
-  "titulo": "Lavagem Clássica - Motos",
-  "descricao": "Lavagem externa com shampoo neutro, limpeza de rodas, plásticos e borrachas. Finalização com cera carnaúba (1 mês de proteção) e revitalizador dos plásticos.",
-  "icone": "bike",
-  "categoria": "moto",
-  "precos": {
-    "pequeno": "R$ 30,00",
-    "medio": "R$ 40,00",
-    "grande": "R$ 50,00"
-  }
-},
-{
-  "titulo": "Lavagem Premium - Motos",
-  "descricao": "Lavagem detalhada com Snow Foam, limpeza minuciosa (rodas, pneus, corrente, carenagem, painel, escape e banco). Proteção com cera premium (6 semanas), revitalizador (3 meses) e lubrificação da corrente. É pra sair brilhando mais que farol alto na contramão.",
-  "icone": "bike",
-  "categoria": "moto",
-  "precos": {
-    "pequeno": "R$ 100,00",
-    "medio": "R$ 120,00",
-    "grande": "R$ 150,00"
-  }
-},
-{
-  "titulo": "Vitrificação - Motos",
-  "descricao": "Lavagem premium + polimento técnico. Elimina até 99% dos riscos, traz brilho de espelho, vitrificação da pintura (1 ano) e dos plásticos (2 anos). Inclui proteção no motor e aplicação dos top de linha: GYEON CanCoat Q2 e V-Plastic Vonixx. É sua moto com armadura de super-herói.",
-  "icone": "shield",
-  "categoria": "moto",
-  "precos": {
-    "pequeno": "R$ 300,00",
-    "medio": "R$ 350,00",
-    "grande": "R$ 400,00"
-}
-},
-  {
-    "titulo": "Revitalização de Pintura",
-    "descricao": "Tratamento para revitalização da pintura automotiva",
-    "icone": "sparkles",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Aplicação de Anticorrosivo Chassis",
-    "descricao": "Proteção anticorrosiva para o chassis do veículo",
-    "icone": "shield",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 30,00"
-    }
-  },
-  {
-    "titulo": "Cristalização de Para-brisa",
-    "descricao": "Tratamento de cristalização para proteção do para-brisa",
-    "icone": "shield",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Aromatizador Little Trees",
-    "descricao": "Aromatizador premium para o interior do veículo",
-    "icone": "droplet",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 20,00"
-    }
-  },
-  {
-    "titulo": "Remoção de Chuva Ácida",
-    "descricao": "Tratamento para remoção de manchas causadas por chuva ácida",
-    "icone": "droplet",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 100,00"
-    }
-  },
-  {
-    "titulo": "Remoção de Piche e Cola",
-    "descricao": "Remoção de piche e resíduos de cola",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "A partir de R$ 10,00"
-    }
-  },
-  {
-    "titulo": "Lavagem de Motor",
-    "descricao": "Limpeza detalhada do motor do veículo",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "A partir de R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Lavagem de Chassis",
-    "descricao": "Limpeza detalhada do chassis do veículo",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "A partir de R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Hidratação de Plásticos Internos",
-    "descricao": "Tratamento de hidratação para plásticos internos",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Limpeza de Ar-condicionado C/ Vapor",
-    "descricao": "Limpeza e desinfecção do sistema de ar-condicionado com vapor",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Limpeza Simples e Hidratação de Bancos de Couro",
-    "descricao": "Limpeza básica e hidratação de bancos em couro",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Higienização e Hidratação de Bancos de Couro",
-    "descricao": "Higienização completa e hidratação de bancos em couro",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 150,00"
-    }
-  },
-  {
-    "titulo": "Higienização de Bancos (Unidade)",
-    "descricao": "Higienização individual de banco",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Higienização de Teto",
-    "descricao": "Higienização do forro do teto",
-    "icone": "cleaning",
-    "categoria": "adicional_auto",
-    "precos": {
-      "valor_fixo": "A partir de R$ 30,00"
-    }
-  },
-  {
-    "titulo": "Aplicação de Cera Premium - Motos",
-    "descricao": "Aplicação de cera premium para motocicletas",
-    "icone": "droplet",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "R$ 20,00"
-    }
-  },
-  {
-    "titulo": "Limpeza e Lubrificação da Corrente",
-    "descricao": "Limpeza e lubrificação da corrente da motocicleta",
-    "icone": "cleaning",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "R$ 20,00"
-    }
-  },
-  {
-    "titulo": "Descontaminação de Escapamento",
-    "descricao": "Limpeza e descontaminação do escapamento",
-    "icone": "cleaning",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "A partir de R$ 30,00"
-    }
-  },
-  {
-    "titulo": "Pintura de Escapamento",
-    "descricao": "Pintura e renovação do escapamento",
-    "icone": "sparkles",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "R$ 20,00"
-    }
-  },
-  {
-    "titulo": "Restaurax",
-    "descricao": "Produto restaurador para plásticos",
-    "icone": "sparkles",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "R$ 10,00"
-    }
-  },
-  {
-    "titulo": "Polimento de Tanque",
-    "descricao": "Polimento específico do tanque da motocicleta",
-    "icone": "sparkles",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "R$ 70,00"
-    }
-  },
-  {
-    "titulo": "Polimento Completo de Motor",
-    "descricao": "Polimento completo do motor da motocicleta",
-    "icone": "sparkles",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "A partir de R$ 100,00"
-    }
-  },
-  {
-    "titulo": "Aplicação de Verniz de Motor",
-    "descricao": "Aplicação de verniz protetor no motor",
-    "icone": "shield",
-    "categoria": "adicional_moto",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Sofás 2 lugares",
-    "descricao": "Higienização de sofá de 2 lugares",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "R$ 200,00"
-    }
-  },
-  {
-    "titulo": "Sofás 3 lugares",
-    "descricao": "Higienização de sofá de 3 lugares",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "R$ 250,00"
-    }
-  },
-  {
-    "titulo": "Sofás 4 lugares",
-    "descricao": "Higienização de sofá de 4 lugares",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "R$ 300,00"
-    }
-  },
-  {
-    "titulo": "Poltrona",
-    "descricao": "Higienização de poltrona",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "R$ 80,00"
-    }
-  },
-  {
-    "titulo": "Cadeira de escritório",
-    "descricao": "Higienização de cadeira de escritório",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "R$ 50,00"
-    }
-  },
-  {
-    "titulo": "Tapetes",
-    "descricao": "Higienização de tapetes residenciais",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "A partir de R$ 40,00"
-    }
-  },
-  {
-    "titulo": "Travesseiros e almofadas",
-    "descricao": "Higienização de travesseiros e almofadas por unidade",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "R$ 15,00"
-    }
-  },
-  {
-    "titulo": "Poltrona de couro - Limpeza e hidratação",
-    "descricao": "Limpeza e hidratação de poltrona de couro",
-    "icone": "home",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "A partir de R$ 80,00"
-    }
-  },
-  {
-    "titulo": "Impermeabilização de estofados",
-    "descricao": "Aplicação de impermeabilizante em estofados",
-    "icone": "shield",
-    "categoria": "residencial",
-    "precos": {
-      "valor_fixo": "A partir de R$ 80,00"
-    }
-  }
 ]
