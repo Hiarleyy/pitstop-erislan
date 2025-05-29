@@ -1,127 +1,84 @@
 
 import React from 'react';
-import { Car, Home, ThumbsUp, Timer, Sparkles, Shield, Wrench, Droplet, Bike } from 'lucide-react';
+import { Car, Home, ThumbsUp, Timer, Sparkles, Shield, Wrench, Droplet, Bike, Brush } from 'lucide-react';
 
 const Services = () => {
   const serviceCategories = [
     {
-    
-
-
-
-
-      name: "Higienização e Limpeza",
+      name: "Lavagens",
       icon: <Droplet className="text-pitstop-blue mb-4" size={40} />,
       services: [
-        
         {
-          title: "Higienização interna com banco de tecido",
-          description: "Processo completo de limpeza para eliminar sujeiras, odores e ácaros de bancos de tecido.",
-          sizes: "Pequeno (R$ 250), Médio (R$ 280), Grande (R$ 300)"
+          title: "Lavagem Clássica",
+          description: "Lavagem externa com shampoo neutro, limpeza dos plásticos externos, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas, aspiração e limpeza dos tapetes e carpete, limpeza do painel, forros de portas e console, limpeza dos vidros internos, limpeza dos plásticos internos, Cera Carnaúba Plus (1 mês de proteção), revitalizador de plásticos externos, condicionamento dos pneus.",
+          sizes: "Pequeno (R$ 60), Médio (R$ 70), Grande (R$ 80)"
         },
         {
-          title: "Higienização interna com banco de couro",
-          description: "Processo especializado para limpeza e conservação de estofados em couro.",
-          sizes: "Pequeno (R$ 200), Médio (R$ 230), Grande (R$ 250)"
+          title: "Lavagem Premium",
+          description: "Lavagem externa com shampoo neutro, limpeza dos plásticos externos, limpeza dos emblemas e grades, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas, aspiração e limpeza dos tapetes, carpetes e bancos, limpeza do painel, forros de portas e console, limpeza dos plásticos internos, limpeza dos vidros internos, limpeza dos pedais, aromatizador Little Trees, revitalizador de plásticos externos (3 meses de proteção), revitalizador de plásticos internos (3 meses de proteção), cera premium (3 meses de proteção), selante nos pneus (1 mês de proteção).",
+          sizes: "Pequeno (R$ 100), Médio (R$ 110), Grande (R$ 120)"
+        },
+        {
+          title: "Lavagem Premium Geral (Pacote)",
+          description: "Lavagem externa com shampoo neutro, lavagem do chassi nível 1 (baixo), lavagem do motor nível 1, limpeza dos plásticos externos, limpeza dos emblemas e grades, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas, aspiração e limpeza dos tapetes, carpetes e bancos, limpeza do painel, forros de portas e console, limpeza dos plásticos internos, limpeza dos vidros internos, limpeza duto ar-condicionado, limpeza dos pedais, revitalizador de plásticos externos (3 meses de proteção), revitalizador de plásticos internos (3 meses de proteção), cera premium (3 meses de proteção), selante nos pneus (1 mês de proteção).",
+          sizes: "Pequeno (R$ 180), Médio (R$ 190), Grande (R$ 200)"
         }
       ]
     },
     {
-      name: "Lavagens",
-      icon : <Wrench className="text-pitstop-blue mb-4" size={40} />,
+      name: "Polimentos",
+      icon : <Sparkles className="text-pitstop-blue mb-4" size={40} />,
       services: [
         {
-          title: "Lavagem completa",
-          description: "Limpeza minuciosa interna e externa do seu veículo.",
-          sizes: "Pequeno (R$ 50), Médio (R$ 60), Grande (R$ 70)"
-        },
-        {
-          title: "Lavagem técnica interna",
-          description: "Limpeza profunda de toda parte interna do veículo.",
-          sizes: "Pequeno (R$ 100), Médio (R$ 110), Grande (R$ 120)"
-        },
-      ]
-    },
-    {
-      name: "Estética da Pintura",
-      icon: <Sparkles className="text-pitstop-blue mb-4" size={40} />,
-      services: [
-        {
-          title: "Polimento comercial",
-          description: "Tratamento básico para melhorar o brilho da pintura.",
-          sizes: "Pequeno (R$ 200), Médio (R$ 250), Grande (R$ 300)"
-        },
-        {
-          title: "Polimento técnico (1 estágio)",
-          description: "Remoção de riscos superficiais e restauração do brilho da pintura.",
+          title: "Polimento de Entrada",
+          description: "Lavagem Clássica, descontaminação de pintura, isolamento de áreas sensíveis, correção e nivelamento do verniz, remoção de 70% de riscos profundos, remoção de 90% de riscos superficiais, regeneração de brilho intenso, revitalizador de plásticos externos, revitalizador de plásticos internos, aplicação de selante (6 meses de proteção), selante nos pneus.",
           sizes: "Pequeno (R$ 300), Médio (R$ 350), Grande (R$ 400)"
         },
         {
-          title: "Polimento técnico (2 estágios)",
-          description: "Tratamento avançado para remoção de riscos mais profundos e restauração completa do brilho.",
-          sizes: "Pequeno (R$ 400), Médio (R$ 450), Grande (R$ 500)"
+          title: "Polimento Técnico (Premium)",
+          description: "Lavagem Premium Geral (Pacote), descontaminação de pintura, isolamento de áreas sensíveis, correção e nivelamento do verniz, remoção de 99% de riscos profundos, remoção de 99% de riscos superficiais, regeneração de brilho intenso, revitalizador de plásticos externos, revitalizador de plásticos internos, cera em pasta (1 ano de proteção), impermeabilizador do para-brisa, impermeabilizador dos vidros, selante nos pneus.",
+          sizes: "Pequeno (R$ 500), Médio (R$ 550), Grande (R$ 600)"
         },
         {
-          title: "Polimento técnico completo",
-          description: "Tratamento completo para recuperação total da pintura.",
-          sizes: "Pequeno (R$ 300), Médio (R$ 400), Grande (R$ 500)"
-        },
-        {
-          title: "Descontaminação da pintura + cera",
-          description: "Remoção de contaminantes impregnados na pintura e proteção com cera de carnaúba.",
-          sizes: "Pequeno (R$ 150), Médio (R$ 180), Grande (R$ 200)"
+          title: "Polimento dos Faróis",
+          description: "Isolamento de áreas sensíveis, correção e nivelamento do farol, escala de lixa apropriada, remoção de 99% de riscos profundos, remoção de 99% de riscos superficiais, regeneração de brilho intenso e gloss, aplicação de vitrificador, garantia de 6 meses.",
+          sizes: "R$ 150"
         }
       ]
     },
     {
-      name: "Proteção de Pintura",
+      name: "Proteções",
       icon: <Shield className="text-pitstop-blue mb-4" size={40} />,
       services: [
         {
-          title: "Vitrificação (até 3 anos)",
-          description: "Proteção premium com durabilidade de até 3 anos, aumentando o brilho e facilitando a limpeza.",
-          sizes: "Pequeno (R$ 750), Médio (R$ 850), Grande (R$ 1000)"
+          title: "Vitrificação 1 Ano",
+          description: "Lavagem Premium Geral, descontaminação de pintura, polimento técnico, vitrificador de 1 ano de proteção, vitrificador de plástico (2 anos de proteção), impermeabilizador do para-brisa, aplicação do GYEON CanCoat Q2, aplicação do V-Plastic Vonixx.",
+          sizes: "Pequeno (R$ 800), Médio (R$ 900), Grande (R$ 1.000)"
         },
         {
-          title: "Vitrificação Vonixx",
-          description: "Proteção premium com tecnologia Vonixx para máxima durabilidade e brilho intenso.",
-          sizes: "Pequeno (R$ 1300), Médio (R$ 1500), Grande (R$ 1700)"
-        },
-        {
-          title: "Vitrificação Car Pro",
-          description: "Proteção de alto desempenho com tecnologia Car Pro para proteção superior.",
-          sizes: "Pequeno (R$ 1800), Médio (R$ 2200), Grande (R$ 2500)"
-        },
-        {
-          title: "Selante sintético (6 meses)",
-          description: "Proteção intermediária com durabilidade de até 6 meses.",
-          sizes: "Pequeno (R$ 200), Médio (R$ 250), Grande (R$ 300)"
+          title: "Vitrificação 3 Anos",
+          description: "Lavagem Premium Geral, descontaminação de pintura, polimento técnico, vitrificador de 3 anos de proteção, vitrificador de plástico (2 anos de proteção), impermeabilizador do para-brisa, aplicação do CARPRO CQUARTZ UK-3.0, aplicação do V-Plastic Vonixx.",
+          sizes: "Pequeno (R$ 1.800), Médio (R$ 2.000), Grande (R$ 2.300)"
         }
       ]
-    },
-    {
-      name: "Interiores",
-      icon: <Car className="text-pitstop-blue mb-4" size={40} />,
+    },    {
+      name: "Higienização",
+      icon: <Brush className="text-pitstop-blue mb-4" size={40} />,
       services: [
         {
-          title: "Hidratação de couro",
-          description: "Tratamento especial para hidratar e proteger bancos e estofados em couro.",
-          sizes: "Pequeno (R$ 100), Médio (R$ 120), Grande (R$ 150)"
+          title: "Higienização Interna",
+          description: "Lavagem externa com shampoo neutro, limpeza dos plásticos externos, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas, aspiração e limpeza dos tapetes, carpetes e banco, extração dos carpetes com antibactericida, extração dos bancos com antibactericida, limpeza do quebra-sol, colunas, console, remoção de manchas dos bancos, limpeza dos plásticos internos, remoção de odores internos, limpeza dos vidros internos, painel e forros de portas, limpeza do teto, revitalizador de plásticos externos, revitalizador de plásticos internos, impermeabilizador dos espelhos, cera Carnaúba Plus (1 mês de proteção), impermeabilizador do para-brisa, selante nos pneus.",
+          sizes: "Pequeno (R$ 300), Médio (R$ 350), Grande (R$ 400)"
         },
         {
-          title: "Lavagem de teto",
-          description: "Limpeza profunda do forro do teto.",
-          sizes: "Pequeno (R$ 100), Médio (R$ 130), Grande (R$ 150)"
+          title: "Higienização Profunda",
+          description: "Lavagem externa com Snow Foam, limpeza das canaletas de porta, limpeza dos plásticos externos, limpeza dos emblemas e grades, limpeza das rodas (externa), limpeza das rodas (interna), limpeza de vidros externos, limpeza da caixa de rodas, limpeza da churrasqueira, limpeza dos pneus, limpeza do escape, aspiração e limpeza dos tapetes, carpetes e banco, desmontagem e remoção completa do carpete, desmontagem e remoção completa dos bancos, extração dos carpetes com antibactericida, extração dos bancos com antibactericida, limpeza do quebra-sol, colunas, console, remoção de manchas dos bancos, limpeza dos plásticos internos, remoção de odores internos, limpeza dos vidros internos, painel e forros de portas, limpeza das borrachas, limpeza do teto, revitalizador de plásticos externos, revitalizador de plásticos internos, cera premium (3 meses de proteção), impermeabilizador do para-brisa, selante nos pneus.",
+          sizes: "Pequeno (R$ 400), Médio (R$ 500), Grande (R$ 600)"
         },
         {
-          title: "Lavagem de banco (individual)",
-          description: "Limpeza específica de um único banco.",
-          sizes: "Unidade (R$ 60)"
-        },
-        {
-          title: "Lavagem de carpete + forro",
-          description: "Limpeza completa de carpetes e forros internos.",
-          sizes: "Pequeno (R$ 150), Médio (R$ 180), Grande (R$ 200)"
+          title: "Higienização de Bancos",
+          description: "Aspiração e limpeza dos tapetes e bancos, extração dos bancos com antibactericida.",
+          sizes: "Cada assento: R$ 50; Todos os bancos: R$ 200"
         }
       ]
     },
@@ -130,34 +87,192 @@ const Services = () => {
       icon: <Bike className="text-pitstop-blue mb-4" size={40} />,
       services: [
         {
-          title: "Lavagem simples",
-          description: "Limpeza básica para diferentes modelos de motocicletas.",
-          sizes: "Biz, Pop (R$ 20), Titan, Fan, Bros 125/150/160 (R$ 25), Fazer, CB, Twister, XRE 190/250/300 (R$ 30), 300-600cc (R$ 40), Acima de 600cc (R$ 50)"
+          title: "Lavagem Clássica",
+          description: "Lavagem externa com shampoo neutro, limpeza dos plásticos e borrachas, limpeza das rodas, Cera Carnaúba Plus (1 mês de proteção), revitalizador de plásticos externos.",
+          sizes: "Pequeno (R$ 30), Médio (R$ 40), Grande (R$ 50)"
         },
         {
-          title: "Lavagem detalhada",
-          description: "Desmontagem de carenagem e banco quando necessário, limpeza de couro, aplicação de selante na pintura, selante de pneus, lubrificação.",
-          sizes: "Biz, Pop (R$ 40), Titan, Fan, Bros 125/150/160 (R$ 50), Fazer, CB, Twister, XRE 190/250/300 (R$ 60), 300-600cc (R$ 80), Acima de 600cc (R$ 100)"
+          title: "Lavagem Premium",
+          description: "Lavagem externa com Snow Foam, limpeza dos plásticos e borrachas, limpeza detalhada das rodas, limpeza detalhada dos pneus, limpeza detalhada da corrente, limpeza detalhada da carenagem, limpeza detalhada do painel, limpeza do banco, limpeza detalhada do escape, cera premium (6 semanas de proteção), revitalizador de plásticos externos (3 meses de proteção), lubrificação da corrente.",
+          sizes: "Pequeno (R$ 100), Médio (R$ 120), Grande (R$ 150)"
         },
         {
-          title: "Vitrificação para motos",
-          description: "Proteção de alta durabilidade para a pintura da sua motocicleta.",
-          sizes: "R$ 150 a R$ 250"
+          title: "Vitrificação",
+          description: "Lavagem Premium Detalhada, descontaminação de pintura, isolamento de áreas sensíveis, correção e nivelamento do verniz, remoção de 99% de riscos profundos, remoção de 99% de riscos superficiais, regeneração de brilho intenso, vitrificador de 1 ano de proteção, vitrificador de plástico (2 anos de proteção), aplicação de verniz de motor, aplicação do GYEON CanCoat Q2, aplicação do V-Plastic Vonixx.",
+          sizes: "Pequeno (R$ 300), Médio (R$ 350), Grande (R$ 400)"
+        }
+      ]
+    },
+    {
+      name: "Serviços Adicionais Automotivos",
+      icon: <Car className="text-pitstop-blue mb-4" size={40} />,
+      services: [
+        {
+          title: "Revitalização de Pintura",
+          description: "Tratamento para revitalização da pintura automotiva.",
+          sizes: "R$ 50"
         },
         {
-          title: "Polimento de tanque",
-          description: "Tratamento específico para o tanque da motocicleta.",
-          sizes: "R$ 40"
+          title: "Aplicação de Anticorrosivo Chassis",
+          description: "Proteção anticorrosiva para o chassis do veículo.",
+          sizes: "R$ 30"
         },
         {
-          title: "Polimento completo",
-          description: "Tratamento para toda a pintura da motocicleta.",
-          sizes: "A partir de R$ 60"
+          title: "Cristalização de Para-brisa",
+          description: "Tratamento de cristalização para proteção do para-brisa.",
+          sizes: "R$ 50"
         },
         {
-          title: "Aplicação de cera v80",
-          description: "Proteção básica para a pintura da motocicleta.",
+          title: "Aromatizador Little Trees",
+          description: "Aromatizador premium para o interior do veículo.",
+          sizes: "R$ 20"
+        },
+        {
+          title: "Remoção de Chuva Ácida",
+          description: "Tratamento para remoção de manchas causadas por chuva ácida.",
+          sizes: "R$ 100"
+        },
+        {
+          title: "Remoção de Piche e Cola",
+          description: "Remoção de piche e resíduos de cola.",
+          sizes: "A partir de R$ 10"
+        },
+        {
+          title: "Lavagem de Motor",
+          description: "Limpeza detalhada do motor do veículo.",
+          sizes: "A partir de R$ 50"
+        },
+        {
+          title: "Lavagem de Chassis",
+          description: "Limpeza detalhada do chassis do veículo.",
+          sizes: "A partir de R$ 50"
+        },
+        {
+          title: "Hidratação de Plásticos Internos",
+          description: "Tratamento de hidratação para plásticos internos.",
+          sizes: "R$ 50"
+        },
+        {
+          title: "Limpeza de Ar-condicionado C/ Vapor",
+          description: "Limpeza e desinfecção do sistema de ar-condicionado com vapor.",
+          sizes: "R$ 50"
+        },
+        {
+          title: "Limpeza Simples e Hidratação de Bancos de Couro",
+          description: "Limpeza básica e hidratação de bancos em couro.",
+          sizes: "R$ 50"
+        },
+        {
+          title: "Higienização e Hidratação de Bancos de Couro",
+          description: "Higienização completa e hidratação de bancos em couro.",
+          sizes: "R$ 150"
+        },
+        {
+          title: "Higienização de Bancos (Unidade)",
+          description: "Higienização individual de banco.",
+          sizes: "R$ 50"
+        },
+        {
+          title: "Higienização de Teto",
+          description: "Higienização do forro do teto.",
+          sizes: "A partir de R$ 30"
+        }
+      ]
+    },
+    {
+      name: "Serviços Adicionais para Motos",
+      icon: <Bike className="text-pitstop-blue mb-4" size={40} />,
+      services: [
+        {
+          title: "Aplicação de Cera Premium",
+          description: "Aplicação de cera premium para motocicletas.",
+          sizes: "R$ 20"
+        },
+        {
+          title: "Limpeza e Lubrificação da Corrente",
+          description: "Limpeza e lubrificação da corrente da motocicleta.",
+          sizes: "R$ 20"
+        },
+        {
+          title: "Descontaminação de Escapamento",
+          description: "Limpeza e descontaminação do escapamento.",
+          sizes: "A partir de R$ 30"
+        },
+        {
+          title: "Pintura de Escapamento",
+          description: "Pintura e renovação do escapamento.",
+          sizes: "R$ 20"
+        },
+        {
+          title: "Restaurax",
+          description: "Produto restaurador para plásticos.",
           sizes: "R$ 10"
+        },
+        {
+          title: "Polimento de Tanque",
+          description: "Polimento específico do tanque da motocicleta.",
+          sizes: "R$ 70"
+        },
+        {
+          title: "Polimento Completo de Motor",
+          description: "Polimento completo do motor da motocicleta.",
+          sizes: "A partir de R$ 100"
+        },
+        {
+          title: "Aplicação de Verniz de Motor",
+          description: "Aplicação de verniz protetor no motor.",
+          sizes: "R$ 50"
+        }
+      ]
+    },
+    {
+      name: "Higienização de Estofados Residenciais",
+      icon: <Home className="text-pitstop-blue mb-4" size={40} />,
+      services: [
+        {
+          title: "Sofás 2 lugares",
+          description: "Higienização de sofá de 2 lugares.",
+          sizes: "R$ 200"
+        },
+        {
+          title: "Sofás 3 lugares",
+          description: "Higienização de sofá de 3 lugares.",
+          sizes: "R$ 250"
+        },
+        {
+          title: "Sofás 4 lugares",
+          description: "Higienização de sofá de 4 lugares.",
+          sizes: "R$ 300"
+        },
+        {
+          title: "Poltrona",
+          description: "Higienização de poltrona.",
+          sizes: "R$ 80"
+        },
+        {
+          title: "Cadeira de escritório",
+          description: "Higienização de cadeira de escritório.",
+          sizes: "R$ 50"
+        },
+        {
+          title: "Tapetes",
+          description: "Higienização de tapetes residenciais.",
+          sizes: "A partir de R$ 40"
+        },
+        {
+          title: "Travesseiros e almofadas",
+          description: "Higienização de travesseiros e almofadas por unidade.",
+          sizes: "R$ 15"
+        },
+        {
+          title: "Poltrona de couro - Limpeza e hidratação",
+          description: "Limpeza e hidratação de poltrona de couro.",
+          sizes: "A partir de R$ 80"
+        },
+        {
+          title: "Impermeabilização de estofados",
+          description: "Aplicação de impermeabilizante em estofados.",
+          sizes: "A partir de R$ 80"
         }
       ]
     }
