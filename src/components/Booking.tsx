@@ -190,6 +190,7 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
           services: vehicle.services.filter(s => s.id !== serviceId)
         };
       }
+      return vehicle;
     }));
   };
 
@@ -555,15 +556,18 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
                   Selecionar Serviços para: {getSelectedVehicle()?.name}
                 </h3>
                   <Tabs 
-                  defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : 'lavagem'}
-                  value={getSelectedVehicle()?.type === 'motorcycle' ? 'motos' : selectedCategory === 'motos' ? 'lavagem' : selectedCategory}
+                  defaultValue={getSelectedVehicle()?.type === 'motorcycle' ? 'moto' : 'lavagem'}
+                  value={getSelectedVehicle()?.type === 'motorcycle' ? (selectedCategory === 'moto' || selectedCategory === 'servicos_adicionais_moto' ? selectedCategory : 'moto') : (selectedCategory === 'moto' || selectedCategory === 'servicos_adicionais_moto' ? 'lavagem' : selectedCategory)}
                   onValueChange={(value) => {
-                    // Se for moto, só permite a categoria "motos"
-                    if (getSelectedVehicle()?.type === 'motorcycle' && value !== 'motos') {
+                    const selectedVehicle = getSelectedVehicle();
+                    const isMotorcycleCategory = value === 'moto' || value === 'servicos_adicionais_moto';
+                    
+                    // Se for moto, só permite categorias de moto
+                    if (selectedVehicle?.type === 'motorcycle' && !isMotorcycleCategory) {
                       return;
                     }
-                    // Se for carro, impede a seleção da categoria "motos"
-                    if (getSelectedVehicle()?.type === 'car' && value === 'motos') {
+                    // Se for carro, impede a seleção das categorias de moto
+                    if (selectedVehicle?.type === 'car' && isMotorcycleCategory) {
                       return;
                     }
                     setSelectedCategory(value);

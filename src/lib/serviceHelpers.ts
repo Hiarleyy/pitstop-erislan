@@ -145,9 +145,9 @@ export const getServiceCategories = (): ServiceCategories => {
           };
         }
         
-        // Para motos, usar categorias específicas de moto
-        if (categoryKey === 'moto' && prices) {
-          // Usar os preços já convertidos corretamente
+        // Para motos (categoria principal), usar categorias específicas de moto
+        // Mas APENAS para a categoria 'moto', NÃO para 'servicos_adicionais_moto'
+        if (categoryKey === 'moto' && prices && service.precos && (service.precos.pequeno || service.precos.medio || service.precos.grande)) {
           const priceValues = Object.values(prices);
           prices = {
             "Biz, Pop": priceValues[0],
@@ -155,6 +155,9 @@ export const getServiceCategories = (): ServiceCategories => {
             "Fazer, CB, Twister, XRE 190/250/300": priceValues[2]
           };
         }
+        
+        // Para serviços adicionais de moto (servicos_adicionais_moto), 
+        // manter os preços como foram processados (valor_fixo, a_partir_de, etc.)
       }
 
       categories[categoryKey].services.push({
@@ -197,9 +200,20 @@ export const calculateServicePrice = (service: any, vehicleType: 'car' | 'motorc
   }
   
   if (vehicleType === 'motorcycle') {
-    // Para motos, vehicleSize é o modelo (ex: "Biz, Pop")
-    if (service.prices && service.prices[vehicleSize]) {
-      return service.prices[vehicleSize];
+    // Para serviços adicionais de moto com preços fixos, pegar qualquer preço disponível
+    // pois eles não dependem do modelo da moto
+    if (service.prices) {
+      // Se o preço específico do modelo existe, usar ele
+      if (service.prices[vehicleSize]) {
+        return service.prices[vehicleSize];
+      }
+      
+      // Para serviços adicionais de moto (que têm preços fixos), 
+      // pegar o primeiro preço disponível já que é o mesmo para todos os modelos
+      const availablePrices = Object.values(service.prices);
+      if (availablePrices.length > 0 && typeof availablePrices[0] === 'number') {
+        return availablePrices[0];
+      }
     }
     
     // Se tem multiplicador de preço baseado em outro serviço

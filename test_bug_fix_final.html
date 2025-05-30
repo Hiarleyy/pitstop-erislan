@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Bug Fix Adicionais Motos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+        .warning { color: #f59e0b; }
+        
+        pre {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        .price-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .price-item {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Teste do Bug Fix - Adicionais Motos</h1>
+    
+    <div class="test-section">
+        <h2>📋 Status do Fix</h2>
+        <p class="success">✅ <strong>Bug Fix Aplicado:</strong> Separação da lógica de processamento de preços</p>
+        <ul>
+            <li>Serviços de Moto: Convertidos para categorias de tamanho</li>
+            <li>Adicionais Moto: Mantêm formato original (Valor Fixo, A Partir De)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Instruções de Teste</h2>
+        <ol>
+            <li><strong>Abra a aplicação:</strong> <a href="http://localhost:5173/" target="_blank">http://localhost:5173/</a></li>
+            <li><strong>Navegue para "Serviços"</strong></li>
+            <li><strong>Selecione "Motos"</strong></li>
+            <li><strong>Verifique a seção "Adicionais Motos"</strong></li>
+            <li><strong>Confirme que os preços aparecem corretamente</strong> (não mais R$ 0,00)</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Preços Esperados dos Adicionais Motos</h2>
+        <div class="price-list">
+            <div class="price-item">
+                <strong>Aplicação de Cera Premium (Moto)</strong><br>
+                <span class="success">R$ 20,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Limpeza e Lubrificação da Corrente</strong><br>
+                <span class="success">R$ 20,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Descontaminação de Escapamento</strong><br>
+                <span class="success">A partir de R$ 30,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Pintura de Escapamento</strong><br>
+                <span class="success">R$ 20,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Restaurax</strong><br>
+                <span class="success">R$ 10,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Polimento de Tanque</strong><br>
+                <span class="success">R$ 70,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Polimento Completo de Motor</strong><br>
+                <span class="success">A partir de R$ 100,00</span>
+            </div>
+            <div class="price-item">
+                <strong>Aplicação de Verniz de Motor</strong><br>
+                <span class="success">R$ 50,00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 O que Foi Corrigido</h2>
+        <p><strong>Problema:</strong> Os serviços "Adicionais Motos" mostravam R$ 0,00 em vez dos preços corretos.</p>
+        
+        <p><strong>Causa Raiz:</strong> A lógica de processamento de preços estava aplicando conversão de categorias de moto para serviços adicionais de moto, sobrescrevendo os preços já processados corretamente.</p>
+        
+        <p><strong>Solução:</strong> Separação da lógica:</p>
+        <pre>// ANTES - Lógica unificada (incorreta)
+if ((categoryKey === 'moto' || categoryKey === 'servicos_adicionais_moto') && prices) {
+  if (categoryKey === 'servicos_adicionais_moto') {
+    // Comentário vazio - não fazia nada, mantinha problema
+  } else {
+    // Conversão para categorias de moto
+  }
+}
+
+// DEPOIS - Lógicas separadas (correto)
+if (categoryKey === 'moto' && prices) {
+  // Conversão apenas para categoria 'moto'
+}
+// servicos_adicionais_moto mantém preços processados anteriormente</pre>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Checklist de Validação</h2>
+        <ul>
+            <li>□ Preços dos "Adicionais Motos" não são mais R$ 0,00</li>
+            <li>□ Preços mostram valores corretos (R$ 20,00, R$ 30,00, R$ 70,00, etc.)</li>
+            <li>□ Aplicação não trava ao remover serviços</li>
+            <li>□ Outros serviços continuam funcionando normalmente</li>
+        </ul>
+    </div>
+
+    <script>
+        console.log("🔧 Bug Fix Test Page Loaded");
+        console.log("📊 Expected Motorcycle Additional Services Prices:");
+        console.log("   - Aplicação de Cera Premium: R$ 20,00");
+        console.log("   - Limpeza e Lubrificação da Corrente: R$ 20,00");
+        console.log("   - Descontaminação de Escapamento: A partir de R$ 30,00");
+        console.log("   - Pintura de Escapamento: R$ 20,00");
+        console.log("   - Restaurax: R$ 10,00");
+        console.log("   - Polimento de Tanque: R$ 70,00");
+        console.log("   - Polimento Completo de Motor: A partir de R$ 100,00");
+        console.log("   - Aplicação de Verniz de Motor: R$ 50,00");
+    </script>
+</body>
+</html>
