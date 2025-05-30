@@ -1,14 +1,14 @@
-# 🔧 MOTORCYCLE ADDITIONAL SERVICES PRICING BUG FIX
+# 🔧 CORREÇÃO DO BUG DE PREÇOS DOS SERVIÇOS ADICIONAIS DE MOTO
 
-## 🎯 Problem Summary
-The user reported that "Adicionais Motos" (Motorcycle Additional Services) were displaying **R$ 0,00** for all prices instead of their actual values like R$ 20,00, R$ 30,00, R$ 70,00, etc.
+## 🎯 Resumo do Problema
+O usuário reportou que os "Adicionais Motos" (Serviços Adicionais para Motocicletas) estavam exibindo **R$ 0,00** para todos os preços ao invés dos valores reais como R$ 20,00, R$ 30,00, R$ 70,00, etc.
 
-## 🔍 Root Cause Analysis
-The issue was in the `serviceHelpers.ts` file where the logic for processing motorcycle service prices was incorrectly being applied to **all** motorcycle-related categories, including `servicos_adicionais_moto`.
+## 🔍 Análise da Causa Raiz
+O problema estava no arquivo `serviceHelpers.ts` onde a lógica para processar preços de serviços de moto estava sendo aplicada incorretamente para **todas** as categorias relacionadas a motocicletas, incluindo `servicos_adicionais_moto`.
 
-### The Problem:
+### O Problema:
 ```typescript
-// WRONG: This was applying to ALL motorcycle categories
+// ERRADO: Isso estava sendo aplicado para TODAS as categorias de moto
 if (categoryKey === 'moto' && prices) {
   const priceValues = Object.values(prices);
   prices = {
@@ -19,13 +19,13 @@ if (categoryKey === 'moto' && prices) {
 }
 ```
 
-This logic was designed for the main `moto` category that has different prices per motorcycle model (Pequeno/Médio/Grande → Biz/Titan/Fazer), but it was also being applied to `servicos_adicionais_moto` which have **fixed prices** that should be the same for all motorcycle models.
+Esta lógica foi projetada para a categoria principal `moto` que tem preços diferentes por modelo de motocicleta (Pequeno/Médio/Grande → Biz/Titan/Fazer), mas também estava sendo aplicada para `servicos_adicionais_moto` que têm **preços fixos** que devem ser iguais para todos os modelos de moto.
 
-## ✅ Solution Implemented
+## ✅ Solução Implementada
 
-### 1. **Fixed serviceHelpers.ts Logic** (Lines 147-156)
+### 1. **Corrigida a Lógica do serviceHelpers.ts** (Linhas 147-156)
 ```typescript
-// FIXED: Only apply motorcycle model conversion to main 'moto' category
+// CORRIGIDO: Aplicar conversão de modelo de moto apenas para categoria principal 'moto'
 if (categoryKey === 'moto' && prices && service.precos && (service.precos.pequeno || service.precos.medio || service.precos.grande)) {
   const priceValues = Object.values(prices);
   prices = {
@@ -36,12 +36,12 @@ if (categoryKey === 'moto' && prices && service.precos && (service.precos.pequen
 }
 ```
 
-**Key Changes:**
-- Added condition to check for `service.precos.pequeno/medio/grande` existence
-- This ensures the motorcycle model conversion only happens for services that actually have size-based pricing
-- `servicos_adicionais_moto` services with `valor_fixo` or `a_partir_de` pricing are not affected
+**Principais Alterações:**
+- Adicionada condição para verificar a existência de `service.precos.pequeno/medio/grande`
+- Isso garante que a conversão de modelo de moto só aconteça para serviços que realmente têm preços baseados em tamanho
+- Serviços de `servicos_adicionais_moto` com preços `valor_fixo` ou `a_partir_de` não são afetados
 
-### 2. **Enhanced calculateServicePrice Function** (Lines 195-215)
+### 2. **Aprimorada a Função calculateServicePrice** (Linhas 195-215)
 ```typescript
 if (vehicleType === 'motorcycle') {
   // Para serviços adicionais de moto com preços fixos, pegar qualquer preço disponível
@@ -58,18 +58,18 @@ if (vehicleType === 'motorcycle') {
       return availablePrices[0];
     }
   }
-  // ...rest of logic
+  // ...resto da lógica
 }
 ```
 
-**Key Changes:**
-- Added fallback logic for motorcycle additional services
-- If a specific motorcycle model price isn't found, use the first available price
-- This handles the case where additional services have fixed prices that should apply to all models
+**Principais Alterações:**
+- Adicionada lógica de fallback para serviços adicionais de moto
+- Se um preço específico de modelo de moto não for encontrado, usa o primeiro preço disponível
+- Isso trata o caso onde serviços adicionais têm preços fixos que devem se aplicar a todos os modelos
 
-## 🧪 Data Validation Results
+## 🧪 Resultados da Validação de Dados
 
-### Motorcycle Additional Services Found: **8 services**
+### Serviços Adicionais de Moto Encontrados: **8 serviços**
 
 1. **Aplicação de Cera Premium (Moto)** - `valor_fixo: "R$ 20,00"`
 2. **Limpeza e Lubrificação da Corrente** - `valor_fixo: "R$ 20,00"`
@@ -80,48 +80,48 @@ if (vehicleType === 'motorcycle') {
 7. **Polimento Completo de Motor** - `a_partir_de: "R$ 100,00"`
 8. **Aplicação de Verniz de Motor** - `valor_fixo: "R$ 50,00"`
 
-### ✅ All services have valid pricing structures!
+### ✅ Todos os serviços têm estruturas de preços válidas!
 
-## 🎯 Expected Results After Fix
+## 🎯 Resultados Esperados Após a Correção
 
-### Before Fix:
-- All "Adicionais Motos" services showed: **R$ 0,00**
-- Categories "300-600cc" and "Acima de 600cc" showed: **Price 0** for both "Motos" and "Adicionais Motos"
+### Antes da Correção:
+- Todos os serviços de "Adicionais Motos" mostravam: **R$ 0,00**
+- Categorias "300-600cc" e "Acima de 600cc" mostravam: **Preço 0** tanto para "Motos" quanto "Adicionais Motos"
 
-### After Fix:
-- **Aplicação de Cera Premium (Moto)**: **R$ 20,00** (for all motorcycle models)
-- **Limpeza e Lubrificação da Corrente**: **R$ 20,00** (for all motorcycle models)
-- **Polimento de Tanque**: **R$ 70,00** (for all motorcycle models)
-- **Aplicação de Verniz de Motor**: **R$ 50,00** (for all motorcycle models)
-- **Descontaminação de Escapamento**: **R$ 30,00** (for all motorcycle models)
-- **Polimento Completo de Motor**: **R$ 100,00** (for all motorcycle models)
-- **Restaurax**: **R$ 10,00** (for all motorcycle models)
-- **Pintura de Escapamento**: **R$ 20,00** (for all motorcycle models)
+### Após a Correção:
+- **Aplicação de Cera Premium (Moto)**: **R$ 20,00** (para todos os modelos de moto)
+- **Limpeza e Lubrificação da Corrente**: **R$ 20,00** (para todos os modelos de moto)
+- **Polimento de Tanque**: **R$ 70,00** (para todos os modelos de moto)
+- **Aplicação de Verniz de Motor**: **R$ 50,00** (para todos os modelos de moto)
+- **Descontaminação de Escapamento**: **R$ 30,00** (para todos os modelos de moto)
+- **Polimento Completo de Motor**: **R$ 100,00** (para todos os modelos de moto)
+- **Restaurax**: **R$ 10,00** (para todos os modelos de moto)
+- **Pintura de Escapamento**: **R$ 20,00** (para todos os modelos de moto)
 
-### For categories "300-600cc" and "Acima de 600cc":
-- Main "Motos" services: Should show proper prices (may be 0 if not defined for those specific models)
-- "Adicionais Motos": Should show the correct fixed prices (R$ 20,00, R$ 30,00, R$ 70,00, etc.)
+### Para as categorias "300-600cc" e "Acima de 600cc":
+- Serviços principais de "Motos": Devem mostrar preços adequados (podem ser 0 se não definidos para esses modelos específicos)
+- "Adicionais Motos": Devem mostrar os preços fixos corretos (R$ 20,00, R$ 30,00, R$ 70,00, etc.)
 
-## 🧪 Testing Instructions
+## 🧪 Instruções de Teste
 
-### Manual Testing:
-1. Open http://localhost:5174 in browser
-2. Navigate to Booking section
-3. Add a new motorcycle with any model (especially test "300-600cc" and "Acima de 600cc")
-4. Select "Adicionais Motos" tab
-5. Verify all services show correct prices (not R$ 0,00)
+### Teste Manual:
+1. Abrir http://localhost:5174 no navegador
+2. Navegar para a seção de Agendamento
+3. Adicionar uma nova motocicleta com qualquer modelo (especialmente testar "300-600cc" e "Acima de 600cc")
+4. Selecionar a aba "Adicionais Motos"
+5. Verificar se todos os serviços mostram preços corretos (não R$ 0,00)
 
-### Automated Testing:
-- Build completed successfully ✅
-- Development server running on port 5174 ✅
-- TypeScript compilation clean ✅
+### Teste Automatizado:
+- Build concluído com sucesso ✅
+- Servidor de desenvolvimento rodando na porta 5174 ✅
+- Compilação TypeScript limpa ✅
 
-## 📋 Files Modified
+## 📋 Arquivos Modificados
 
 1. **`/src/lib/serviceHelpers.ts`**
-   - Lines 147-156: Fixed motorcycle category logic
-   - Lines 195-215: Enhanced price calculation for motorcycle additional services
+   - Linhas 147-156: Corrigida lógica de categoria de motocicleta
+   - Linhas 195-215: Aprimorado cálculo de preço para serviços adicionais de moto
 
-## 🎉 Status: **READY FOR USER TESTING**
+## 🎉 Status: **PRONTO PARA TESTE DO USUÁRIO**
 
-The fix has been implemented and is ready for validation. The user should now see the correct prices for all "Adicionais Motos" services instead of R$ 0,00.
+A correção foi implementada e está pronta para validação. O usuário agora deve ver os preços corretos para todos os serviços de "Adicionais Motos" ao invés de R$ 0,00.
