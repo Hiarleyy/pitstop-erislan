@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Sparkles, Zap, Star, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -27,70 +27,131 @@ const Hero = () => {
   // Calculate water opacity
   const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));
   return (
-    <section id="home" className="relative h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-pitstop-black to-pitstop-darkBlue opacity-90 z-5"></div>
+    <section id="home" className="relative h-screen flex items-center overflow-hidden pt-20">
+      {/* Enhanced Background with Multiple Layers */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/90 to-blue-900/80 z-1"></div>
       
-      {/* Car background image */}
+      {/* Car background image with improved overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-50 transition-opacity duration-300"
-        style={{ backgroundImage: `url("/img/COMBOPREMIUM-HILUX-1.JPG")` }}
+        className="absolute inset-0 bg-cover bg-center z-0 transition-all duration-700"
+        style={{ 
+          backgroundImage: `url("/img/COMBOPREMIUM-HILUX-1.JPG")`,
+          filter: 'brightness(0.4) contrast(1.1) saturate(1.2)'
+        }}
       ></div>
       
-      {/* Water effect that rises based on scroll */}
+      {/* Animated geometric elements */}
+      <div className="absolute inset-0 z-2">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-pitstop-blue/20 to-pitstop-darkBlue/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-pitstop-blue/20 to-blue-500/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-20 w-20 h-20 bg-gradient-to-br from-pitstop-blue/20 to-pitstop-darkBlue/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-32 w-28 h-28 bg-gradient-to-br from-teal-400/20 to-pitstop-blue/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+      </div>
+      
+      {/* Enhanced Water effect that rises based on scroll */}
       <div 
-        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-300 to-blue-100 z-2 transition-all duration-300"
+        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pitstop-blue/30 via-blue-400/20 to-transparent z-3 transition-all duration-500"
         style={{ 
           height: `${waterHeight}%`, 
           opacity: waterOpacity,
-          backdropFilter: 'blur(1px)',
+          backdropFilter: 'blur(2px)',
         }}
       >
-        
-        {/* Water ripples */}
-        <div className="absolute inset-0 z-5">
-          {Array.from({ length: 10 }).map((_, i) => (
+        {/* Enhanced water ripples */}
+        <div className="absolute inset-0 z-4">
+          {Array.from({ length: 15 }).map((_, i) => (
             <div 
               key={i} 
-              className="absolute rounded-full border-2 border-white border-opacity-30"
+              className="absolute rounded-full border border-white/40"
               style={{ 
-                width: `${Math.random() * 100 + 50}px`, 
-                height: `${Math.random() * 100 + 50}px`, 
+                width: `${Math.random() * 120 + 60}px`, 
+                height: `${Math.random() * 120 + 60}px`, 
                 left: `${Math.random() * 100}%`, 
                 top: `${Math.random() * 100}%`,
-                opacity: 0.3,
-                animation: `ripple ${Math.random() * 6 + 4}s linear infinite`,
-                animationDelay: `${Math.random() * 4}s`
+                opacity: 0.4,
+                animation: `ripple ${Math.random() * 8 + 6}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 6}s`,
+                background: `linear-gradient(45deg, rgba(56, 189, 248, 0.1), rgba(147, 51, 234, 0.1))`
               }}
             />
           ))}
         </div>
       </div>
-      <div className="container mx-auto px-4 z-5 relative">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Estética Automotiva de Excelência
-          </h1>
-            <p className="text-lg md:text-xl text-pitstop-silver mb-8 opacity-0 animate-fade-in px-4 py-2 rounded-lg bg-black/5 inline-block" style={{ animationDelay: '0.4s' }}>
-            Pitstop Estética Automotiva estética automotiva oferece uma variedade de serviços para cuidar da beleza e conservação do seu veículo, tanto no exterior quanto no interior, seja carro ou seja moto. Alguns dos nossos serviços incluem lavagem detalhada, lavagem de motor, lavagem de chassis, polimento, cristalização ou vitrificação da pintura, higienização interna, impermeabilização de estofados, restauração de faróis.
 
+      {/* Main Content */}
+      <div className="container mx-auto px-4 z-10 relative">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Enhanced Title with modern styling */}
+          <div className="mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-6 opacity-0 animate-fade-in leading-tight drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
+              PITSTOP
+              <br />
+              <span className="text-4xl md:text-6xl lg:text-7xl bg-gradient-to-r from-pitstop-blue via-blue-600 to-pitstop-darkBlue bg-clip-text text-transparent font-bold">
+                ESTÉTICA AUTOMOTIVA
+              </span>
+            </h1>
+          </div>
+          
+          {/* Enhanced Description */}
+          <div className="max-w-4xl mx-auto mb-10">
+            <p className="text-2xl md:text-3xl text-white font-bold mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              🚗 <span className="bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue bg-clip-text text-transparent">Cuidado Profissional</span> para seu Veículo ⚡
             </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Button asChild className="btn-gradient">
-              <a href="#booking">Agendar Serviço</a>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-4">
+                🏆 A <strong className="text-pitstop-blue">Pitstop Estética Automotiva</strong> oferece serviços completos para carros e motos
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm md:text-base text-gray-200">
+                <div className="flex items-center space-x-2">
+                  <Zap className="w-4 h-4 text-pitstop-blue" />
+                  <span>Lavagem Detalhada</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Star className="w-4 h-4 text-pitstop-blue" />
+                  <span>Polimento & Cristalização</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Sparkles className="w-4 h-4 text-pitstop-blue" />
+                  <span>Higienização Completa</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <Button asChild className="group relative overflow-hidden bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 hover:from-pitstop-darkBlue hover:via-blue-800 hover:to-pitstop-blue text-white text-xl py-4 px-10 rounded-2xl shadow-2xl hover:shadow-pitstop-blue/25 transform hover:scale-105 transition-all duration-300 border-0">
+              <a href="#booking" className="relative z-10 flex items-center space-x-3">
+                <span>🚗 Agendar Serviço</span>
+                <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              </a>
             </Button>
-            <Button variant="outline" asChild className="bg-transparent text-white border-white hover:bg-white/10">
-              <a href="/servicos">Nossos Serviços</a>
+            <Button variant="outline" asChild className="group relative overflow-hidden bg-white/15 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white/25 hover:border-white/50 text-xl py-4 px-10 rounded-2xl shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-300">
+              <a href="/servicos" className="relative z-10 flex items-center space-x-3">
+                <span>📋 Nossos Serviços</span>
+                <Star className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              </a>
             </Button>
+          </div>
+
+          {/* Enhanced Stats Section */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-blue-400 mb-2">500+</div>
+              <div className="text-white text-sm">Clientes Satisfeitos</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-pitstop-blue mb-2">5⭐</div>
+              <div className="text-white text-sm">Avaliação Média</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-pitstop-blue mb-2">3+</div>
+              <div className="text-white text-sm">Anos de Experiência</div>
+            </div>
           </div>
         </div>
       </div>
       
-      <a 
-        href="#services" 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce z-5"
-      >
-        <ChevronDown size={40} />
-      </a>
     </section>
   );
 };

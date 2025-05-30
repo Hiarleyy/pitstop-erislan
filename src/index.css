@@ -6,34 +6,24 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 210 100% 50%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -47,28 +37,20 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -81,33 +63,117 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
 
+@layer components {
   .service-card {
-    @apply relative overflow-hidden rounded-lg border border-pitstop-silver p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid #E5E7E9;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
     background: linear-gradient(145deg, #ffffff, #f5f7f8);
   }
 
   .service-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px);
     background: linear-gradient(145deg, #f8f9fa, #e9ecef);
   }
 
   .btn-gradient {
-    @apply bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue text-white font-medium py-2 px-6 rounded-md hover:opacity-90 transition-all duration-300;
+    background: linear-gradient(to right, #1EAEDB, #0B5F8A, #1565C0);
+    color: white;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-gradient:hover {
+    opacity: 0.9;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .service-section {
+    margin-bottom: 4rem;
+  }
+
+  .service-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .service-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .service-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #2C3E50;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
   }
 }
 
@@ -115,28 +181,50 @@
   .text-balance {
     text-wrap: balance;
   }
-}
 
-@layer base {
-  /* Car wash animations */
-  @keyframes bubble-float {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-    50% { transform: translateY(-30px) scale(0.8); opacity: 0.8; }
-  }
-  
-  @keyframes ripple {
-    0% { transform: scale(0); opacity: 0.8; }
-    100% { transform: scale(3); opacity: 0; }
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
   }
 }
 
-@layer components {
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4;
+@keyframes bubble-float {
+  0%, 100% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0.5; 
+  }
+  50% { 
+    transform: translateY(-30px) scale(0.8); 
+    opacity: 0.8; 
+  }
+}
+
+@keyframes ripple {
+  0% { 
+    transform: scale(0); 
+    opacity: 0.8; 
+  }
+  100% { 
+    transform: scale(3); 
+    opacity: 0; 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+@keyframes fade-in {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
   }
 }

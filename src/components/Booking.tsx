@@ -357,85 +357,106 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
   }, [toast]);
 
   return (
-    <section id="booking" className="section-padding bg-white">
+    <section id="booking" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-pitstop-darkGray mb-4">Agende seu Serviço</h2>
-          <div className="w-20 h-1 bg-pitstop-blue mx-auto mb-6"></div>
-          <p className="text-lg text-pitstop-darkGray/80 max-w-2xl mx-auto">
-            Escolha os serviços para seus veículos e agende o melhor dia e horário.
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue bg-clip-text text-transparent mb-6">
+            🚗 Agende seu Serviço
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue mx-auto mb-8 rounded-full"></div>
+          <p className="text-xl text-pitstop-darkGray/80 max-w-3xl mx-auto leading-relaxed">
+            Configure seus veículos, escolha os serviços desejados e finalize seu agendamento de forma simples e rápida.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 md:p-8 border border-pitstop-silver/30">
-            {/* Adicione esta seção para o nome do cliente */}
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold text-pitstop-darkGray mb-4">Seus Dados</h3>
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-white/50 relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-pitstop-blue/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-pitstop-darkBlue/10 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
+            
+            {/* Customer Information Section */}
+            <div className="relative mb-10">
+              <h3 className="text-2xl font-bold text-pitstop-darkGray mb-6 flex items-center gap-3">
+                👤 <span>Seus Dados</span>
+              </h3>
               <div className="max-w-md">
-                <label htmlFor="customer-name" className="block text-sm font-medium mb-2">Nome Completo</label>
+                <label htmlFor="customer-name" className="block text-sm font-semibold mb-3 text-pitstop-darkGray">
+                  Nome Completo
+                </label>
                 <Input
                   id="customer-name"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
                   placeholder="Digite seu nome completo"
-                  className="w-full"
+                  className="w-full h-12 text-lg border-2 border-pitstop-silver/50 focus:border-pitstop-blue transition-all duration-300 rounded-xl"
                 />
               </div>
             </div>
             
-            {/* Resto do código existente */}
-            <div className="mb-8">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl font-semibold text-pitstop-darkGray">Seus Veículos</h3>
+            {/* Vehicle Management Section */}
+            <div className="relative mb-10">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4">
+                <h3 className="text-2xl font-bold text-pitstop-darkGray flex items-center gap-3">
+                  🚙 <span>Seus Veículos</span>
+                </h3>
                 <Button
                   variant="outline"
-                  className="flex items-center gap-1"
+                  className="flex items-center gap-2 h-12 px-6 border-2 border-pitstop-blue text-pitstop-blue hover:bg-pitstop-blue hover:text-white transition-all duration-300 rounded-xl font-semibold"
                   onClick={() => setIsAddingVehicle(true)}
                 >
-                  <Plus size={16} />
+                  <Plus size={20} />
                   <span>Adicionar Veículo</span>
                 </Button>
               </div>
 
               {vehicles.length === 0 ? (
-                <div className="text-center py-8 bg-gray-100 rounded-lg">
-                  <p className="text-pitstop-darkGray/70">Nenhum veículo adicionado. Adicione um veículo para começar.</p>
+                <div className="text-center py-12 bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-xl border-2 border-dashed border-pitstop-silver/50">
+                  <div className="text-6xl mb-4">🚗</div>
+                  <p className="text-pitstop-darkGray/70 text-lg">
+                    Nenhum veículo adicionado ainda.<br />
+                    <span className="font-semibold text-pitstop-blue">Adicione um veículo para começar!</span>
+                  </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
                   {vehicles.map(vehicle => (
                     <div 
                       key={vehicle.id} 
-                      className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                      className={`group p-5 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
                         selectedVehicleId === vehicle.id 
-                          ? 'border-pitstop-blue bg-blue-50' 
-                          : 'border-gray-200 hover:border-pitstop-blue/50'
+                          ? 'border-pitstop-blue bg-gradient-to-br from-blue-50 to-white shadow-lg scale-105' 
+                          : 'border-pitstop-silver/50 hover:border-pitstop-blue/70 bg-white'
                       }`}
                       onClick={() => setSelectedVehicleId(vehicle.id)}
                     >
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-center gap-2">
-                          {vehicle.type === 'car' ? <Car size={18} /> : <Bike size={18} />}
-                          <span className="font-medium">{vehicle.name}</span>
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <div className={`p-2 rounded-lg ${selectedVehicleId === vehicle.id ? 'bg-pitstop-blue text-white' : 'bg-pitstop-silver/30 text-pitstop-darkGray'}`}>
+                            {vehicle.type === 'car' ? <Car size={20} /> : <Bike size={20} />}
+                          </div>
+                          <span className="font-semibold text-pitstop-darkGray">{vehicle.name}</span>
                         </div>
                         <button 
-                          className="text-red-500 text-sm hover:text-red-700"
+                          className="text-red-400 hover:text-red-600 transition-colors p-1 rounded-lg hover:bg-red-50"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleRemoveVehicle(vehicle.id);
                           }}
+                          title="Remover veículo"
                         >
-                          Remover
+                          ❌
                         </button>
                       </div>
-                      <div className="mt-2 text-sm text-pitstop-darkGray/70">
-                        {vehicle.type === 'car' ? `Porte: ${vehicle.size}` : vehicle.size}
+                      <div className="text-sm text-pitstop-darkGray/70 mb-2">
+                        <span className="font-medium">
+                          {vehicle.type === 'car' ? `Porte: ${vehicle.size}` : vehicle.size}
+                        </span>
                       </div>
-                      <div className="mt-1 text-sm">
+                      <div className="text-sm">
                         {vehicle.services.length === 0 
-                          ? <span className="text-amber-600">Nenhum serviço selecionado</span>
-                          : <span className="text-green-600">{vehicle.services.length} serviço(s) selecionado(s)</span>
+                          ? <span className="text-amber-600 font-medium">⚠️ Nenhum serviço selecionado</span>
+                          : <span className="text-green-600 font-medium">✅ {vehicle.services.length} serviço(s) selecionado(s)</span>
                         }
                       </div>
                     </div>
@@ -445,47 +466,54 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
             </div>
 
             {isAddingVehicle && (
-              <div className="mb-8 p-6 border border-dashed rounded-lg">
-                <h4 className="text-lg font-medium mb-4">Adicionar Veículo</h4>
-                <div className="space-y-4">
+              <div className="relative mb-10 p-8 border-2 border-dashed border-pitstop-blue/30 rounded-xl bg-gradient-to-br from-blue-50/50 to-white">
+                <h4 className="text-xl font-bold text-pitstop-darkGray mb-6 flex items-center gap-3">
+                  ➕ <span>Adicionar Novo Veículo</span>
+                </h4>
+                <div className="space-y-6">
                   <div>
-                    <label htmlFor="vehicle-name" className="block text-sm font-medium mb-1">Nome do Veículo</label>
+                    <label htmlFor="vehicle-name" className="block text-sm font-semibold mb-3 text-pitstop-darkGray">
+                      Nome do Veículo
+                    </label>
                     <Input
                       id="vehicle-name"
                       value={newVehicle.name}
                       onChange={(e) => setNewVehicle({...newVehicle, name: e.target.value})}
-                      placeholder="Ex: Cb 500, Civic, etc."
-                      className="w-full"
+                      placeholder="Ex: Honda Civic, Yamaha CB500, Toyota Hilux..."
+                      className="w-full h-12 text-lg border-2 border-pitstop-silver/50 focus:border-pitstop-blue transition-all duration-300 rounded-xl"
                     />
                   </div>
+                  
                   <div>
-                    <label className="block text-sm font-medium mb-2">Tipo de Veículo</label>
+                    <label className="block text-sm font-semibold mb-4 text-pitstop-darkGray">Tipo de Veículo</label>
                     <div className="flex gap-4">
-                      <label className="flex items-center gap-2 cursor-pointer">
+                      <label className="flex items-center gap-3 cursor-pointer p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
                         <input
                           type="radio"
-                          checked={newVehicle.type === 'car'}                          onChange={() => setNewVehicle({
+                          checked={newVehicle.type === 'car'}
+                          onChange={() => setNewVehicle({
                             ...newVehicle, 
                             type: 'car', 
-                            size: 'Pequeno' // Always set default car size
+                            size: 'Pequeno'
                           })}
-                          className="w-4 h-4"
+                          className="w-5 h-5 text-pitstop-blue"
                         />
-                        <Car size={18} />
-                        <span>Carro</span>
+                        <Car size={24} className="text-pitstop-blue" />
+                        <span className="font-medium">Carro</span>
                       </label>
-                      <label className="flex items-center gap-2 cursor-pointer">
+                      <label className="flex items-center gap-3 cursor-pointer p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
                         <input
                           type="radio"
-                          checked={newVehicle.type === 'motorcycle'}                          onChange={() => setNewVehicle({
+                          checked={newVehicle.type === 'motorcycle'}
+                          onChange={() => setNewVehicle({
                             ...newVehicle, 
                             type: 'motorcycle',
-                            size: 'Biz, Pop' // Always set default motorcycle size
+                            size: 'Biz, Pop'
                           })}
-                          className="w-4 h-4"
+                          className="w-5 h-5 text-pitstop-blue"
                         />
-                        <Bike size={18} />
-                        <span>Moto</span>
+                        <Bike size={24} className="text-pitstop-blue" />
+                        <span className="font-medium">Moto</span>
                       </label>
                     </div>
                   </div>
@@ -769,14 +797,29 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
             <div className="text-center mt-8">
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                  className="bg-green-500 hover:bg-green-600 text-white text-lg py-3 px-8 flex items-center gap-2"
+                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-lg py-4 px-8 flex items-center gap-3 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   onClick={handleWhatsAppBooking}
                   disabled={vehicles.length === 0 || vehicles.every(v => v.services.length === 0)}
                 >
-                  <CheckCircle size={20} />
-                  Agendar seu Horário
+                  <CheckCircle size={22} />
+                  🚀 Agendar via WhatsApp
                 </Button>
               </div>
+              
+              {vehicles.length === 0 || vehicles.every(v => v.services.length === 0) ? (
+                <p className="text-pitstop-darkGray/60 text-sm mt-4 flex items-center justify-center gap-2">
+                  ⚠️ Adicione veículos e serviços para continuar
+                </p>
+              ) : (
+                <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+                  <p className="text-green-700 font-medium mb-2 flex items-center justify-center gap-2">
+                    ✅ Tudo pronto para agendar!
+                  </p>
+                  <p className="text-sm text-green-600">
+                    Você será redirecionado para o WhatsApp para finalizar seu agendamento
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

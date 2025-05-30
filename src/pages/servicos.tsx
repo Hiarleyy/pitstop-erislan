@@ -76,7 +76,56 @@ const Servicos = () => {
       setLoading(false);
     }
   }, []);
-  // Função para renderizar o ícone correto
+  // Função para obter cores baseadas na categoria
+  const getCategoryColors = (categoria: string) => {
+    const colorMap = {
+      higienizacao: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
+      lavagem: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
+      protecao: "bg-gradient-to-br from-emerald-50 to-emerald-100 border-emerald-200 hover:from-emerald-100 hover:to-emerald-150 hover:border-emerald-300",
+      moto: "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:from-orange-100 hover:to-orange-150 hover:border-orange-300",
+      polimento: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
+      adicional_auto: "bg-gradient-to-br from-indigo-50 to-indigo-100 border-indigo-200 hover:from-indigo-100 hover:to-indigo-150 hover:border-indigo-300",
+      adicional_moto: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
+      residencial: "bg-gradient-to-br from-teal-50 to-teal-100 border-teal-200 hover:from-teal-100 hover:to-teal-150 hover:border-teal-300"
+    };
+    return colorMap[categoria as keyof typeof colorMap] || colorMap.higienizacao;
+  };
+
+  // Função para renderizar seção de serviços
+  const renderServiceSection = (categoria: string, titulo: string, emoji: string) => (
+    <div className="mb-16">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          {emoji} {titulo}
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue mx-auto rounded-full"></div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+        {todosServicos
+          .filter((servico) => servico.categoria === categoria)
+          .map((servico, index) => (
+            <Card
+              key={index}
+              className={`${getCategoryColors(categoria)} transition-all duration-300 hover:scale-105 hover:shadow-xl transform border-2`}
+            >
+              <CardHeader className="pb-4">
+                <div className="flex items-center justify-between mb-3">
+                  <CardTitle className="text-lg sm:text-xl text-gray-700 font-semibold leading-tight flex-1">
+                    {servico.titulo}
+                  </CardTitle>
+                  <div className="text-gray-500 ml-3">
+                    {renderIcon(servico.icone)}
+                  </div>
+                </div>
+                <CardDescription className="text-gray-600 leading-relaxed">
+                  {servico.descricao}
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+      </div>
+    </div>
+  );
   const renderIcon = (iconType: string) => {
     switch (iconType) {
       case "car":
@@ -140,207 +189,40 @@ const Servicos = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-auto-lightgray z-10">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-gray-100">
       <ScrollToTop />
       <div className="min-h-screen container mx-auto px-4 py-10">
-        {/* SEÇÃO DE SERVIÇOS DE HIGIENIZAÇÃO */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços de Higienização
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "higienizacao")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
+        <div className="text-center mb-16 mt-20">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+            ✨ Nossos Serviços
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Oferecemos uma gama completa de serviços de estética automotiva com qualidade profissional e atenção aos detalhes.
+          </p>
+          <div className="w-32 h-1 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mt-6 rounded-full"></div>
         </div>
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços de Lavagem
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "lavagem")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>
-        {/* SEÇÃO DE SERVIÇOS DE PROTEÇÃO */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços de Proteção
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "protecao")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>
-        {/* SEÇÃO DE SERVIÇOS PARA moto */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços para moto
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "moto")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>{" "}
-        {/* SEÇÃO DE SERVIÇOS DE POLIMENTO */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços de Polimento
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "polimento")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>
-        {/* SEÇÃO DE SERVIÇOS ADICIONAIS PARA AUTOMÓVEIS */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços Adicionais para Automóveis
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "adicional_auto")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>
-        {/* SEÇÃO DE SERVIÇOS ADICIONAIS PARA MOTOS */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços Adicionais para Motos
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "adicional_moto")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>
-        {/* SEÇÃO DE SERVIÇOS RESIDENCIAIS */}
-        <h1 className="text-4xl font-bold text-center py-10 mt-10">
-          Serviços Residenciais
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-          {todosServicos
-            .filter((servico) => servico.categoria === "residencial")
-            .map((servico, index) => (
-              <Card
-                key={index}
-                className="flex-1 bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-blue-400 hover:bg-blue-100"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-center">
-                    <CardTitle className="text-lg sm:text-xl text-gray-600 select-none">
-                      {servico.titulo}
-                    </CardTitle>
-                    {renderIcon(servico.icone)}
-                  </div>
-                  <CardDescription>{servico.descricao}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-        </div>
-        <div
-          className="flex flex-col sm:flex-row justify-center gap-4 mt-8 mb-12 opacity-0 animate-fade-in"
-          style={{ animationDelay: "0.6s" }}
-        >
-          <Button asChild className="btn-gradient text-lg py-6 px-8">
-            <a href="/#booking">Agendar Serviço</a>
-          </Button>
+
+        {renderServiceSection("higienizacao", "Serviços de Higienização", "🧽")}
+        {renderServiceSection("lavagem", "Serviços de Lavagem", "🚿")}
+        {renderServiceSection("protecao", "Serviços de Proteção", "🛡️")}
+        {renderServiceSection("moto", "Serviços para Moto", "🏍️")}
+        {renderServiceSection("polimento", "Serviços de Polimento", "✨")}
+        {renderServiceSection("adicional_auto", "Serviços Adicionais para Automóveis", "🚗")}
+        {renderServiceSection("adicional_moto", "Serviços Adicionais para Motos", "🔧")}
+        {renderServiceSection("residencial", "Serviços Residenciais", "🏠")}
+
+        <div className="text-center mt-16 mb-12">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              Pronto para cuidar do seu veículo? 🚗✨
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Entre em contato conosco e agende seu serviço com os melhores profissionais da região!
+            </p>
+            <Button asChild className="btn-gradient text-lg py-4 px-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <a href="/#booking">📞 Agendar Serviço Agora</a>
+            </Button>
+          </div>
         </div>
       </div>
       <Navbar />
