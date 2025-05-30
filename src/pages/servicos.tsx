@@ -93,14 +93,14 @@ const Servicos = () => {
 
   // Função para renderizar seção de serviços
   const renderServiceSection = (categoria: string, titulo: string, emoji: string) => (
-    <div className="mb-16">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+    <div className="mb-8 sm:mb-12 lg:mb-16">
+      <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
           {emoji} {titulo}
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue mx-auto rounded-full"></div>
+        <div className="w-12 sm:w-16 lg:w-20 h-1 bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue mx-auto rounded-full"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 px-2 sm:px-4">
         {todosServicos
           .filter((servico) => servico.categoria === categoria)
           .map((servico, index) => (
@@ -108,16 +108,16 @@ const Servicos = () => {
               key={index}
               className={`${getCategoryColors(categoria)} transition-all duration-300 hover:scale-105 hover:shadow-xl transform border-2`}
             >
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-3">
-                  <CardTitle className="text-lg sm:text-xl text-gray-700 font-semibold leading-tight flex-1">
+              <CardHeader className="pb-3 sm:pb-4">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <CardTitle className="text-sm sm:text-base lg:text-lg text-gray-700 font-semibold leading-tight flex-1 pr-2">
                     {servico.titulo}
                   </CardTitle>
-                  <div className="text-gray-500 ml-3">
+                  <div className="text-gray-500 ml-2 sm:ml-3 flex-shrink-0">
                     {renderIcon(servico.icone)}
                   </div>
                 </div>
-                <CardDescription className="text-gray-600 leading-relaxed">
+                <CardDescription className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">
                   {servico.descricao}
                 </CardDescription>
               </CardHeader>
@@ -129,27 +129,27 @@ const Servicos = () => {
   const renderIcon = (iconType: string) => {
     switch (iconType) {
       case "car":
-        return <Car className="ml-auto w-4 h-4" />;
+        return <Car className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "wrench":
-        return <Wrench className="ml-auto w-4 h-4" />;
+        return <Wrench className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "shield":
-        return <Shield className="ml-auto w-4 h-4" />;
+        return <Shield className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "camera":
-        return <Camera className="ml-auto w-4 h-4" />;
+        return <Camera className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "bike":
-        return <Bike className="ml-auto w-4 h-4" />;
+        return <Bike className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "sparkles":
-        return <SparkleIcon className="ml-auto w-4 h-4" />;
+        return <SparkleIcon className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "droplet":
-        return <Droplet className="ml-auto w-4 h-4" />;
+        return <Droplet className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "lightbulb":
-        return <Lightbulb className="ml-auto w-4 h-4" />;
+        return <Lightbulb className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
       case "cleaning":
-        return <SprayCan className="ml-auto w-4 h-4" />; // Ou outro ícone apropriado para cleaning
+        return <SprayCan className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />; // Ou outro ícone apropriado para cleaning
       case "home":
-        return <Home className="ml-auto w-4 h-4" />; // Ícone para serviços residenciais
+        return <Home className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />; // Ícone para serviços residenciais
       default:
-        return <Car className="ml-auto w-4 h-4" />;
+        return <Car className="ml-auto w-4 h-4 sm:w-5 sm:h-5" />;
     }
   };
 
@@ -191,15 +191,15 @@ const Servicos = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-gray-100">
       <ScrollToTop />
-      <div className="min-h-screen container mx-auto px-4 py-10">
-        <div className="text-center mb-16 mt-20">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+      <div className="min-h-screen container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16 mt-12 sm:mt-16 lg:mt-20">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4 lg:mb-6">
             ✨ Nossos Serviços
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-2 sm:px-4">
             Oferecemos uma gama completa de serviços de estética automotiva com qualidade profissional e atenção aos detalhes.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mt-6 rounded-full"></div>
+          <div className="w-16 sm:w-24 lg:w-32 h-1 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mt-3 sm:mt-4 lg:mt-6 rounded-full"></div>
         </div>
 
         {renderServiceSection("higienizacao", "Serviços de Higienização", "🧽")}
@@ -211,15 +211,15 @@ const Servicos = () => {
         {renderServiceSection("adicional_moto", "Serviços Adicionais para Motos", "🔧")}
         {renderServiceSection("residencial", "Serviços Residenciais", "🏠")}
 
-        <div className="text-center mt-16 mb-12">
-          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16 mb-6 sm:mb-8 lg:mb-12">
+          <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto border border-gray-200 mx-2 sm:mx-4">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
               Pronto para cuidar do seu veículo? 🚗✨
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
               Entre em contato conosco e agende seu serviço com os melhores profissionais da região!
             </p>
-            <Button asChild className="btn-gradient text-lg py-4 px-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            <Button asChild className="btn-gradient text-sm sm:text-base lg:text-lg py-2 sm:py-3 lg:py-4 px-4 sm:px-6 lg:px-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
               <a href="/#booking">📞 Agendar Serviço Agora</a>
             </Button>
           </div>
