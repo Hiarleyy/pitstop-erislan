@@ -571,24 +571,26 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
                   className="mt-6"
                 >
                   <TabsList className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-1 h-full py-2 bg-gray-100 rounded-xl">
-                    {Object.entries(serviceCategories).map(([key, category]) => (
-                      <TabsTrigger 
-                        key={key} 
-                        value={key} 
-                        // Desabilita qualquer categoria que não seja "motos" para motos
-                        // E desabilita a categoria "motos" para carros
-                        disabled={(getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos') || 
-                                 (getSelectedVehicle()?.type === 'car' && key === 'motos')}
-                        className={`px-4 py-3 text-base font-medium transition-all ${
-                          (getSelectedVehicle()?.type === 'motorcycle' && key !== 'motos') || 
-                          (getSelectedVehicle()?.type === 'car' && key === 'motos') 
-                            ? 'opacity-50 cursor-not-allowed' 
-                            : ''
-                        }`}
-                      >
-                        {category.name}
-                      </TabsTrigger>
-                    ))}
+                    {Object.entries(serviceCategories).map(([key, category]) => {
+                      const selectedVehicle = getSelectedVehicle();
+                      const isMotorcycleCategory = key === 'moto' || key === 'servicos_adicionais_moto';
+                      const isDisabled = selectedVehicle ? 
+                        (selectedVehicle.type === 'motorcycle' && !isMotorcycleCategory) || 
+                        (selectedVehicle.type === 'car' && isMotorcycleCategory) : false;
+                      
+                      return (
+                        <TabsTrigger 
+                          key={key} 
+                          value={key} 
+                          disabled={isDisabled}
+                          className={`px-4 py-3 text-base font-medium transition-all ${
+                            isDisabled ? 'opacity-50 cursor-not-allowed' : ''
+                          }`}
+                        >
+                          {category.name}
+                        </TabsTrigger>
+                      );
+                    })}
                   </TabsList>
                   
                   {Object.entries(serviceCategories).map(([key, category]) => (

@@ -63,21 +63,21 @@ export const getServiceCategories = (): ServiceCategories => {
       name: "Proteção",
       description: "Produtos e tratamentos que protegem a pintura do seu veículo contra danos"
     },
-    moto: {
-      name: "Motos",
-      description: "Serviços específicos para motocicletas"
-    },
     servicos_adicionais: {
       name: "Adicionais",
       description: "Serviços adicionais e personalizados"
     },
-    servicos_adicionais_moto: {
-      name: "Adicionais Motos", 
-      description: "Serviços adicionais para motocicletas"
-    },
     higienizacao_residencial: {
       name: "Higienização Residencial",
       description: "Serviços de higienização para residências"
+    },
+    moto: {
+      name: "Motos",
+      description: "Serviços específicos para motocicletas"
+    },
+    servicos_adicionais_moto: {
+      name: "Adicionais Motos", 
+      description: "Serviços adicionais para motocicletas"
     }
   };
 
