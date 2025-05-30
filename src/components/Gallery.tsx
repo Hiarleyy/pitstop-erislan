@@ -74,34 +74,34 @@ const Gallery = () => {
       <div className="absolute bottom-32 left-20 w-20 h-20 bg-gradient-to-br from-pitstop-darkBlue/10 to-blue-600/10 rounded-full blur-xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Enhanced Header */}
-        <div className="text-center mb-20">
-          <div className="flex justify-center items-center mb-6">
-            <div className="flex items-center space-x-3 bg-gradient-to-r from-pitstop-blue/10 to-pitstop-darkBlue/10 backdrop-blur-sm rounded-full px-8 py-3 border border-blue-200/30">
-              <Camera className="w-6 h-6 text-pitstop-blue" />
-              <span className="text-gray-700 font-semibold">Galeria de Trabalhos</span>
-              <Sparkles className="w-6 h-6 text-pitstop-darkBlue" />
+        {/* Enhanced Header with mobile optimization */}
+        <div className="text-center mb-16 md:mb-20">
+          <div className="flex justify-center items-center mb-4 md:mb-6">
+            <div className="flex items-center space-x-2 md:space-x-3 bg-gradient-to-r from-pitstop-blue/10 to-pitstop-darkBlue/10 backdrop-blur-sm rounded-full px-6 md:px-8 py-2 md:py-3 border border-blue-200/30">
+              <Camera className="w-5 h-5 md:w-6 md:h-6 text-pitstop-blue" />
+              <span className="text-gray-700 font-semibold text-sm md:text-base">Galeria de Trabalhos</span>
+              <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-pitstop-darkBlue" />
             </div>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-pitstop-blue to-pitstop-darkBlue mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-pitstop-blue to-pitstop-darkBlue mb-4 md:mb-6">
             NOSSOS TRABALHOS
           </h2>
-          <div className="w-32 h-1.5 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mb-8 rounded-full shadow-lg"></div>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <div className="w-24 md:w-32 h-1 md:h-1.5 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mb-6 md:mb-8 rounded-full shadow-lg"></div>
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
             ✨ Conheça nosso trabalho através de <strong className="text-pitstop-blue">exemplos reais</strong> dos serviços realizados em diversos tipos de veículos
           </p>
         </div>
 
-        {/* Enhanced Carousel */}
+        {/* Enhanced Carousel with mobile optimization */}
         <Carousel className="max-w-7xl mx-auto">
           <CarouselContent className="-ml-4 md:-ml-6">
             {galleryItems.map((item, index) => (
               <CarouselItem key={index} className="pl-4 md:pl-6 basis-full sm:basis-1/2 lg:basis-1/3">
                 <div className="h-full">
-                  <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 h-[480px] transform hover:-translate-y-2">
-                    {/* Image Container */}
-                    <div className="relative h-[320px] overflow-hidden">
+                  <div className="group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-200 h-[400px] md:h-[480px] transform hover:-translate-y-2">
+                    {/* Image Container with mobile optimization */}
+                    <div className="relative h-[260px] md:h-[320px] overflow-hidden">
                       {item.type === 'image' ? (
                         <>
                           <img 
@@ -113,14 +113,14 @@ const Gallery = () => {
                           {/* Enhanced Overlay */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                           
-                          {/* Category Badge */}
-                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                          {/* Category Badge with mobile optimization */}
+                          <div className="absolute top-3 md:top-4 left-3 md:left-4 bg-white/90 backdrop-blur-sm text-gray-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold shadow-lg">
                             {item.category || 'Serviço'}
                           </div>
                           
-                          {/* View Icon */}
-                          <div className="absolute top-4 right-4 bg-blue-500/90 backdrop-blur-sm text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                            <Eye size={20} />
+                          {/* View Icon with mobile optimization */}
+                          <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-blue-500/90 backdrop-blur-sm text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                            <Eye size={18} className="md:w-5 md:h-5" />
                           </div>
                         </>
                       ) : (
@@ -132,38 +132,38 @@ const Gallery = () => {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowFullScreen
                           ></iframe>
-                          <div className="absolute top-4 right-4 bg-red-500/90 backdrop-blur-sm text-white p-2 rounded-full">
-                            <Play size={20} />
+                          <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-red-500/90 backdrop-blur-sm text-white p-2 rounded-full">
+                            <Play size={18} className="md:w-5 md:h-5" />
                           </div>
                         </>
                       )}
                       
-                      {/* Floating Title */}
-                      <div className="absolute bottom-4 left-4 right-4 transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                        <h3 className="text-white font-bold text-xl drop-shadow-xl mb-2">
+                      {/* Floating Title with mobile optimization */}
+                      <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4 transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                        <h3 className="text-white font-bold text-lg md:text-xl drop-shadow-xl mb-1 md:mb-2">
                           {item.title}
                         </h3>
                         {item.description && (
-                          <p className="text-white/90 text-sm drop-shadow-lg">
+                          <p className="text-white/90 text-xs md:text-sm drop-shadow-lg">
                             {item.description}
                           </p>
                         )}
                       </div>
                     </div>
                     
-                    {/* Enhanced Content Section */}
-                    <div className="p-6 bg-gradient-to-br from-white to-gray-50">
-                      <h3 className="text-gray-800 font-bold text-xl mb-2 group-hover:text-pitstop-blue transition-colors duration-300">
+                    {/* Enhanced Content Section with mobile optimization */}
+                    <div className="p-4 md:p-6 bg-gradient-to-br from-white to-gray-50">
+                      <h3 className="text-gray-800 font-bold text-lg md:text-xl mb-2 group-hover:text-pitstop-blue transition-colors duration-300">
                         {item.title}
                       </h3>
                       {item.description && (
-                        <p className="text-gray-600 text-sm leading-relaxed">
+                        <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
                           {item.description}
                         </p>
                       )}
                       
                       {/* Progress bar animation */}
-                      <div className="mt-4 w-0 group-hover:w-full h-1 bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue rounded-full transition-all duration-700 delay-200"></div>
+                      <div className="mt-3 md:mt-4 w-0 group-hover:w-full h-0.5 md:h-1 bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue rounded-full transition-all duration-700 delay-200"></div>
                     </div>
                   </div>
                 </div>

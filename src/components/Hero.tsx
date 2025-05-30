@@ -81,72 +81,72 @@ const Hero = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 z-10 relative">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Enhanced Title with modern styling */}
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-6 opacity-0 animate-fade-in leading-tight drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
+          {/* Enhanced Title with modern styling and mobile optimization */}
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-4 md:mb-6 opacity-0 animate-fade-in leading-tight drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
               PITSTOP
               <br />
-              <span className="text-4xl md:text-6xl lg:text-7xl bg-gradient-to-r from-pitstop-blue via-blue-600 to-pitstop-darkBlue bg-clip-text text-transparent font-bold">
+              <span className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl bg-gradient-to-r from-pitstop-blue via-blue-600 to-pitstop-darkBlue bg-clip-text text-transparent font-bold">
                 ESTÉTICA AUTOMOTIVA
               </span>
             </h1>
           </div>
           
-          {/* Enhanced Description */}
-          <div className="max-w-4xl mx-auto mb-10">
-            <p className="text-2xl md:text-3xl text-white font-bold mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          {/* Enhanced Description with mobile optimization */}
+          <div className="max-w-4xl mx-auto mb-8 md:mb-10">
+            <p className="text-xl md:text-2xl lg:text-3xl text-white font-bold mb-4 md:mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               🚗 <span className="bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue bg-clip-text text-transparent">Cuidado Profissional</span> para seu Veículo ⚡
             </p>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-4">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 shadow-2xl opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <p className="text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed mb-3 md:mb-4">
                 🏆 A <strong className="text-pitstop-blue">Pitstop Estética Automotiva</strong> oferece serviços completos para carros e motos
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm md:text-base text-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-sm md:text-base text-gray-200">
                 <div className="flex items-center space-x-2">
-                  <Zap className="w-4 h-4 text-pitstop-blue" />
+                  <Zap className="w-4 h-4 text-pitstop-blue flex-shrink-0" />
                   <span>Lavagem Detalhada</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Star className="w-4 h-4 text-pitstop-blue" />
+                  <Star className="w-4 h-4 text-pitstop-blue flex-shrink-0" />
                   <span>Polimento & Cristalização</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Sparkles className="w-4 h-4 text-pitstop-blue" />
+                  <Sparkles className="w-4 h-4 text-pitstop-blue flex-shrink-0" />
                   <span>Higienização Completa</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <Button asChild className="group relative overflow-hidden bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 hover:from-pitstop-darkBlue hover:via-blue-800 hover:to-pitstop-blue text-white text-xl py-4 px-10 rounded-2xl shadow-2xl hover:shadow-pitstop-blue/25 transform hover:scale-105 transition-all duration-300 border-0">
-              <a href="#booking" className="relative z-10 flex items-center space-x-3">
+          {/* Enhanced CTA Buttons with mobile optimization */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <Button asChild className="group relative overflow-hidden bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 hover:from-pitstop-darkBlue hover:via-blue-800 hover:to-pitstop-blue text-white text-lg md:text-xl py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-2xl shadow-2xl hover:shadow-pitstop-blue/25 transform hover:scale-105 transition-all duration-300 border-0 min-h-[48px]">
+              <a href="#booking" className="relative z-10 flex items-center justify-center space-x-2 md:space-x-3">
                 <span>🚗 Agendar Serviço</span>
-                <Zap className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                <Zap className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform duration-300" />
               </a>
             </Button>
-            <Button variant="outline" asChild className="group relative overflow-hidden bg-white/15 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white/25 hover:border-white/50 text-xl py-4 px-10 rounded-2xl shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-300">
-              <a href="/servicos" className="relative z-10 flex items-center space-x-3">
+            <Button variant="outline" asChild className="group relative overflow-hidden bg-white/15 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white/25 hover:border-white/50 text-lg md:text-xl py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-2xl shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-300 min-h-[48px]">
+              <a href="/servicos" className="relative z-10 flex items-center justify-center space-x-2 md:space-x-3">
                 <span>📋 Nossos Serviços</span>
-                <Star className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                <Star className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform duration-300" />
               </a>
             </Button>
           </div>
 
-          {/* Enhanced Stats Section */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-blue-400 mb-2">500+</div>
-              <div className="text-white text-sm">Clientes Satisfeitos</div>
+          {/* Enhanced Stats Section with mobile optimization */}
+          <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
+              <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1 md:mb-2">500+</div>
+              <div className="text-white text-xs md:text-sm">Clientes Satisfeitos</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-pitstop-blue mb-2">5⭐</div>
-              <div className="text-white text-sm">Avaliação Média</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
+              <div className="text-2xl md:text-3xl font-bold text-pitstop-blue mb-1 md:mb-2">5⭐</div>
+              <div className="text-white text-xs md:text-sm">Avaliação Média</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-pitstop-blue mb-2">3+</div>
-              <div className="text-white text-sm">Anos de Experiência</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
+              <div className="text-2xl md:text-3xl font-bold text-pitstop-blue mb-1 md:mb-2">3+</div>
+              <div className="text-white text-xs md:text-sm">Anos de Experiência</div>
             </div>
           </div>
         </div>

@@ -114,19 +114,19 @@ const Services = () => {
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-pitstop-blue/5 rounded-full translate-y-32 -translate-x-32"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-pitstop-darkGray mb-6">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pitstop-darkGray mb-4 md:mb-6">
             🚗 Nossos Serviços
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 mx-auto mb-4 md:mb-6 rounded-full"></div>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Oferecemos uma ampla gama de serviços de estética automotiva e higienização com 
             <span className="font-semibold text-pitstop-blue"> tecnologia avançada</span> e 
             <span className="font-semibold text-pitstop-blue"> profissionais especializados</span>.
           </p>
         </div>
         
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-16">
           {Object.entries(groupedServices).map(([categoryKey, services]: [string, any], categoryIndex) => {
             const config = categoryConfig[categoryKey];
             if (!config) return null;
@@ -134,51 +134,51 @@ const Services = () => {
             return (
               <div key={categoryKey} className="opacity-0 animate-fade-in" style={{ animationDelay: `${0.2 * categoryIndex}s` }}>
                 {/* Category Header */}
-                <div className="text-center mb-12">
-                  <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${config.gradient} px-8 py-4 rounded-2xl border border-gray-200 shadow-sm mb-6`}>
-                    <span className="text-2xl">{config.emoji}</span>
-                    {config.icon}
-                    <h3 className="text-2xl font-bold text-gray-800">{config.name}</h3>
+                <div className="text-center mb-8 md:mb-12">
+                  <div className={`inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r ${config.gradient} px-4 md:px-8 py-3 md:py-4 rounded-2xl border border-gray-200 shadow-sm mb-4 md:mb-6`}>
+                    <span className="text-xl md:text-2xl">{config.emoji}</span>
+                    <div className="hidden sm:block">{config.icon}</div>
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-800">{config.name}</h3>
                   </div>
                 </div>
                 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                   {services.map((service: any, serviceIndex: number) => (
                     <Card 
                       key={serviceIndex} 
                       className={`group relative overflow-hidden bg-gradient-to-br ${config.gradient} border-2 border-gray-200/50 hover:border-${config.color}-300 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2`}
                       style={{ animationDelay: `${0.1 * serviceIndex}s` }}
                     >
-                      <CardContent className="p-6 h-full flex flex-col">
+                      <CardContent className="p-4 md:p-6 h-full flex flex-col">
                         {/* Service Header */}
-                        <div className="flex items-start gap-3 mb-4">
+                        <div className="flex items-start gap-3 mb-3 md:mb-4">
                           <div className={`p-2 bg-${config.color}-500/20 rounded-lg flex-shrink-0`}>
-                            {config.icon}
+                            <div className="w-6 h-6 md:w-8 md:h-8">{config.icon}</div>
                           </div>
                           <div className="flex-1">
-                            <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-pitstop-blue transition-colors">
+                            <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 group-hover:text-pitstop-blue transition-colors">
                               {service.titulo}
                             </h4>
                           </div>
                         </div>
                         
                         {/* Service Description */}
-                        <p className="text-gray-600 mb-4 leading-relaxed flex-1">
+                        <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 leading-relaxed flex-1">
                           {service.descricao}
                         </p>
                         
                         {/* Price Section */}
-                        <div className={`bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-${config.color}-200/50`}>
+                        <div className={`bg-white/80 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-${config.color}-200/50`}>
                           <div className="flex items-center justify-between">
                             <div>
                               <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Preço</p>
-                              <p className={`text-sm font-bold text-${config.color}-600`}>
+                              <p className={`text-xs md:text-sm font-bold text-${config.color}-600`}>
                                 {formatPrice(service.precos)}
                               </p>
                             </div>
-                            <Button variant="ghost" size="sm" className={`text-${config.color}-600 hover:bg-${config.color}-100 p-2`}>
-                              <ArrowRight size={16} />
+                            <Button variant="ghost" size="sm" className={`text-${config.color}-600 hover:bg-${config.color}-100 p-2 min-w-[40px] min-h-[40px]`}>
+                              <ArrowRight size={14} className="md:w-4 md:h-4" />
                             </Button>
                           </div>
                         </div>
@@ -195,21 +195,21 @@ const Services = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="text-center mt-20">
-          <div className="bg-gradient-to-br from-pitstop-blue via-pitstop-darkBlue to-blue-800 rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+        <div className="text-center mt-12 md:mt-20">
+          <div className="bg-gradient-to-br from-pitstop-blue via-pitstop-darkBlue to-blue-800 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-pitstop-blue/20 to-pitstop-darkBlue/20 rounded-3xl"></div>
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
                 ✨ Pronto para dar uma nova vida ao seu veículo?
               </h3>
-              <p className="text-blue-100 mb-8 text-lg max-w-2xl mx-auto">
+              <p className="text-blue-100 mb-6 md:mb-8 text-base md:text-lg max-w-2xl mx-auto">
                 Entre em contato conosco e descubra como nossos serviços podem transformar seu carro ou moto!
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-white text-pitstop-blue hover:bg-gray-100 font-bold py-3 px-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                <Button asChild className="bg-white text-pitstop-blue hover:bg-gray-100 font-bold py-3 px-6 md:px-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 min-h-[48px]">
                   <a href="#booking">📞 Agendar Serviço</a>
                 </Button>
-                <Button variant="outline" asChild className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 font-bold py-3 px-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                <Button variant="outline" asChild className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 font-bold py-3 px-6 md:px-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 min-h-[48px]">
                   <a href="/servicos">📋 Ver Todos os Serviços</a>
                 </Button>
               </div>

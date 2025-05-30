@@ -53,13 +53,13 @@ const Navbar = () => {
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            {/* Logo Section */}
+            {/* Logo Section with mobile optimization */}
             <Link to="/" className="flex items-center group">
               <div className="relative">
                 <img 
                   src="/img/PITSTOP-LOGO.png" 
                   alt="Pitstop Logo" 
-                  className={`h-14 md:h-18 object-contain transition-all duration-500 group-hover:scale-105 ${getLogoFilter()}`}
+                  className={`h-12 md:h-14 lg:h-18 object-contain transition-all duration-500 group-hover:scale-105 ${getLogoFilter()}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-pitstop-blue/20 to-pitstop-darkBlue/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
               </div>
@@ -88,11 +88,11 @@ const Navbar = () => {
                 ))}
               </ul>
 
-              {/* CTA Buttons */}
-              <div className="flex items-center space-x-6">
+              {/* CTA Buttons with mobile optimization */}
+              <div className="flex items-center space-x-4 lg:space-x-6">
                 <a 
                   href="tel:+5511999999999"
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 group ${
+                  className={`flex items-center space-x-1 lg:space-x-2 px-3 lg:px-4 py-2 rounded-full transition-all duration-300 group min-h-[44px] ${
                     scrolled 
                       ? 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg hover:shadow-green-500/25' 
                       : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30'
@@ -106,7 +106,7 @@ const Navbar = () => {
                   href="https://www.instagram.com/pitstop_estetica22" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 group ${
+                  className={`flex items-center space-x-1 lg:space-x-2 px-3 lg:px-4 py-2 rounded-full transition-all duration-300 group min-h-[44px] ${
                     scrolled 
                       ? 'bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue text-white hover:from-pitstop-darkBlue hover:to-blue-800 shadow-lg hover:shadow-pitstop-blue/25' 
                       : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30'
@@ -118,13 +118,13 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-3">
+            {/* Mobile Menu Button with touch optimization */}
+            <div className="md:hidden flex items-center space-x-2">
               <a 
                 href="https://www.instagram.com/pitstop_estetica22" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`p-2 rounded-full transition-all duration-300 ${
+                className={`p-3 rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   scrolled 
                     ? 'bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue text-white shadow-lg' 
                     : 'bg-white/20 backdrop-blur-sm text-white border border-white/30'
@@ -136,7 +136,7 @@ const Navbar = () => {
                 variant="ghost" 
                 size="icon" 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2 rounded-full transition-all duration-300 ${
+                className={`p-3 rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   scrolled 
                     ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' 
                     : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30'
@@ -175,11 +175,11 @@ const Navbar = () => {
                 ))}
               </ul>
 
-              {/* Mobile CTA Section */}
+              {/* Mobile CTA Section with touch optimization */}
               <div className="mt-6 space-y-3">
                 <a 
                   href="tel:+5511999999999"
-                  className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg"
+                  className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg min-h-[48px]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Phone size={20} />
@@ -188,7 +188,7 @@ const Navbar = () => {
                 
                 <a 
                   href="https://wa.me/5511999999999"
-                  className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg"
+                  className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg min-h-[48px]"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Calendar size={20} />
