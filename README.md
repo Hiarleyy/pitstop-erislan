@@ -579,47 +579,17 @@ npm run build
 
 ---
 
-## 📞 Suporte
-
-### Contato
-
-- **🌐 Projeto**: [Lovable Project](https://lovable.dev/projects/af725c91-9121-43dd-a0eb-26e9b4729a3c)
-- **📧 Email**: [Seu email aqui]
-- **💬 WhatsApp**: [Integrado na aplicação]
-
-### Reportar Problemas
-
-Para reportar bugs ou sugerir melhorias:
-
-1. Verifique se o problema já não foi reportado
-2. Crie uma issue detalhada com:
-   - Descrição do problema
-   - Passos para reproduzir
-   - Screenshots (se aplicável)
-   - Informações do ambiente
-
----
-
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
----
 
-## 🎉 Agradecimentos
-
-- **Lovable Platform** - Hospedagem e deploy
-- **shadcn/ui** - Componentes de interface
-- **Comunidade React** - Ferramentas e bibliotecas
-- **Tailwind CSS** - Framework de estilização
-
----
 
 <div align="center">
 
 **📅 Última atualização**: 30 de maio de 2025  
 **✅ Status**: Produção - Sistema 100% funcional
 
-**Desenvolvido com ❤️ usando React + TypeScript**
+**Desenvolvido por Insilico Tecnologia usando React + TypeScript**
 
 </div>
