@@ -12,11 +12,25 @@ export type ServiceCategory = {
     baseService?: string;
     fixedPrice?: number;
     basePrice?: number;
+    requer_quantidade?: boolean;
+    valor_a_combinar?: boolean;
+    valor_unitario?: string | null;
   }>;
 };
 
 export type ServiceCategories = {
   [key: string]: ServiceCategory;
+};
+
+// Função auxiliar para converter preços string para number
+const convertPrice = (priceStr: string): number => {
+  // Remove R$ e espaços
+  let cleanStr = priceStr.replace(/R\$\s*/g, '').trim();
+  // Remove pontos de milhar (1.500 -> 1500)
+  cleanStr = cleanStr.replace(/\./g, '');
+  // Substitui vírgula por ponto para decimal (500,00 -> 500.00)
+  cleanStr = cleanStr.replace(',', '.');
+  return parseFloat(cleanStr) || 0;
 };
 
 // Função para formatar preço em moeda brasileira
@@ -85,17 +99,6 @@ export const getServiceCategories = (): ServiceCategories => {
       
       // Converter preços do JSON para o formato esperado
       if (service.precos) {
-        // Função auxiliar para converter preços string para number
-        const convertPrice = (priceStr: string): number => {
-          // Remove R$ e espaços
-          let cleanStr = priceStr.replace(/R\$\s*/g, '').trim();
-          // Remove pontos de milhar (1.500 -> 1500)
-          cleanStr = cleanStr.replace(/\./g, '');
-          // Converte vírgula decimal para ponto (50,00 -> 50.00)
-          cleanStr = cleanStr.replace(',', '.');
-          return parseFloat(cleanStr);
-        };
-
         if (typeof service.precos.pequeno === 'number') {
           // Se já são números
           prices = {
@@ -158,7 +161,10 @@ export const getServiceCategories = (): ServiceCategories => {
         id: service.id || service.titulo.toLowerCase().replace(/\s+/g, '-'),
         name: service.titulo,
         description: service.descricao,
-        prices: prices
+        prices: prices,
+        requer_quantidade: service.precos?.requer_quantidade || false,
+        valor_a_combinar: service.precos?.valor_a_combinar || false,
+        valor_unitario: service.precos?.valor_unitario || null
       });
     }
   });
@@ -173,7 +179,19 @@ export const getServiceById = (id: string, category: string) => {
 };
 
 // Função para calcular preço de um serviço
-export const calculateServicePrice = (service: any, vehicleType: 'car' | 'motorcycle', vehicleSize: string): number => {
+export const calculateServicePrice = (service: any, vehicleType: 'car' | 'motorcycle', vehicleSize: string, quantity: number = 1): number | string => {
+  // Se tem valor a combinar, retorna texto
+  if (service.valor_a_combinar) {
+    const basePrice = service.prices?.[vehicleSize] || 0;
+    return `a partir de ${formatPrice(basePrice)} | Valor a combinar`;
+  }
+  
+  // Se requer quantidade e tem valor unitário
+  if (service.requer_quantidade && service.valor_unitario) {
+    const unitPrice = convertPrice(service.valor_unitario);
+    return unitPrice * quantity;
+  }
+  
   if (vehicleType === 'car' && service.prices) {
     return service.prices[vehicleSize] || 0;
   }

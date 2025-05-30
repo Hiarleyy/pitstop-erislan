@@ -20,7 +20,9 @@ interface Vehicle {
     id: string;
     category: string;
     name: string;
-    price: number;
+    price: number | string;
+    quantity?: number;
+    requer_quantidade?: boolean;
   }[];
 }
 
@@ -48,10 +50,11 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
     size: 'Pequeno'
   });
   const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(null);
+  const [serviceQuantities, setServiceQuantities] = useState<{[vehicleId: string]: {[serviceId: string]: number}}>({});
   const { toast } = useToast();
 
-  const calculateServicePrice = (service: any, vehicle: Vehicle) => {
-    return helperCalculateServicePrice(service, vehicle.type, vehicle.size);
+  const calculateServicePrice = (service: any, vehicle: Vehicle, quantity: number = 1) => {
+    return helperCalculateServicePrice(service, vehicle.type, vehicle.size, quantity);
   };
   
   
@@ -131,14 +134,29 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
         const serviceExists = vehicle.services.some(s => s.id === service.id);
         
         if (!serviceExists) {
-          const price = calculateServicePrice(service, vehicle);
+          const defaultQuantity = service.requer_quantidade ? 1 : undefined;
+          const price = calculateServicePrice(service, vehicle, defaultQuantity || 1);
+          
+          // Initialize quantity for this service if it requires quantity
+          if (service.requer_quantidade) {
+            setServiceQuantities(prev => ({
+              ...prev,
+              [vehicleId]: {
+                ...prev[vehicleId],
+                [service.id]: defaultQuantity
+              }
+            }));
+          }
+          
           return {
             ...vehicle,
             services: [...vehicle.services, {
               id: service.id,
               category: categoryId,
               name: service.name,
-              price: typeof price === 'number' ? price : 0
+              price: price,
+              quantity: defaultQuantity,
+              requer_quantidade: service.requer_quantidade
             }]
           };
         }
@@ -153,11 +171,61 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
   };
 
   const handleRemoveService = (vehicleId: string, serviceId: string) => {
+    // Remove from quantity tracking
+    setServiceQuantities(prev => {
+      const newQuantities = { ...prev };
+      if (newQuantities[vehicleId]) {
+        delete newQuantities[vehicleId][serviceId];
+        if (Object.keys(newQuantities[vehicleId]).length === 0) {
+          delete newQuantities[vehicleId];
+        }
+      }
+      return newQuantities;
+    });
+    
     setVehicles(vehicles.map(vehicle => {
       if (vehicle.id === vehicleId) {
         return {
           ...vehicle,
           services: vehicle.services.filter(s => s.id !== serviceId)
+        };
+      }
+    }));
+  };
+
+  const handleQuantityChange = (vehicleId: string, serviceId: string, newQuantity: number) => {
+    // Update quantity tracking
+    setServiceQuantities(prev => ({
+      ...prev,
+      [vehicleId]: {
+        ...prev[vehicleId],
+        [serviceId]: newQuantity
+      }
+    }));
+
+    // Update vehicle services with new price calculation
+    setVehicles(vehicles.map(vehicle => {
+      if (vehicle.id === vehicleId) {
+        return {
+          ...vehicle,
+          services: vehicle.services.map(service => {
+            if (service.id === serviceId) {
+              // Find the original service data to recalculate price
+              const originalService = Object.values(serviceCategories)
+                .flatMap(category => category.services)
+                .find(s => s.id === serviceId);
+              
+              if (originalService) {
+                const newPrice = calculateServicePrice(originalService, vehicle, newQuantity);
+                return {
+                  ...service,
+                  quantity: newQuantity,
+                  price: newPrice
+                };
+              }
+            }
+            return service;
+          })
         };
       }
       return vehicle;
@@ -532,7 +600,10 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
                         {category.services.map(service => {
                           const selectedVehicle = getSelectedVehicle();
                           const isServiceSelected = selectedVehicle?.services.some(s => s.id === service.id);
-                          const servicePrice = selectedVehicle ? calculateServicePrice(service, selectedVehicle) : 0;
+                          const currentQuantity = selectedVehicle ? 
+                            serviceQuantities[selectedVehicle.id]?.[service.id] || 1 : 1;
+                          const servicePrice = selectedVehicle ? 
+                            calculateServicePrice(service, selectedVehicle, service.requer_quantidade ? currentQuantity : 1) : 0;
                           
                           return (
                             <div 
@@ -553,6 +624,27 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
                                 <p className="text-pitstop-darkGray/80 text-sm mt-1">
                                   {service.description}
                                 </p>
+                                
+                                {/* Quantity input for services that require it */}
+                                {service.requer_quantidade && isServiceSelected && selectedVehicle && (
+                                  <div className="mt-3 mb-3">
+                                    <label className="block text-sm font-medium mb-1">Quantidade</label>
+                                    <div className="flex items-center gap-2 max-w-32">
+                                      <Input
+                                        type="number"
+                                        min="1"
+                                        max="99"
+                                        value={currentQuantity}
+                                        onChange={(e) => {
+                                          const newQuantity = Math.max(1, parseInt(e.target.value) || 1);
+                                          handleQuantityChange(selectedVehicle.id, service.id, newQuantity);
+                                        }}
+                                        className="text-center"
+                                      />
+                                      <span className="text-sm text-pitstop-darkGray/70">unidade(s)</span>
+                                    </div>
+                                  </div>
+                                )}
                                 
                                 <div className="mt-3 text-right">
                                   {isServiceSelected ? (
@@ -620,6 +712,7 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
                               <thead className="text-left text-sm text-pitstop-darkGray/70">
                                 <tr>
                                   <th className="pb-2">Serviço</th>
+                                  <th className="pb-2 text-center">Qtd</th>
                                   <th className="pb-2 text-right">Valor</th>
                                 </tr>
                               </thead>
@@ -627,8 +720,11 @@ const Booking = () => {  const [customerName, setCustomerName] = useState('');
                                 {vehicle.services.map(service => (
                                   <tr key={service.id} className="border-t border-gray-100">
                                     <td className="py-2">{service.name}</td>
+                                    <td className="py-2 text-center">
+                                      {service.requer_quantidade ? service.quantity || 1 : "-"}
+                                    </td>
                                     <td className="py-2 text-right">
-                                      {typeof service.price === 'number' ? formatPrice(service.price) : 'Variável'}
+                                      {typeof service.price === 'number' ? formatPrice(service.price) : service.price}
                                     </td>
                                   </tr>
                                 ))}

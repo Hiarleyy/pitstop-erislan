@@ -386,20 +386,31 @@
     },
     {
         "titulo": "Tapetes Residenciais",
-        "descricao": "Higieniza\u00e7\u00e3o de tapetes residenciais.",
+        "descricao": "Higieniza\u00e7\u00e3o de tapetes residenciais - valor a combinar.",
         "icone": "home",
         "categoria": "higienizacao_residencial",
         "precos": {
-            "a_partir_de": "R$ 40,00"
+            "a_partir_de": "R$ 40,00",
+            "valor_a_combinar": true
         }
     },
     {
         "titulo": "Travesseiros e Almofadas",
-        "descricao": "Higieniza\u00e7\u00e3o de travesseiros e almofadas.",
+        "descricao": "Higieniza\u00e7\u00e3o de travesseiros e almofadas por unidade.",
         "icone": "home",
         "categoria": "higienizacao_residencial",
         "precos": {
-            "valor_unitario": "R$ 15,00"
+            "valor_unitario": "R$ 15,00",
+            "requer_quantidade": true
+        }
+    },
+    {
+        "titulo": "Poltrona de Couro",
+        "descricao": "Limpeza e hidrata\u00e7\u00e3o especializada para poltronas de couro - valor a combinar.",
+        "icone": "home",
+        "categoria": "higienizacao_residencial",
+        "precos": {
+            "a_partir_de": "R$ 80,00"
         }
     },
     {
