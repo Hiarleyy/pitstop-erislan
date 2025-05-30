@@ -89,19 +89,7 @@ const Navbar = () => {
               </ul>
 
               {/* CTA Buttons with mobile optimization */}
-              <div className="flex items-center space-x-4 lg:space-x-6">
-                <a 
-                  href="tel:+5511999999999"
-                  className={`flex items-center space-x-1 lg:space-x-2 px-3 lg:px-4 py-2 rounded-full transition-all duration-300 group min-h-[44px] ${
-                    scrolled 
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 shadow-lg hover:shadow-green-500/25' 
-                      : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30'
-                  }`}
-                >
-                  <Phone size={16} className="group-hover:rotate-12 transition-transform duration-300" />
-                  <span className="font-medium hidden lg:block">Ligar</span>
-                </a>
-
+              <div className="flex items-center">
                 <a 
                   href="https://www.instagram.com/pitstop_estetica22" 
                   target="_blank" 
