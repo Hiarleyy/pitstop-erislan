@@ -211,8 +211,8 @@ const Servicos = () => {
         {renderServiceSection("servicos_adicionais_moto", "Serviços Adicionais para Motos", "🔧")}
         {renderServiceSection("higienizacao_residencial", "Serviços Residenciais", "🏠")}
 
-        <div className="text-center mt-8 sm:mt-12 lg:mt-16 mb-6 sm:mb-8 lg:mb-12">
-          <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto border border-gray-200 mx-2 sm:mx-4">
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16 mb-6 sm:mb-8 lg:mb-12 flex justify-center">
+          <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto border border-gray-200">
             <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
               Pronto para cuidar do seu veículo? 🚗✨
             </h3>

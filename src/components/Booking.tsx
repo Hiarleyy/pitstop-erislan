@@ -1149,13 +1149,13 @@ const Booking = () => {
   // Função para renderizar os botões de navegação
   const renderNavigationButtons = () => {
     return (
-      <div className="flex flex-col sm:flex-row justify-between items-center mt-8 gap-4 sm:gap-0">
-        <div className="order-2 sm:order-1">
+      <div className="flex flex-row justify-between items-center mt-8 gap-4">
+        <div>
           {currentStep > 1 && (
             <Button
               variant="outline"
               onClick={prevStep}
-              className="flex items-center gap-2 w-full sm:w-auto"
+              className="flex items-center gap-2 w-auto"
             >
               <ArrowLeft size={16} />
               <span className="hidden xs:inline">Anterior</span>
@@ -1164,15 +1164,15 @@ const Booking = () => {
           )}
         </div>
         
-        <div className="text-sm text-pitstop-darkGray/60 order-1 sm:order-2">
+        <div className="text-sm text-pitstop-darkGray/60">
           Etapa {currentStep} de {totalSteps}
         </div>
         
-        <div className="order-3">
+        <div>
           {currentStep < totalSteps && (
             <Button
               onClick={handleNextStep}
-              className="flex items-center gap-2 bg-pitstop-blue hover:bg-pitstop-darkBlue w-full sm:w-auto"
+              className="flex items-center gap-2 bg-pitstop-blue hover:bg-pitstop-darkBlue w-auto"
               disabled={!validateStep(currentStep)}
             >
               <span className="hidden xs:inline">Próximo</span>

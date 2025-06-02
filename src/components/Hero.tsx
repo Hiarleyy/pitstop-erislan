@@ -25,12 +25,10 @@ const Hero = () => {
   // Calculate water height based on scroll position (0-400px)
   const waterHeight = Math.min(100, Math.max(0, (scrollY / 4)));
   // Calculate water opacity
-  const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));
-  return (
-    <section id="home" className="relative h-screen flex items-center overflow-hidden">
+  const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));  return (
+    <section id="home" className="relative h-[60vh] flex items-center overflow-hidden">
       {/* Enhanced Background with Multiple Layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/90 to-blue-900/80 z-1"></div>
-      
       {/* Car background image with improved overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 transition-all duration-700"
