@@ -73,13 +73,6 @@ const Services = () => {
       gradient: "from-emerald-50 to-emerald-100",
       color: "emerald"
     },
-    estofados: {
-      name: "Estofados",
-      icon: <Home className="text-purple-500" size={32} />,
-      emoji: "🛋️",
-      gradient: "from-purple-50 to-purple-100",
-      color: "purple"
-    }
   };
 
   // Função para formatar preços com melhor visual
