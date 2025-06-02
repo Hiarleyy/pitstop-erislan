@@ -108,12 +108,21 @@
         }
     },
     {
-        "titulo": "Higieniza\u00e7\u00e3o de Bancos",
-        "descricao": "Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes e bancos, extra\u00e7\u00e3o dos bancos com antibactericida.",
+        "titulo": "Higieniza\u00e7\u00e3o de Bancos (Por assento)",
+        "descricao": "Aspira\u00e7\u00e3o e limpeza por assento individual, extra\u00e7\u00e3o do banco com antibactericida.",
         "icone": "cleaning",
         "categoria": "higienizacao",
         "precos": {
             "assento_unitario": "R$ 50,00",
+            "requer_quantidade": true
+        }
+    },
+    {
+        "titulo": "Higieniza\u00e7\u00e3o de Bancos (Todos os bancos)",
+        "descricao": "Aspira\u00e7\u00e3o e limpeza completa de todos os bancos e tapetes, extra\u00e7\u00e3o de todos os bancos com antibactericida.",
+        "icone": "cleaning",
+        "categoria": "higienizacao",
+        "precos": {
             "todos_bancos": "R$ 200,00"
         }
     },

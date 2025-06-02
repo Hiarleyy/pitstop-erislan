@@ -129,12 +129,16 @@ export const getServiceCategories = (): ServiceCategories => {
             Médio: basePrice,
             Grande: basePrice
           };
-        } else if (service.precos.assento_unitario && service.precos.todos_bancos) {
-          // Para higienização de bancos
+        } else if (service.precos.assento_unitario) {
+          // Para higienização de bancos por assento
           const unitPrice = convertPrice(service.precos.assento_unitario);
+          prices = {
+            "Assento Unitário": unitPrice
+          };
+        } else if (service.precos.todos_bancos) {
+          // Para higienização de todos os bancos
           const allSeatsPrice = convertPrice(service.precos.todos_bancos);
           prices = {
-            "Assento Unitário": unitPrice,
             "Todos os Bancos": allSeatsPrice
           };
         } else if (service.precos.valor_unitario) {
@@ -167,7 +171,7 @@ export const getServiceCategories = (): ServiceCategories => {
         prices: prices,
         requer_quantidade: service.precos?.requer_quantidade || false,
         valor_a_combinar: service.precos?.valor_a_combinar || false,
-        valor_unitario: service.precos?.valor_unitario || null
+        valor_unitario: service.precos?.assento_unitario || service.precos?.valor_unitario || null
       });
     }
   });
@@ -193,6 +197,14 @@ export const calculateServicePrice = (service: any, vehicleType: 'car' | 'motorc
   if (service.requer_quantidade && service.valor_unitario) {
     const unitPrice = convertPrice(service.valor_unitario);
     return unitPrice * quantity;
+  }
+  
+  // Para serviços com preço único (como "Todos os Bancos")
+  if (service.prices && Object.keys(service.prices).length === 1) {
+    const singlePrice = Object.values(service.prices)[0];
+    if (typeof singlePrice === 'number') {
+      return singlePrice;
+    }
   }
   
   if (vehicleType === 'car' && service.prices) {
