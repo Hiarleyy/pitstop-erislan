@@ -58,22 +58,24 @@ const Booking = () => {
   const { toast } = useToast();
 
   const totalSteps = 5;
-
   // Funções para navegação entre etapas
   const nextStep = () => {
     if (currentStep < totalSteps) {
+      setIsAddingVehicle(false); // Fechar modo de adição ao avançar
       setCurrentStep(currentStep + 1);
     }
   };
 
   const prevStep = () => {
     if (currentStep > 1) {
+      setIsAddingVehicle(false); // Fechar modo de adição ao voltar
       setCurrentStep(currentStep - 1);
     }
   };
 
   const goToStep = (step: number) => {
     if (step >= 1 && step <= totalSteps) {
+      setIsAddingVehicle(false); // Fechar modo de adição ao mudar de etapa
       setCurrentStep(step);
     }
   };
@@ -122,7 +124,6 @@ const Booking = () => {
   
   
   
-
   const handleAddVehicle = () => {
     if (!newVehicle.name.trim()) {
       toast({
@@ -184,18 +185,13 @@ const Booking = () => {
     
     setIsAddingVehicle(false);
     setSelectedVehicleId(vehicleId);
-    
     toast({
       title: "Veículo adicionado",
       description: `${newVehicle.name} foi adicionado com sucesso.`
     });
     
-    // Se estivermos na etapa 2 e não há outros veículos, ir direto para seleção de serviços
-    if (currentStep === 2) {
-      setTimeout(() => {
-        setCurrentStep(3);
-      }, 500);
-    }
+    // Sempre redirecionar para a etapa 2 após adicionar um veículo
+    setCurrentStep(2);
   };
 
   const handleAddService = (vehicleId: string, categoryId: string, service: any) => {
@@ -302,12 +298,26 @@ const Booking = () => {
       return vehicle;
     }));
   };
-
   const handleRemoveVehicle = (vehicleId: string) => {
     setVehicles(vehicles.filter(v => v.id !== vehicleId));
+    
+    // Atualizar o veículo selecionado se necessário
     if (selectedVehicleId === vehicleId) {
-      setSelectedVehicleId(vehicles.length > 1 ? vehicles[0].id : null);
+      const remainingVehicles = vehicles.filter(v => v.id !== vehicleId);
+      setSelectedVehicleId(remainingVehicles.length > 0 ? remainingVehicles[0].id : null);
     }
+    
+    // Se remover todos os veículos, voltar para etapa 2
+    if (vehicles.length <= 1 && (currentStep === 3 || currentStep === 4 || currentStep === 5)) {
+      setCurrentStep(2);
+      toast({
+        title: "Nenhum veículo restante",
+        description: "Você precisa adicionar pelo menos um veículo para continuar.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     toast({
       title: "Veículo removido",
       description: "O veículo foi removido da sua lista."
@@ -432,11 +442,9 @@ const Booking = () => {
       { number: 3, title: 'Serviços', icon: Settings },
       { number: 4, title: 'Revisão', icon: Check },
       { number: 5, title: 'Finalização', icon: CheckCircle }
-    ];
-
-    return (
+    ];    return (
       <div className="flex justify-center mb-8 px-2">
-        <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto max-w-full">
+        <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto md:overflow-visible max-w-full">
           {steps.map((step, index) => {
             const isActive = currentStep === step.number;
             const isCompleted = currentStep > step.number;
@@ -540,11 +548,13 @@ const Booking = () => {
           {vehicles.length > 0 && (
             <div className="mb-6">
               <div className="flex justify-between items-center mb-4">
-                <h4 className="text-xl font-semibold text-pitstop-darkGray">Veículos Adicionados</h4>
-                <Button
+                <h4 className="text-xl font-semibold text-pitstop-darkGray">Veículos Adicionados</h4>                <Button
                   variant="outline"
                   className="flex items-center gap-2 border-pitstop-blue text-pitstop-blue hover:bg-pitstop-blue hover:text-white"
-                  onClick={() => setIsAddingVehicle(true)}
+                  onClick={() => {
+                    setIsAddingVehicle(true);
+                    setCurrentStep(2);
+                  }}
                 >
                   <Plus size={18} />
                   Adicionar Outro
@@ -712,22 +722,42 @@ const Booking = () => {
       </div>
 
       {vehicles.length === 0 ? (
-        <div className="text-center py-12 bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-xl border-2 border-dashed border-pitstop-silver/50">
-          <div className="text-6xl mb-4">⚠️</div>
-          <p className="text-pitstop-darkGray/70 text-lg">
+        <div className="text-center py-12 bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-xl border-2 border-dashed border-pitstop-silver/50">          <div className="text-6xl mb-4">⚠️</div>
+          <p className="text-pitstop-darkGray/70 text-lg mb-4">
             Você precisa adicionar pelo menos um veículo primeiro.
           </p>
+          <Button
+            className="bg-pitstop-blue hover:bg-pitstop-darkBlue text-white px-6 py-2 rounded-xl font-semibold"
+            onClick={() => {
+              setIsAddingVehicle(true);
+              setCurrentStep(2);
+            }}
+          >
+            <Plus size={18} className="mr-2" />
+            Adicionar Veículo Agora
+          </Button>
         </div>
       ) : (
-        <div>
-          <div className="mb-6">
-            <label className="block text-sm font-semibold mb-3 text-pitstop-darkGray">
-              Selecione o veículo para configurar serviços:
-            </label>
+        <div>          <div className="mb-6">
+            <div className="flex justify-between items-center mb-3">
+              <label className="block text-sm font-semibold text-pitstop-darkGray">
+                Selecione o veículo para configurar serviços:
+              </label>              <Button
+                variant="outline"
+                className="flex items-center gap-2 border-pitstop-blue text-pitstop-blue hover:bg-pitstop-blue hover:text-white"
+                onClick={() => {
+                  setIsAddingVehicle(true);
+                  setCurrentStep(2);
+                }}
+                size="sm"
+              >
+                <Plus size={16} />
+                Adicionar Veículo
+              </Button>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
               {vehicles.map(vehicle => (
-                <div 
-                  key={vehicle.id} 
+                <div                  key={vehicle.id} 
                   className={`group p-4 sm:p-5 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                     selectedVehicleId === vehicle.id 
                       ? 'border-pitstop-blue bg-gradient-to-br from-blue-50 to-white shadow-lg' 
@@ -735,11 +765,23 @@ const Booking = () => {
                   }`}
                   onClick={() => setSelectedVehicleId(vehicle.id)}
                 >
-                  <div className="flex items-center gap-2 sm:gap-3 mb-3">
-                    <div className={`p-2 rounded-lg ${selectedVehicleId === vehicle.id ? 'bg-pitstop-blue text-white' : 'bg-pitstop-silver/30 text-pitstop-darkGray'}`}>
-                      {vehicle.type === 'car' ? <Car size={18} className="sm:w-5 sm:h-5" /> : <Bike size={18} className="sm:w-5 sm:h-5" />}
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                      <div className={`p-2 rounded-lg ${selectedVehicleId === vehicle.id ? 'bg-pitstop-blue text-white' : 'bg-pitstop-silver/30 text-pitstop-darkGray'}`}>
+                        {vehicle.type === 'car' ? <Car size={18} className="sm:w-5 sm:h-5" /> : <Bike size={18} className="sm:w-5 sm:h-5" />}
+                      </div>
+                      <span className="font-semibold text-pitstop-darkGray text-sm sm:text-base truncate">{vehicle.name}</span>
                     </div>
-                    <span className="font-semibold text-pitstop-darkGray text-sm sm:text-base truncate flex-1">{vehicle.name}</span>
+                    <button 
+                      className="text-red-400 hover:text-red-600 transition-colors p-1 rounded-lg hover:bg-red-50 flex-shrink-0 ml-2"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Evitar que o clique selecione o veículo
+                        handleRemoveVehicle(vehicle.id);
+                      }}
+                      title="Remover veículo"
+                    >
+                      <span className="text-xs">❌</span>
+                    </button>
                   </div>
                   <div className="text-xs sm:text-sm text-pitstop-darkGray/70 mb-2">
                     <span className="font-medium">
@@ -778,8 +820,7 @@ const Booking = () => {
                   setSelectedCategory(value);
                 }}
                 className="mt-6"
-              >
-                <TabsList className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2 mb-6 h-auto py-2 bg-gray-100 rounded-xl overflow-x-auto">
+              >                <TabsList className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2 mb-6 h-auto py-2 bg-gray-100 rounded-xl overflow-x-auto md:overflow-visible">
                   {Object.entries(serviceCategories).map(([key, category]) => {
                     const selectedVehicle = getSelectedVehicle();
                     const isMotorcycleCategory = key === 'moto' || key === 'servicos_adicionais_moto';
@@ -902,20 +943,29 @@ const Booking = () => {
         <p className="text-lg text-pitstop-darkGray/80 mb-8">
           Confira todos os detalhes antes de finalizar
         </p>
-      </div>
-
-      <div className="bg-white rounded-xl border border-pitstop-silver/30 overflow-hidden">
-        <div className="bg-pitstop-blue/10 p-4 border-b">
+      </div>      <div className="bg-white rounded-xl border border-pitstop-silver/30 overflow-hidden">
+        <div className="bg-pitstop-blue/10 p-4 border-b flex justify-between items-center">
           <h4 className="text-xl font-semibold text-pitstop-darkGray flex items-center gap-2">
             👤 Cliente: {customerName}
           </h4>
+          <Button
+            variant="outline"
+            className="flex items-center gap-2 border-pitstop-blue text-pitstop-blue hover:bg-pitstop-blue hover:text-white"
+            onClick={() => {
+              setIsAddingVehicle(true);
+              setCurrentStep(2);
+            }}
+            size="sm"
+          >
+            <Plus size={16} />
+            Adicionar Veículo
+          </Button>
         </div>
         
         {vehicles.length > 0 && vehicles.some(v => v.services.length > 0) ? (
           <div className="p-6 space-y-6">
             {vehicles.map(vehicle => (
-              <div key={vehicle.id} className="border rounded-lg overflow-hidden">
-                <div className="bg-gray-100 px-4 py-3 font-medium flex items-center justify-between">
+              <div key={vehicle.id} className="border rounded-lg overflow-hidden">                <div className="bg-gray-100 px-4 py-3 font-medium flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     {vehicle.type === 'car' ? <Car size={18} /> : <Bike size={18} />}
                     <span>{vehicle.name}</span>
@@ -923,11 +973,20 @@ const Booking = () => {
                       {vehicle.type === 'car' ? `(Porte ${vehicle.size})` : `(${vehicle.size})`}
                     </span>
                   </div>
-                  <div 
-                    className="text-pitstop-blue cursor-pointer hover:underline"
-                    onClick={() => setCurrentStep(3)}
-                  >
-                    Editar
+                  <div className="flex items-center gap-3">
+                    <button 
+                      className="text-red-400 hover:text-red-600 p-1 rounded-lg hover:bg-red-50 flex-shrink-0"
+                      onClick={() => handleRemoveVehicle(vehicle.id)}
+                      title="Remover veículo"
+                    >
+                      <span className="text-xs">❌</span>
+                    </button>
+                    <div 
+                      className="text-pitstop-blue cursor-pointer hover:underline"
+                      onClick={() => setCurrentStep(3)}
+                    >
+                      Editar
+                    </div>
                   </div>
                 </div>
                 
@@ -990,7 +1049,6 @@ const Booking = () => {
       </div>
     </div>
   );
-
   // Função para renderizar a Etapa 5: Finalização
   const renderStep5 = () => (
     <div className="text-center">
@@ -1000,7 +1058,46 @@ const Booking = () => {
       </h3>
       <p className="text-lg text-pitstop-darkGray/80 mb-8">
         Seu agendamento está pronto! Vamos finalizar via WhatsApp.
-      </p>
+      </p>      
+      {vehicles.length > 0 && (
+        <div className="mb-8 bg-white p-4 rounded-xl border border-gray-200">
+          <div className="flex justify-between items-center mb-3">
+            <h4 className="text-lg font-semibold text-pitstop-darkGray">Veículos incluídos:</h4>
+            <Button
+              variant="outline"
+              className="flex items-center gap-2 border-pitstop-blue text-pitstop-blue hover:bg-pitstop-blue hover:text-white"
+              onClick={() => {
+                setIsAddingVehicle(true);
+                setCurrentStep(2);
+              }}
+              size="sm"
+            >
+              <Plus size={16} />
+              Adicionar Veículo
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {vehicles.map(vehicle => (
+              <div key={vehicle.id} className="flex items-center justify-between border rounded-lg p-3">
+                <div className="flex items-center gap-2">
+                  {vehicle.type === 'car' ? <Car size={16} /> : <Bike size={16} />}
+                  <span className="font-medium">{vehicle.name}</span>
+                  <span className="text-xs text-pitstop-darkGray/70">
+                    ({vehicle.type === 'car' ? `Porte ${vehicle.size}` : vehicle.size})
+                  </span>
+                </div>
+                <button 
+                  className="text-red-400 hover:text-red-600 p-1 rounded-lg hover:bg-red-50 flex-shrink-0"
+                  onClick={() => handleRemoveVehicle(vehicle.id)}
+                  title="Remover veículo"
+                >
+                  <span className="text-xs">❌</span>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       
       <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200 p-6 mb-8">
         <p className="text-green-700 font-medium mb-2 flex items-center justify-center gap-2">
