@@ -84,9 +84,9 @@ const Servicos = () => {
       protecao: "bg-gradient-to-br from-emerald-50 to-emerald-100 border-emerald-200 hover:from-emerald-100 hover:to-emerald-150 hover:border-emerald-300",
       moto: "bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:from-orange-100 hover:to-orange-150 hover:border-orange-300",
       polimento: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
-      adicional_auto: "bg-gradient-to-br from-indigo-50 to-indigo-100 border-indigo-200 hover:from-indigo-100 hover:to-indigo-150 hover:border-indigo-300",
-      adicional_moto: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
-      residencial: "bg-gradient-to-br from-teal-50 to-teal-100 border-teal-200 hover:from-teal-100 hover:to-teal-150 hover:border-teal-300"
+      servicos_adicionais: "bg-gradient-to-br from-indigo-50 to-indigo-100 border-indigo-200 hover:from-indigo-100 hover:to-indigo-150 hover:border-indigo-300",
+      servicos_adicionais_moto: "bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-150 hover:border-blue-300",
+      higienizacao_residencial: "bg-gradient-to-br from-teal-50 to-teal-100 border-teal-200 hover:from-teal-100 hover:to-teal-150 hover:border-teal-300"
     };
     return colorMap[categoria as keyof typeof colorMap] || colorMap.higienizacao;
   };
@@ -207,9 +207,9 @@ const Servicos = () => {
         {renderServiceSection("protecao", "Serviços de Proteção", "🛡️")}
         {renderServiceSection("moto", "Serviços para Moto", "🏍️")}
         {renderServiceSection("polimento", "Serviços de Polimento", "✨")}
-        {renderServiceSection("adicional_auto", "Serviços Adicionais para Automóveis", "🚗")}
-        {renderServiceSection("adicional_moto", "Serviços Adicionais para Motos", "🔧")}
-        {renderServiceSection("residencial", "Serviços Residenciais", "🏠")}
+        {renderServiceSection("servicos_adicionais", "Serviços Adicionais para Automóveis", "🚗")}
+        {renderServiceSection("servicos_adicionais_moto", "Serviços Adicionais para Motos", "🔧")}
+        {renderServiceSection("higienizacao_residencial", "Serviços Residenciais", "🏠")}
 
         <div className="text-center mt-8 sm:mt-12 lg:mt-16 mb-6 sm:mb-8 lg:mb-12">
           <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto border border-gray-200 mx-2 sm:mx-4">
