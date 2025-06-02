@@ -1,7 +1,7 @@
 [
     {
         "titulo": "Lavagem Cl\u00e1ssica",
-        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos externos, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes e carpete, limpeza do painel, forros de portas e console, limpeza dos vidros internos, limpeza dos pl\u00e1sticos internos. Prote\u00e7\u00e3o: Cera Carna\u00faba Plus (1 m\u00eas de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos externos, condicionamento dos pneus.",
+        "descricao": "Lavagem completa externa e interna com shampoo neutro, limpeza de rodas, vidros e pl\u00e1sticos. Inclui aspira\u00e7\u00e3o, cera Carna\u00faba Plus (1 m\u00eas de prote\u00e7\u00e3o) e revitalizador de pl\u00e1sticos.",
         "icone": "cleaning",
         "categoria": "lavagem",
         "precos": {
@@ -12,7 +12,7 @@
     },
     {
         "titulo": "Lavagem Premium",
-        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos externos, limpeza dos emblemas e grades, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e bancos, limpeza do painel, forros de portas e console, limpeza dos pl\u00e1sticos internos, limpeza dos vidros internos, limpeza dos pedais, aromatizador Little Trees. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos (3 meses de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos internos (3 meses de prote\u00e7\u00e3o), cera premium (3 meses de prote\u00e7\u00e3o), selante nos pneus (1 m\u00eas de prote\u00e7\u00e3o).",
+        "descricao": "Lavagem premium completa externa e interna com limpeza detalhada de emblemas, grades e pedais. Aromatizador Little Trees incluso. Prote\u00e7\u00e3o: cera premium (3 meses), revitalizadores e selante nos pneus.",
         "icone": "cleaning",
         "categoria": "lavagem",
         "precos": {
@@ -23,7 +23,7 @@
     },
     {
         "titulo": "Lavagem Premium Geral (Pacote)",
-        "descricao": "Externa: Lavagem externa com shampoo neutro, lavagem do chassi n\u00edvel 1 (baixo), lavagem do motor n\u00edvel 1, limpeza dos pl\u00e1sticos externos, limpeza dos emblemas e grades, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e bancos, limpeza do painel, forros de portas e console, limpeza dos pl\u00e1sticos internos, limpeza dos vidros internos, limpeza duto ar-condicionado, limpeza dos pedais. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos (3 meses de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos internos (3 meses de prote\u00e7\u00e3o), cera premium (3 meses de prote\u00e7\u00e3o), selante nos pneus (1 m\u00eas de prote\u00e7\u00e3o).",
+        "descricao": "Lavagem premium completa + motor, chassi e ar-condicionado. Limpeza externa e interna detalhada com prote\u00e7\u00e3o premium: cera (3 meses), revitalizadores e selante nos pneus. Servi\u00e7o completo para carros exigentes.",
         "icone": "cleaning",
         "categoria": "lavagem",
         "precos": {
@@ -34,7 +34,7 @@
     },
     {
         "titulo": "Polimento de Entrada",
-        "descricao": "Limpeza: Lavagem Cl\u00e1ssica. Processos: Descontamina\u00e7\u00e3o de pintura, isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do verniz, remo\u00e7\u00e3o de 70% de riscos profundos, remo\u00e7\u00e3o de 90% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, aplica\u00e7\u00e3o de selante (6 meses de prote\u00e7\u00e3o), selante nos pneus.",
+        "descricao": "Lavagem cl\u00e1ssica + descontamina\u00e7\u00e3o da pintura, corre\u00e7\u00e3o de verniz e remo\u00e7\u00e3o de at\u00e9 90% dos riscos superficiais e 70% dos profundos. Brilho renovado, pl\u00e1sticos revitalizados, selante com 6 meses de prote\u00e7\u00e3o.",
         "icone": "sparkles",
         "categoria": "polimento",
         "precos": {
@@ -45,7 +45,7 @@
     },
     {
         "titulo": "Polimento T\u00e9cnico (Premium)",
-        "descricao": "Limpeza: Lavagem Premium Geral (Pacote). Processos: Descontamina\u00e7\u00e3o de pintura, isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do verniz, remo\u00e7\u00e3o de 99% de riscos profundos, remo\u00e7\u00e3o de 99% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, cera em pasta (1 ano de prote\u00e7\u00e3o), impermeabilizador do para-brisa, impermeabilizador dos vidros, selante nos pneus.",
+        "descricao": "Lavagem premium geral + descontamina\u00e7\u00e3o, polimento t\u00e9cnico com remo\u00e7\u00e3o de at\u00e9 99% dos riscos. Regenera\u00e7\u00e3o total do brilho, cera em pasta (1 ano), impermeabiliza\u00e7\u00e3o dos vidros e revitaliza\u00e7\u00e3o completa dos pl\u00e1sticos.",
         "icone": "sparkles",
         "categoria": "polimento",
         "precos": {
@@ -56,7 +56,7 @@
     },
     {
         "titulo": "Polimento dos Far\u00f3is",
-        "descricao": "Processos: Isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do farol, escala de lixa apropriada, remo\u00e7\u00e3o de 99% de riscos profundos, remo\u00e7\u00e3o de 99% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso e gloss. Prote\u00e7\u00e3o: Aplica\u00e7\u00e3o de vitrificador, garantia de 6 meses.",
+        "descricao": "Corre\u00e7\u00e3o e nivelamento do farol com escala de lixa apropriada. Remove 99% dos riscos profundos e superficiais, regenera brilho intenso. Prote\u00e7\u00e3o com vitrificador e garantia de 6 meses.",
         "icone": "lightbulb",
         "categoria": "polimento",
         "precos": {
@@ -65,7 +65,7 @@
     },
     {
         "titulo": "Vitrifica\u00e7\u00e3o 1 Ano",
-        "descricao": "Limpeza: Lavagem Premium Geral. Processos: Descontamina\u00e7\u00e3o de pintura, polimento t\u00e9cnico. Prote\u00e7\u00e3o: Vitrificador de 1 ano de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos de prote\u00e7\u00e3o), impermeabilizador do para-brisa, aplica\u00e7\u00e3o do GYEON CanCoat Q2, aplica\u00e7\u00e3o do V-Plastic Vonixx.",
+        "descricao": "Lavagem Premium Geral + descontaminação e polimento técnico. Vitrificador de 1 ano, vitrificador de plástico (2 anos), impermeabilizador do para-brisa. Aplicação GYEON CanCoat Q2 e V-Plastic Vonixx.",
         "icone": "shield",
         "categoria": "protecao",
         "precos": {
@@ -76,7 +76,7 @@
     },
     {
         "titulo": "Vitrifica\u00e7\u00e3o 3 Anos",
-        "descricao": "Limpeza: Lavagem Premium Geral. Processos: Descontamina\u00e7\u00e3o de pintura, polimento t\u00e9cnico. Prote\u00e7\u00e3o: Vitrificador de 3 anos de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos de prote\u00e7\u00e3o), impermeabilizador do para-brisa, aplica\u00e7\u00e3o do CARPRO CQUARTZ UK-3.0, aplica\u00e7\u00e3o do V-Plastic Vonixx.",
+        "descricao": "Lavagem premium geral + descontamina\u00e7\u00e3o e polimento t\u00e9cnico. Vitrificador premium de 3 anos de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos), impermeabilizador do para-brisa. Aplica\u00e7\u00e3o CARPRO CQUARTZ UK-3.0.",
         "icone": "shield",
         "categoria": "protecao",
         "precos": {
@@ -87,7 +87,7 @@
     },
     {
         "titulo": "Higieniza\u00e7\u00e3o Interna",
-        "descricao": "Externa: Lavagem externa com shampoo neutro, limpeza dos pl\u00e1sticos externos, limpeza das rodas, limpeza de vidros externos, limpeza da caixa de rodas. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e banco, extra\u00e7\u00e3o dos carpetes com antibactericida, extra\u00e7\u00e3o dos bancos com antibactericida, limpeza do quebra-sol, colunas, console, remo\u00e7\u00e3o de manchas dos bancos, limpeza dos pl\u00e1sticos internos, remo\u00e7\u00e3o de odores internos, limpeza dos vidros internos, painel e forros de portas, limpeza do teto. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, impermeabilizador dos espelhos, cera Carna\u00faba Plus (1 m\u00eas de prote\u00e7\u00e3o), impermeabilizador do para-brisa, selante nos pneus.",
+        "descricao": "Lavagem externa completa + higienização profunda do interior com extração de carpetes e bancos usando antibactericida. Remove manchas e odores, limpa teto e console. Proteção com revitalizadores e impermeabilização.",
         "icone": "cleaning",
         "categoria": "higienizacao",
         "precos": {
@@ -98,7 +98,7 @@
     },
     {
         "titulo": "Higieniza\u00e7\u00e3o Profunda",
-        "descricao": "Externa: Lavagem externa com Snow Foam, limpeza das canaletas de porta, limpeza dos pl\u00e1sticos externos, limpeza dos emblemas e grades, limpeza das rodas (externa), limpeza das rodas (interna), limpeza de vidros externos, limpeza da caixa de rodas, limpeza da churrasqueira, limpeza dos pneus, limpeza do escape. Interna: Aspira\u00e7\u00e3o e limpeza dos tapetes, carpetes e banco, desmontagem e remo\u00e7\u00e3o completa do carpete, desmontagem e remo\u00e7\u00e3o completa dos bancos, extra\u00e7\u00e3o dos carpetes com antibactericida, extra\u00e7\u00e3o dos bancos com antibactericida, limpeza do quebra-sol, colunas, console, remo\u00e7\u00e3o de manchas dos bancos, limpeza dos pl\u00e1sticos internos, remo\u00e7\u00e3o de odores internos, limpeza dos vidros internos, painel e forros de portas, limpeza das borrachas, limpeza do teto. Prote\u00e7\u00e3o: Revitalizador de pl\u00e1sticos externos, revitalizador de pl\u00e1sticos internos, cera premium (3 meses de prote\u00e7\u00e3o), impermeabilizador do para-brisa, selante nos pneus.",
+        "descricao": "Lavagem externa completa com Snow Foam + higienização profunda total. Desmontagem e extração de carpetes e bancos com antibactericida, remoção de manchas e odores. Limpeza detalhada de teto, console, plásticos e vidros. Proteção premium: cera (3 meses), revitalizadores e impermeabilização.",
         "icone": "cleaning",
         "categoria": "higienizacao",
         "precos": {
@@ -130,7 +130,7 @@
     },
     {
         "titulo": "Lavagem Premium Moto",
-        "descricao": "Externa: Lavagem externa com Snow Foam, limpeza dos pl\u00e1sticos e borrachas, limpeza detalhada das rodas, limpeza detalhada dos pneus, limpeza detalhada da corrente, limpeza detalhada da carenagem, limpeza detalhada do painel, limpeza do banco, limpeza detalhada do escape. Prote\u00e7\u00e3o: Cera premium (6 semanas de prote\u00e7\u00e3o), revitalizador de pl\u00e1sticos externos (3 meses de prote\u00e7\u00e3o), lubrifica\u00e7\u00e3o da corrente.",
+        "descricao": "Lavagem externa completa com Snow Foam, limpeza detalhada de rodas, pneus, corrente, carenagem, painel, banco e escape. Proteção: cera premium (6 semanas), revitalizador de plásticos (3 meses) e lubrificação da corrente.",
         "icone": "bike",
         "categoria": "moto",
         "precos": {
@@ -141,7 +141,7 @@
     },
     {
         "titulo": "Vitrifica\u00e7\u00e3o Moto",
-        "descricao": "Externa: Lavagem Premium Detalhada. Processos: Descontamina\u00e7\u00e3o de pintura, isolamento de \u00e1reas sens\u00edveis, corre\u00e7\u00e3o e nivelamento do verniz, remo\u00e7\u00e3o de 99% de riscos profundos, remo\u00e7\u00e3o de 99% de riscos superficiais, regenera\u00e7\u00e3o de brilho intenso. Prote\u00e7\u00e3o: Vitrificador de 1 ano de prote\u00e7\u00e3o, vitrificador de pl\u00e1stico (2 anos de prote\u00e7\u00e3o), aplica\u00e7\u00e3o de verniz de motor, aplica\u00e7\u00e3o do GYEON CanCoat Q2, aplica\u00e7\u00e3o do V-Plastic Vonixx.",
+        "descricao": "Lavagem Premium Detalhada + descontaminação, polimento técnico e regeneração total do brilho. Remove 99% dos riscos. Vitrificador (1 ano), vitrificador de plástico (2 anos), verniz de motor. Aplicação GYEON CanCoat Q2.",
         "icone": "shield",
         "categoria": "moto",
         "precos": {
