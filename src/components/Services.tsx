@@ -66,13 +66,19 @@ const Services = () => {
       emoji: "🔧",
       gradient: "from-teal-50 to-teal-100",
       color: "teal"
-    },
-    higienizacao_residencial: {
+    },    higienizacao_residencial: {
       name: "Residencial",
       icon: <Home className="text-emerald-500" size={32} />,
       emoji: "🏠",
       gradient: "from-emerald-50 to-emerald-100",
       color: "emerald"
+    },
+    estofados: {
+      name: "Estofados",
+      icon: <Home className="text-purple-500" size={32} />,
+      emoji: "🛋️",
+      gradient: "from-purple-50 to-purple-100",
+      color: "purple"
     }
   };
 

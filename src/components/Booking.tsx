@@ -43,7 +43,7 @@ const Booking = () => {
   const [customerName, setCustomerName] = useState('');
   const [selectedCategory, setSelectedCategory] = useState("lavagem");
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [isAddingVehicle, setIsAddingVehicle] = useState(false);  
+  const [isAddingVehicle, setIsAddingVehicle] = useState(false);
   const [newVehicle, setNewVehicle] = useState<{
     name: string;
     type: VehicleType;
@@ -603,7 +603,7 @@ const Booking = () => {
                   />
                 </div>
                 
-                <div>
+                  <div>
                   <label className="block text-sm font-semibold mb-4 text-pitstop-darkGray">Tipo de Veículo</label>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <label className="flex items-center gap-3 cursor-pointer p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
@@ -636,8 +636,7 @@ const Booking = () => {
                     </label>
                   </div>
                 </div>
-                
-                {newVehicle.type === 'car' ? (
+                  {newVehicle.type === 'car' ? (
                   <div>
                     <label className="block text-sm font-medium mb-2">Porte do Veículo</label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -735,14 +734,14 @@ const Booking = () => {
                       ? 'border-pitstop-blue bg-gradient-to-br from-blue-50 to-white shadow-lg' 
                       : 'border-pitstop-silver/50 hover:border-pitstop-blue/70 bg-white'
                   }`}
-                  onClick={() => setSelectedVehicleId(vehicle.id)}
-                >
+                      onClick={() => setSelectedVehicleId(vehicle.id)}
+                    >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className={`p-2 rounded-lg ${selectedVehicleId === vehicle.id ? 'bg-pitstop-blue text-white' : 'bg-pitstop-silver/30 text-pitstop-darkGray'}`}>
-                      {vehicle.type === 'car' ? <Car size={20} /> : <Bike size={20} />}
+                      <div className={`p-2 rounded-lg ${selectedVehicleId === vehicle.id ? 'bg-pitstop-blue text-white' : 'bg-pitstop-silver/30 text-pitstop-darkGray'}`}>
+                        {vehicle.type === 'car' ? <Car size={20} /> : <Bike size={20} />}
+                      </div>
+                      <span className="font-semibold text-pitstop-darkGray">{vehicle.name}</span>
                     </div>
-                    <span className="font-semibold text-pitstop-darkGray">{vehicle.name}</span>
-                  </div>
                   <div className="text-sm text-pitstop-darkGray/70 mb-2">
                     <span className="font-medium">
                       {vehicle.type === 'car' ? `Porte: ${vehicle.size}` : vehicle.size}
@@ -804,7 +803,7 @@ const Booking = () => {
                   })}
                 </TabsList>
                 
-                {Object.entries(serviceCategories).map(([key, category]) => (
+                  {Object.entries(serviceCategories).map(([key, category]) => (
                   <TabsContent key={key} value={key} className="pt-6">
                     <h5 className="text-xl font-medium text-center mb-4">{category.name}</h5>
                     <p className="text-center text-pitstop-darkGray/80 mb-8 text-base">{category.description}</p>

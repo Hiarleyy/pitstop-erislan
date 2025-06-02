@@ -44,8 +44,7 @@ export const formatPrice = (value: number): string => {
 // Mapear dados do JSON para o formato usado no Booking
 export const getServiceCategories = (): ServiceCategories => {
   const categories: ServiceCategories = {};
-  
-  // Inicializar categorias
+    // Inicializar categorias
   const categoryMap: { [key: string]: { name: string; description: string } } = {
     lavagem: {
       name: "Lavagens",
@@ -70,6 +69,10 @@ export const getServiceCategories = (): ServiceCategories => {
     higienizacao_residencial: {
       name: "Residencial",
       description: "Serviços de higienização para residências"
+    },
+    estofados: {
+      name: "Estofados",
+      description: "Serviços de higienização e limpeza de estofados residenciais e veiculares"
     },
     moto: {
       name: "Motos",
