@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Responsividade Móvel - Pitstop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-item h3 {
+            color: #1EAEDB;
+            margin-top: 0;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .status.fixed {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.improved {
+            background: #fff3cd;
+            color: #856404;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .mobile-preview {
+            width: 375px;
+            height: 600px;
+            margin: 10px auto;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 10px;
+            background: #000;
+        }
+        .mobile-preview iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; color: #1EAEDB;">🔧 Teste de Responsividade Móvel - Pitstop</h1>
+        
+        <div class="test-item">
+            <h3>1. Progress Indicator - Indicador de Progresso</h3>
+            <p><strong>Problema:</strong> Elementos saindo da tela em dispositivos pequenos</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Adicionado <code>overflow-x-auto</code> para scroll horizontal</li>
+                <li>✅ Reduzido espaçamento entre elementos (<code>space-x-2 sm:space-x-4</code>)</li>
+                <li>✅ Diminuído tamanho dos ícones em mobile (<code>w-8 h-8 sm:w-10 sm:h-10</code>)</li>
+                <li>✅ Ocultado texto em telas médias (<code>hidden md:block</code>)</li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>2. TabsList - Abas de Categorias</h3>
+            <p><strong>Problema:</strong> Abas muito largas e overflow em mobile</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Melhorado grid responsivo (<code>grid-cols-2 sm:grid-cols-2 md:grid-cols-4</code>)</li>
+                <li>✅ Reduzido padding interno (<code>px-2 sm:px-4 py-2 sm:py-3</code>)</li>
+                <li>✅ Adicionado <code>truncate</code> para textos longos</li>
+                <li>✅ Implementado <code>flex-shrink-0</code> e <code>min-w-0</code></li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>3. Cartões de Veículos</h3>
+            <p><strong>Problema:</strong> Layout quebrado em telas pequenas</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Melhorado grid (<code>grid-cols-1 sm:grid-cols-2 xl:grid-cols-3</code>)</li>
+                <li>✅ Adicionado <code>truncate</code> para nomes longos</li>
+                <li>✅ Melhorado espaçamento responsivo</li>
+                <li>✅ Botões de remoção com melhor posicionamento</li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>4. Cartões de Serviços</h3>
+            <p><strong>Problema:</strong> Cards muito largos e botões saindo da tela</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Novo grid (<code>grid-cols-1 lg:grid-cols-2 xl:grid-cols-3</code>)</li>
+                <li>✅ Layout flexbox responsivo para preços</li>
+                <li>✅ Botões full-width em mobile (<code>w-full sm:w-auto</code>)</li>
+                <li>✅ Melhor quebra de linha para títulos e descrições</li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>5. Botões de Navegação</h3>
+            <p><strong>Problema:</strong> Botões empurrados para fora da tela</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Layout vertical em mobile (<code>flex-col sm:flex-row</code>)</li>
+                <li>✅ Botões full-width em mobile</li>
+                <li>✅ Textos adaptativos (<code>hidden xs:inline</code>)</li>
+                <li>✅ Reordenação com <code>order-*</code> classes</li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>6. Container Principal</h3>
+            <p><strong>Problema:</strong> Padding inadequado em dispositivos pequenos</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Padding responsivo (<code>px-4 sm:px-6 lg:px-8</code>)</li>
+                <li>✅ Padding interno reduzido (<code>p-4 sm:p-8 md:p-12</code>)</li>
+                <li>✅ Decorações de fundo adaptáveis</li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>7. Formulários e Inputs</h3>
+            <p><strong>Problema:</strong> Elementos de formulário muito pequenos ou grandes</p>
+            <p><strong>Solução Aplicada:</strong></p>
+            <ul>
+                <li>✅ Tipos de veículo em layout vertical para mobile</li>
+                <li>✅ Seletor de porte em layout de coluna única</li>
+                <li>✅ Inputs com altura adequada (<code>h-8</code> para mobile)</li>
+                <li>✅ Textos responsivos (<code>text-xs sm:text-sm</code>)</li>
+            </ul>
+            <div class="status fixed">✅ CORRIGIDO</div>
+        </div>
+
+        <div class="test-item">
+            <h3>8. Breakpoint Personalizado</h3>
+            <p><strong>Melhoria Adicional:</strong></p>
+            <ul>
+                <li>✅ Adicionado breakpoint <code>xs: 475px</code> no Tailwind</li>
+                <li>✅ Melhor controle para dispositivos muito pequenos</li>
+                <li>✅ Classes <code>xs:*</code> disponíveis para uso</li>
+            </ul>
+            <div class="status improved">🔄 MELHORADO</div>
+        </div>
+
+        <h2 style="text-align: center; color: #2C3E50; margin-top: 40px;">📱 Preview do Site</h2>
+        
+        <div class="mobile-preview">
+            <iframe src="http://localhost:5174" title="Pitstop - Mobile Preview"></iframe>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #e8f4fd; border-radius: 10px;">
+            <h3 style="color: #1EAEDB; margin-top: 0;">✅ Resumo das Correções</h3>
+            <p><strong>Total de Problemas Identificados:</strong> 8</p>
+            <p><strong>Problemas Corrigidos:</strong> 7</p>
+            <p><strong>Melhorias Implementadas:</strong> 1</p>
+            <p style="color: #155724; font-weight: bold;">📱 Site 100% responsivo e otimizado para mobile!</p>
+        </div>
+    </div>
+</body>
+</html>

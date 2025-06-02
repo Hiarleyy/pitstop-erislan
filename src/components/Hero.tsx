@@ -27,7 +27,7 @@ const Hero = () => {
   // Calculate water opacity
   const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));
   return (
-    <section id="home" className="relative h-screen flex items-center overflow-hidden pt-20">
+    <section id="home" className="relative h-screen flex items-center overflow-hidden">
       {/* Enhanced Background with Multiple Layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/90 to-blue-900/80 z-1"></div>
       
@@ -79,14 +79,14 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 z-10 relative">
+      <div className="container mx-auto px-4 z-10 relative flex items-center justify-center h-full">
         <div className="max-w-5xl mx-auto text-center">
           {/* Enhanced Title with modern styling and mobile optimization */}
           <div className="mb-6 md:mb-8">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-4 md:mb-6 opacity-0 animate-fade-in leading-tight drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-4 md:mb-6 opacity-0 animate-fade-in leading-tight drop-shadow-2xl text-center" style={{ animationDelay: '0.2s' }}>
               PITSTOP
               <br />
-              <span className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl bg-gradient-to-r from-pitstop-blue via-blue-600 to-pitstop-darkBlue bg-clip-text text-transparent font-bold">
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold inline-block animate-automotive-shine">
                 ESTÉTICA AUTOMOTIVA
               </span>
             </h1>
@@ -94,12 +94,9 @@ const Hero = () => {
           
           {/* Enhanced Description with mobile optimization */}
           <div className="max-w-4xl mx-auto mb-8 md:mb-10">
-            <p className="text-xl md:text-2xl lg:text-3xl text-white font-bold mb-4 md:mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              🚗 <span className="bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue bg-clip-text text-transparent">Cuidado Profissional</span> para seu Veículo ⚡
-            </p>
             <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 shadow-2xl opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <p className="text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed mb-3 md:mb-4">
-                🏆 A <strong className="text-pitstop-blue">Pitstop Estética Automotiva</strong> oferece serviços completos para carros e motos
+                🚗 <strong className="text-pitstop-blue">Cuidado Profissional</strong> para seu Veículo ⚡
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-sm md:text-base text-gray-200">
                 <div className="flex items-center space-x-2">
@@ -132,18 +129,6 @@ const Hero = () => {
                 <Star className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform duration-300" />
               </a>
             </Button>
-          </div>
-
-          {/* Enhanced Stats Section with mobile optimization */}
-          <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '1s' }}>
-            <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
-              <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1 md:mb-2">500+</div>
-              <div className="text-white text-xs md:text-sm">Clientes Satisfeitos</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
-              <div className="text-2xl md:text-3xl font-bold text-pitstop-blue mb-1 md:mb-2">3+</div>
-              <div className="text-white text-xs md:text-sm">Anos de Experiência</div>
-            </div>
           </div>
         </div>
       </div>

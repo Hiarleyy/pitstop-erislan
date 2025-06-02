@@ -424,9 +424,7 @@ const Booking = () => {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [toast]);
-
-  // Função para renderizar o indicador de progresso
+  }, [toast]);  // Função para renderizar o indicador de progresso
   const renderProgressIndicator = () => {
     const steps = [
       { number: 1, title: 'Dados Pessoais', icon: User },
@@ -437,18 +435,18 @@ const Booking = () => {
     ];
 
     return (
-      <div className="flex justify-center mb-8">
-        <div className="flex items-center space-x-4">
+      <div className="flex justify-center mb-8 px-2">
+        <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto max-w-full">
           {steps.map((step, index) => {
             const isActive = currentStep === step.number;
             const isCompleted = currentStep > step.number;
             const IconComponent = step.icon;
             
             return (
-              <div key={step.number} className="flex items-center">
+              <div key={step.number} className="flex items-center flex-shrink-0">
                 <div 
-                  className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300 ${
-                    isActive 
+                  className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 transition-all duration-300 ${
+                    isActive
                       ? 'bg-pitstop-blue border-pitstop-blue text-white' 
                       : isCompleted 
                         ? 'bg-green-500 border-green-500 text-white'
@@ -456,20 +454,20 @@ const Booking = () => {
                   }`}
                 >
                   {isCompleted ? (
-                    <Check size={16} />
+                    <Check size={14} className="sm:w-4 sm:h-4" />
                   ) : (
-                    <IconComponent size={16} />
+                    <IconComponent size={14} className="sm:w-4 sm:h-4" />
                   )}
                 </div>
-                <div className="ml-2 hidden sm:block">
-                  <div className={`text-sm font-medium ${
+                <div className="ml-1 sm:ml-2 hidden md:block">
+                  <div className={`text-xs sm:text-sm font-medium whitespace-nowrap ${
                     isActive ? 'text-pitstop-blue' : isCompleted ? 'text-green-600' : 'text-gray-500'
                   }`}>
                     {step.title}
                   </div>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className={`w-8 h-0.5 mx-4 ${
+                  <div className={`w-4 sm:w-8 h-0.5 mx-2 sm:mx-4 ${
                     isCompleted ? 'bg-green-500' : 'bg-gray-300'
                   }`} />
                 )}
@@ -552,28 +550,28 @@ const Booking = () => {
                   Adicionar Outro
                 </Button>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
                 {vehicles.map(vehicle => (
                   <div 
                     key={vehicle.id} 
-                    className="group p-5 border-2 border-pitstop-silver/50 hover:border-pitstop-blue/70 bg-white rounded-xl transition-all duration-300 hover:shadow-lg"
+                    className="group p-4 sm:p-5 border-2 border-pitstop-silver/50 hover:border-pitstop-blue/70 bg-white rounded-xl transition-all duration-300 hover:shadow-lg"
                   >
                     <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-pitstop-silver/30 text-pitstop-darkGray">
-                          {vehicle.type === 'car' ? <Car size={20} /> : <Bike size={20} />}
+                      <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                        <div className="p-2 rounded-lg bg-pitstop-silver/30 text-pitstop-darkGray flex-shrink-0">
+                          {vehicle.type === 'car' ? <Car size={18} className="sm:w-5 sm:h-5" /> : <Bike size={18} className="sm:w-5 sm:h-5" />}
                         </div>
-                        <span className="font-semibold text-pitstop-darkGray">{vehicle.name}</span>
+                        <span className="font-semibold text-pitstop-darkGray truncate text-sm sm:text-base">{vehicle.name}</span>
                       </div>
                       <button 
-                        className="text-red-400 hover:text-red-600 transition-colors p-1 rounded-lg hover:bg-red-50"
+                        className="text-red-400 hover:text-red-600 transition-colors p-1 rounded-lg hover:bg-red-50 flex-shrink-0 ml-2"
                         onClick={() => handleRemoveVehicle(vehicle.id)}
                         title="Remover veículo"
                       >
-                        ❌
+                        <span className="text-xs">❌</span>
                       </button>
                     </div>
-                    <div className="text-sm text-pitstop-darkGray/70">
+                    <div className="text-xs sm:text-sm text-pitstop-darkGray/70">
                       <span className="font-medium">
                         {vehicle.type === 'car' ? `Porte: ${vehicle.size}` : vehicle.size}
                       </span>
@@ -605,8 +603,8 @@ const Booking = () => {
                 
                 <div>
                   <label className="block text-sm font-semibold mb-4 text-pitstop-darkGray">Tipo de Veículo</label>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <label className="flex items-center gap-3 cursor-pointer p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
+                  <div className="flex flex-col gap-3 sm:gap-4">
+                    <label className="flex items-center gap-3 cursor-pointer p-3 sm:p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
                       <input
                         type="radio"
                         checked={newVehicle.type === 'car'}
@@ -615,12 +613,12 @@ const Booking = () => {
                           type: 'car', 
                           size: 'Pequeno'
                         })}
-                        className="w-5 h-5 text-pitstop-blue"
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-pitstop-blue flex-shrink-0"
                       />
-                      <Car size={24} className="text-pitstop-blue" />
-                      <span className="font-medium">Carro</span>
+                      <Car size={20} className="text-pitstop-blue flex-shrink-0 sm:w-6 sm:h-6" />
+                      <span className="font-medium text-sm sm:text-base">Carro</span>
                     </label>
-                    <label className="flex items-center gap-3 cursor-pointer p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
+                    <label className="flex items-center gap-3 cursor-pointer p-3 sm:p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
                       <input
                         type="radio"
                         checked={newVehicle.type === 'motorcycle'}
@@ -629,10 +627,10 @@ const Booking = () => {
                           type: 'motorcycle',
                           size: 'Biz, Pop'
                         })}
-                        className="w-5 h-5 text-pitstop-blue"
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-pitstop-blue flex-shrink-0"
                       />
-                      <Bike size={24} className="text-pitstop-blue" />
-                      <span className="font-medium">Moto</span>
+                      <Bike size={20} className="text-pitstop-blue flex-shrink-0 sm:w-6 sm:h-6" />
+                      <span className="font-medium text-sm sm:text-base">Moto</span>
                     </label>
                   </div>
                 </div>
@@ -640,12 +638,12 @@ const Booking = () => {
                 {newVehicle.type === 'car' ? (
                   <div>
                     <label className="block text-sm font-medium mb-2">Porte do Veículo</label>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-1 gap-3">
                       {['Pequeno', 'Médio', 'Grande'].map((size) => (
                         <label 
                           key={size}
                           className={`
-                            p-3 rounded-lg border cursor-pointer text-center
+                            p-3 rounded-lg border cursor-pointer
                             ${newVehicle.size === size 
                               ? 'border-pitstop-blue bg-blue-50' 
                               : 'border-gray-200 hover:border-pitstop-blue/50'}
@@ -659,8 +657,8 @@ const Booking = () => {
                             onChange={() => setNewVehicle({...newVehicle, size: size})}
                             className="hidden"
                           />
-                          <div className="font-medium">{size}</div>
-                          <div className="text-xs text-pitstop-darkGray/70 mt-1">
+                          <div className="font-medium text-sm sm:text-base">{size}</div>
+                          <div className="text-xs text-pitstop-darkGray/70 mt-1 leading-tight">
                             {vehicleSizeExamples[size as keyof typeof vehicleSizeExamples]}
                           </div>
                         </label>
@@ -674,7 +672,7 @@ const Booking = () => {
                       id="motorcycle-model"
                       value={newVehicle.size}
                       onChange={(e) => setNewVehicle({...newVehicle, size: e.target.value})}
-                      className="w-full p-2 border border-gray-300 rounded-md"
+                      className="w-full p-2 border border-gray-300 rounded-md text-sm sm:text-base"
                     >
                       <option value="Biz, Pop">Biz, Pop</option>
                       <option value="Titan, Fan, Bros 125/150/160">Titan, Fan, Bros 125/150/160</option>
@@ -726,29 +724,29 @@ const Booking = () => {
             <label className="block text-sm font-semibold mb-3 text-pitstop-darkGray">
               Selecione o veículo para configurar serviços:
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
               {vehicles.map(vehicle => (
                 <div 
                   key={vehicle.id} 
-                  className={`group p-5 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  className={`group p-4 sm:p-5 border-2 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                     selectedVehicleId === vehicle.id 
                       ? 'border-pitstop-blue bg-gradient-to-br from-blue-50 to-white shadow-lg' 
                       : 'border-pitstop-silver/50 hover:border-pitstop-blue/70 bg-white'
                   }`}
                   onClick={() => setSelectedVehicleId(vehicle.id)}
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-3">
                     <div className={`p-2 rounded-lg ${selectedVehicleId === vehicle.id ? 'bg-pitstop-blue text-white' : 'bg-pitstop-silver/30 text-pitstop-darkGray'}`}>
-                      {vehicle.type === 'car' ? <Car size={20} /> : <Bike size={20} />}
+                      {vehicle.type === 'car' ? <Car size={18} className="sm:w-5 sm:h-5" /> : <Bike size={18} className="sm:w-5 sm:h-5" />}
                     </div>
-                    <span className="font-semibold text-pitstop-darkGray">{vehicle.name}</span>
+                    <span className="font-semibold text-pitstop-darkGray text-sm sm:text-base truncate flex-1">{vehicle.name}</span>
                   </div>
-                  <div className="text-sm text-pitstop-darkGray/70 mb-2">
+                  <div className="text-xs sm:text-sm text-pitstop-darkGray/70 mb-2">
                     <span className="font-medium">
                       {vehicle.type === 'car' ? `Porte: ${vehicle.size}` : vehicle.size}
                     </span>
                   </div>
-                  <div className="text-sm">
+                  <div className="text-xs sm:text-sm">
                     {vehicle.services.length === 0 
                       ? <span className="text-amber-600 font-medium">⚠️ Nenhum serviço selecionado</span>
                       : <span className="text-green-600 font-medium">✅ {vehicle.services.length} serviço(s) selecionado(s)</span>
@@ -781,7 +779,7 @@ const Booking = () => {
                 }}
                 className="mt-6"
               >
-                <TabsList className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-6 h-full py-2 bg-gray-100 rounded-xl">
+                <TabsList className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-2 mb-6 h-auto py-2 bg-gray-100 rounded-xl overflow-x-auto">
                   {Object.entries(serviceCategories).map(([key, category]) => {
                     const selectedVehicle = getSelectedVehicle();
                     const isMotorcycleCategory = key === 'moto' || key === 'servicos_adicionais_moto';
@@ -794,11 +792,11 @@ const Booking = () => {
                         key={key} 
                         value={key} 
                         disabled={isDisabled}
-                        className={`px-4 py-3 text-base font-medium transition-all ${
+                        className={`px-2 sm:px-4 py-2 sm:py-3 text-sm sm:text-base font-medium transition-all flex-shrink-0 min-w-0 ${
                           isDisabled ? 'opacity-50 cursor-not-allowed' : ''
                         }`}
                       >
-                        {category.name}
+                        <span className="truncate">{category.name}</span>
                       </TabsTrigger>
                     );
                   })}
@@ -809,7 +807,7 @@ const Booking = () => {
                     <h5 className="text-xl font-medium text-center mb-4">{category.name}</h5>
                     <p className="text-center text-pitstop-darkGray/80 mb-8 text-base">{category.description}</p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                       {category.services.map(service => {
                         const selectedVehicle = getSelectedVehicle();
                         const isServiceSelected = selectedVehicle?.services.some(s => s.id === service.id);
@@ -821,26 +819,26 @@ const Booking = () => {
                         return (
                           <div 
                             key={service.id} 
-                            className={`flex p-4 border rounded-lg transition-all ${
+                            className={`flex flex-col p-3 sm:p-4 border rounded-lg transition-all ${
                               isServiceSelected 
                                 ? 'border-green-500 bg-green-50' 
                                 : 'border-pitstop-silver/30 hover:border-pitstop-blue/50 hover:shadow-sm'
                             }`}
                           >
                             <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <h6 className="font-medium text-lg">{service.name}</h6>
-                                <div className="font-semibold text-pitstop-blue">
+                              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                                <h6 className="font-medium text-base sm:text-lg leading-tight">{service.name}</h6>
+                                <div className="font-semibold text-pitstop-blue text-sm sm:text-base flex-shrink-0">
                                   {typeof servicePrice === 'number' ? formatPrice(servicePrice) : servicePrice}
                                 </div>
                               </div>
-                              <p className="text-pitstop-darkGray/80 text-sm mt-1">
+                              <p className="text-pitstop-darkGray/80 text-xs sm:text-sm mt-1 mb-3">
                                 {service.description}
                               </p>
                               
                               {service.requer_quantidade && isServiceSelected && selectedVehicle && (
                                 <div className="mt-3 mb-3">
-                                  <label className="block text-sm font-medium mb-1">Quantidade</label>
+                                  <label className="block text-xs sm:text-sm font-medium mb-1">Quantidade</label>
                                   <div className="flex items-center gap-2 max-w-32">
                                     <Input
                                       type="number"
@@ -851,9 +849,9 @@ const Booking = () => {
                                         const newQuantity = Math.max(1, parseInt(e.target.value) || 1);
                                         handleQuantityChange(selectedVehicle.id, service.id, newQuantity);
                                       }}
-                                      className="text-center"
+                                      className="text-center text-sm h-8"
                                     />
-                                    <span className="text-sm text-pitstop-darkGray/70">unidade(s)</span>
+                                    <span className="text-xs text-pitstop-darkGray/70 whitespace-nowrap">unidade(s)</span>
                                   </div>
                                 </div>
                               )}
@@ -863,7 +861,7 @@ const Booking = () => {
                                   <Button 
                                     variant="outline" 
                                     size="sm" 
-                                    className="text-red-500 border-red-500 hover:bg-red-50"
+                                    className="text-red-500 border-red-500 hover:bg-red-50 text-xs sm:text-sm w-full sm:w-auto"
                                     onClick={() => handleRemoveService(selectedVehicleId, service.id)}
                                   >
                                     Remover
@@ -872,7 +870,7 @@ const Booking = () => {
                                   <Button 
                                     variant="outline" 
                                     size="sm"
-                                    className="text-green-600 border-green-600 hover:bg-green-50"
+                                    className="text-green-600 border-green-600 hover:bg-green-50 text-xs sm:text-sm w-full sm:w-auto"
                                     onClick={() => handleAddService(selectedVehicleId, key, service)}
                                   >
                                     Adicionar
@@ -1054,33 +1052,35 @@ const Booking = () => {
   // Função para renderizar os botões de navegação
   const renderNavigationButtons = () => {
     return (
-      <div className="flex justify-between items-center mt-8">
-        <div>
+      <div className="flex flex-col sm:flex-row justify-between items-center mt-8 gap-4 sm:gap-0">
+        <div className="order-2 sm:order-1">
           {currentStep > 1 && (
             <Button
               variant="outline"
               onClick={prevStep}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 w-full sm:w-auto"
             >
-              <ArrowLeft size={18} />
-              Anterior
+              <ArrowLeft size={16} />
+              <span className="hidden xs:inline">Anterior</span>
+              <span className="xs:hidden">Voltar</span>
             </Button>
           )}
         </div>
         
-        <div className="text-sm text-pitstop-darkGray/60">
+        <div className="text-sm text-pitstop-darkGray/60 order-1 sm:order-2">
           Etapa {currentStep} de {totalSteps}
         </div>
         
-        <div>
+        <div className="order-3">
           {currentStep < totalSteps && (
             <Button
               onClick={handleNextStep}
-              className="flex items-center gap-2 bg-pitstop-blue hover:bg-pitstop-darkBlue"
+              className="flex items-center gap-2 bg-pitstop-blue hover:bg-pitstop-darkBlue w-full sm:w-auto"
               disabled={!validateStep(currentStep)}
             >
-              Próximo
-              <ArrowRight size={18} />
+              <span className="hidden xs:inline">Próximo</span>
+              <span className="xs:hidden">Avançar</span>
+              <ArrowRight size={16} />
             </Button>
           )}
         </div>
@@ -1096,24 +1096,24 @@ const Booking = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-pitstop-darkBlue/15 to-transparent rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-pitstop-darkGray mb-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pitstop-darkGray mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-pitstop-blue to-pitstop-darkBlue bg-clip-text text-transparent">
               Agende seu Serviço
             </span>
           </h2>
-          <p className="text-xl text-pitstop-darkGray/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-pitstop-darkGray/80 max-w-2xl mx-auto leading-relaxed px-4">
             Siga os passos para agendar seus serviços de forma rápida e prática.
             <span className="font-semibold text-pitstop-blue"> Vamos começar!</span>
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-white/50 relative overflow-hidden">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-4 sm:p-8 md:p-12 border border-white/50 relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-pitstop-blue/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-pitstop-darkBlue/10 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
+            <div className="absolute top-0 right-0 w-32 sm:w-64 h-32 sm:h-64 bg-gradient-to-br from-pitstop-blue/10 to-transparent rounded-full -translate-y-16 sm:-translate-y-32 translate-x-16 sm:translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-24 sm:w-48 h-24 sm:h-48 bg-gradient-to-tr from-pitstop-darkBlue/10 to-transparent rounded-full translate-y-12 sm:translate-y-24 -translate-x-12 sm:-translate-x-24"></div>
             
             <div className="relative">
               {/* Progress Indicator */}
