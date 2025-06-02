@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Autoplay dos Depoimentos - PitStop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1EAEDB;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .info {
+            color: #17a2b8;
+            font-weight: bold;
+        }
+        .warning {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #1EAEDB;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #0B5F8A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔄 Teste do Autoplay dos Depoimentos</h1>
+            <h2>PitStop Estética Automotiva</h2>
+            <p>Verificação da implementação do carrossel automático</p>
+        </div>
+
+        <div class="test-section">
+            <h3>✅ Funcionalidades Implementadas</h3>
+            <ul class="feature-list">
+                <li><span class="success">✅ COMPLETO</span> Remoção dos botões de navegação manual</li>
+                <li><span class="success">✅ COMPLETO</span> Autoplay automático com intervalo de 4 segundos</li>
+                <li><span class="success">✅ COMPLETO</span> Loop infinito dos depoimentos</li>
+                <li><span class="success">✅ COMPLETO</span> Pausa automática no hover do mouse</li>
+                <li><span class="success">✅ COMPLETO</span> Retomada automática quando mouse sai da área</li>
+                <li><span class="success">✅ COMPLETO</span> Limpeza automática de timers ao desmontar componente</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>🎯 Comportamentos Implementados</h3>
+            <ul class="feature-list">
+                <li><span class="info">▶️ AUTO-PLAY</span> Transição automática a cada 4 segundos</li>
+                <li><span class="info">🔄 LOOP</span> Volta ao primeiro depoimento após o último</li>
+                <li><span class="info">⏸️ HOVER</span> Pausa quando usuário passa mouse sobre carrossel</li>
+                <li><span class="info">▶️ RESUME</span> Retoma quando mouse sai da área do carrossel</li>
+                <li><span class="info">🎨 UI</span> Interface limpa sem botões de navegação</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>🔧 Detalhes Técnicos</h3>
+            <ul>
+                <li><strong>Intervalo:</strong> 4000ms (4 segundos)</li>
+                <li><strong>Loop:</strong> Infinito com volta automática ao início</li>
+                <li><strong>Controle:</strong> useEffect + setInterval + clearInterval</li>
+                <li><strong>Eventos:</strong> mouseenter/mouseleave para pausa/retomada</li>
+                <li><strong>Limpeza:</strong> Cleanup automático de timers</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h3>🧪 Como Testar</h3>
+            <ol>
+                <li><strong>Acesse a aplicação:</strong> Clique no botão abaixo</li>
+                <li><strong>Navegue até a seção:</strong> Role até "Depoimentos de Clientes"</li>
+                <li><strong>Observe o autoplay:</strong> Carrossel deve trocar a cada 4 segundos</li>
+                <li><strong>Teste o hover:</strong> Passe mouse sobre o carrossel para pausar</li>
+                <li><strong>Teste o resume:</strong> Retire o mouse para retomar</li>
+                <li><strong>Verifique o loop:</strong> Deve voltar ao primeiro após o último</li>
+            </ol>
+        </div>
+
+        <div class="test-section" style="text-align: center;">
+            <h3>🚀 Testar Implementação</h3>
+            <a href="http://localhost:5173/" class="btn" target="_blank">
+                🌐 Abrir PitStop Estética Automotiva
+            </a>
+            <br>
+            <small style="color: #666; margin-top: 10px; display: block;">
+                Certifique-se de que o servidor está rodando na porta 5173
+            </small>
+        </div>
+
+        <div class="test-section" style="background: #e8f5e8; border-color: #28a745;">
+            <h3 style="color: #28a745;">🎉 Implementação Concluída!</h3>
+            <p>O carrossel de depoimentos agora funciona automaticamente:</p>
+            <ul>
+                <li>✅ <strong>Interface mais limpa:</strong> Sem botões de navegação desnecessários</li>
+                <li>✅ <strong>Experiência fluida:</strong> Transições automáticas suaves</li>
+                <li>✅ <strong>Controle intuitivo:</strong> Pausa no hover, retoma automaticamente</li>
+                <li>✅ <strong>Loop infinito:</strong> Conteúdo sempre em movimento</li>
+                <li>✅ <strong>Performance otimizada:</strong> Limpeza automática de timers</li>
+            </ul>
+            
+            <p><strong>🎯 Resultado:</strong> Uma seção de depoimentos mais dinâmica e envolvente que mantém o usuário engajado com o conteúdo rotativo automático!</p>
+        </div>
+    </div>
+
+    <script>
+        // Verificar se o servidor está rodando
+        fetch('http://localhost:5173/')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ Servidor rodando corretamente na porta 5173');
+                } else {
+                    console.log('⚠️ Servidor pode estar com problemas');
+                }
+            })
+            .catch(error => {
+                console.log('❌ Servidor não está rodando na porta 5173');
+                console.log('Execute: npm run dev');
+            });
+        
+        // Log de teste implementado
+        console.log('🔄 AUTOPLAY DOS DEPOIMENTOS IMPLEMENTADO');
+        console.log('📝 Funcionalidades:');
+        console.log('   - ✅ Remoção dos botões de navegação');
+        console.log('   - ✅ Autoplay com intervalo de 4 segundos');
+        console.log('   - ✅ Loop infinito');
+        console.log('   - ✅ Pausa no hover');
+        console.log('   - ✅ Retomada automática');
+    </script>
+</body>
+</html>

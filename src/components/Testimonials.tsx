@@ -1,16 +1,56 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote, User } from 'lucide-react';
+import { type CarouselApi } from "@/components/ui/carousel";
 
 const Testimonials = () => {
+  const [api, setApi] = React.useState<CarouselApi>()
+  const autoplayRef = useRef<NodeJS.Timeout>()
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    // Função para auto-play
+    const startAutoplay = () => {
+      autoplayRef.current = setInterval(() => {
+        if (api.canScrollNext()) {
+          api.scrollNext()
+        } else {
+          api.scrollTo(0) // Volta para o primeiro slide
+        }
+      }, 4000) // 4 segundos entre cada transição
+    }
+
+    // Função para parar auto-play
+    const stopAutoplay = () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current)
+      }
+    }
+
+    // Iniciar auto-play
+    startAutoplay()
+
+    // Parar auto-play quando hover
+    const container = api.containerNode()
+    container.addEventListener('mouseenter', stopAutoplay)
+    container.addEventListener('mouseleave', startAutoplay)
+
+    return () => {
+      stopAutoplay()
+      container.removeEventListener('mouseenter', stopAutoplay)
+      container.removeEventListener('mouseleave', startAutoplay)
+    }
+  }, [api])
+
   const testimonials = [
     {
       name: "Maria Silva",
@@ -80,7 +120,14 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <Carousel className="max-w-7xl mx-auto">
+        <Carousel 
+          setApi={setApi}
+          className="max-w-7xl mx-auto"
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
           <CarouselContent className="-ml-1 md:-ml-2 lg:-ml-4">
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="pl-1 md:pl-2 lg:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
@@ -132,8 +179,6 @@ const Testimonials = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="bg-white/90 backdrop-blur-sm border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300 text-blue-600 shadow-lg left-2 md:left-4 w-10 h-10 md:w-12 md:h-12" />
-          <CarouselNext className="bg-white/90 backdrop-blur-sm border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-300 text-blue-600 shadow-lg right-2 md:right-4 w-10 h-10 md:w-12 md:h-12" />
         </Carousel>
         
         {/* Statistics Section */}
