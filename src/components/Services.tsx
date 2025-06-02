@@ -68,7 +68,7 @@ const Services = () => {
       color: "teal"
     },
     higienizacao_residencial: {
-      name: "Higienização Residencial",
+      name: "Residencial",
       icon: <Home className="text-emerald-500" size={32} />,
       emoji: "🏠",
       gradient: "from-emerald-50 to-emerald-100",

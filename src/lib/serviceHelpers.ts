@@ -68,7 +68,7 @@ export const getServiceCategories = (): ServiceCategories => {
       description: "Serviços adicionais e personalizados"
     },
     higienizacao_residencial: {
-      name: "Higienização Residencial",
+      name: "Residencial",
       description: "Serviços de higienização para residências"
     },
     moto: {

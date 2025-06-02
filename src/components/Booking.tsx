@@ -605,7 +605,7 @@ const Booking = () => {
                 
                 <div>
                   <label className="block text-sm font-semibold mb-4 text-pitstop-darkGray">Tipo de Veículo</label>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <label className="flex items-center gap-3 cursor-pointer p-4 rounded-xl border-2 border-pitstop-silver/50 hover:border-pitstop-blue/50 transition-all duration-300 bg-white">
                       <input
                         type="radio"

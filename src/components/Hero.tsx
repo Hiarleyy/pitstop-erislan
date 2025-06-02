@@ -141,10 +141,6 @@ const Hero = () => {
               <div className="text-white text-xs md:text-sm">Clientes Satisfeitos</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
-              <div className="text-2xl md:text-3xl font-bold text-pitstop-blue mb-1 md:mb-2">5⭐</div>
-              <div className="text-white text-xs md:text-sm">Avaliação Média</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-lg md:rounded-xl p-4 md:p-6 border border-white/20">
               <div className="text-2xl md:text-3xl font-bold text-pitstop-blue mb-1 md:mb-2">3+</div>
               <div className="text-white text-xs md:text-sm">Anos de Experiência</div>
             </div>
