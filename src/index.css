@@ -251,10 +251,9 @@
     rgba(255, 255, 255, 0.9) 85%,
     rgba(56, 189, 248, 0.8) 100%
   );
-  background-size: 400% 100%;
-  background-clip: text;
+  background-size: 400% 100%;  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: automotive-shine 4s ease-in-out infinite;
+  animation: automotive-shine 6s ease-in-out infinite;
   filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
 }

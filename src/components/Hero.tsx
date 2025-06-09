@@ -93,7 +93,7 @@ const Hero = () => {
           <div className="max-w-4xl mx-auto mb-8 md:mb-10">
             <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <p className="text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed mb-3 md:mb-4">
-                , <strong className="text-pitstop-blue">Cuidado Profissional</strong> para seu Veículo ⚡
+                 <strong className="text-pitstop-blue">Cuidado Profissional</strong> para seu Veículo ⚡
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-sm md:text-base text-gray-200">
                 <div className="flex items-center space-x-2">
