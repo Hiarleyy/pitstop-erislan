@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigação: Menu Mobile Overlay - Pitstop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            min-height: 100vh;
+        }
+
+        /* Simulating the current Navbar structure */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 8px 0;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1EAEDB;
+        }
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* CURRENT MOBILE MENU STRUCTURE - PROBLEM AREA */
+        .mobile-menu {
+            /* This is the current z-index that was changed to 9999 */
+            z-index: 9999; 
+            position: absolute;
+            top: 100%; /* This positions it right below the navbar */
+            left: 0;
+            width: 100%;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(-16px);
+            pointer-events: none;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .mobile-menu-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 24px 16px;
+        }
+
+        .mobile-menu-inner {
+            max-width: 384px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #374151;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+            background: transparent;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+
+        .cta-phone {
+            background: linear-gradient(to right, #10b981, #059669);
+            color: white;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-whatsapp {
+            background: linear-gradient(to right, #10d993, #0d9488);
+            color: white;
+            box-shadow: 0 4px 14px rgba(16, 217, 147, 0.3);
+        }
+
+        /* MAIN CONTENT - HERO SECTION */
+        .hero-section {
+            margin-top: 80px; /* Account for fixed navbar */
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #1e3a8a, #1e40af, #1EAEDB);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background-image: url('/img/COMBOPREMIUM-HILUX-1.JPG');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4) contrast(1.1);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 32px 16px;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #ffffff, #a5f3fc, #dbeafe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+            color: #1EAEDB;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-height: 48px;
+        }
+
+        .hero-button-primary {
+            background: linear-gradient(to right, #1EAEDB, #0B5F8A, #1e40af);
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 174, 219, 0.3);
+        }
+
+        .hero-button-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* INVESTIGATION OVERLAY */
+        .investigation-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 320px;
+            z-index: 10000;
+            font-size: 14px;
+        }
+
+        .z-index-test {
+            margin: 8px 0;
+            padding: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .test-controls {
+            margin-top: 16px;
+        }
+
+        .test-button {
+            background: #1EAEDB;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 4px 0;
+            width: 100%;
+        }
+
+        /* POTENTIAL CONFLICT ELEMENTS */
+        .background-element {
+            position: fixed;
+            background: rgba(255, 0, 0, 0.3);
+            border: 2px solid red;
+            z-index: 60; /* This simulates elements that might conflict */
+            pointer-events: none;
+        }
+
+        .conflict-element-1 {
+            top: 100px;
+            left: 50px;
+            width: 200px;
+            height: 100px;
+        }
+
+        .conflict-element-2 {
+            top: 150px;
+            right: 50px;
+            width: 150px;
+            height: 80px;
+        }
+
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+                gap: 48px;
+            }
+            
+            .mobile-controls {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Investigation Panel -->
+    <div class="investigation-panel">
+        <h3>🔍 Menu Mobile Investigation</h3>
+        <div class="z-index-test">
+            <strong>Navbar Z-Index:</strong> 50
+        </div>
+        <div class="z-index-test">
+            <strong>Mobile Menu Z-Index:</strong> <span id="menu-z-index">9999</span>
+        </div>
+        <div class="z-index-test">
+            <strong>Hero Content Z-Index:</strong> 10
+        </div>
+        <div class="z-index-test">
+            <strong>Conflict Elements Z-Index:</strong> 60
+        </div>
+        
+        <div class="test-controls">
+            <button class="test-button" onclick="toggleMenu()">Toggle Menu</button>
+            <button class="test-button" onclick="changeMenuZIndex(50)">Set Menu Z-Index: 50</button>
+            <button class="test-button" onclick="changeMenuZIndex(100)">Set Menu Z-Index: 100</button>
+            <button class="test-button" onclick="changeMenuZIndex(9999)">Set Menu Z-Index: 9999</button>
+            <button class="test-button" onclick="toggleConflictElements()">Toggle Conflict Elements</button>
+        </div>
+        
+        <div style="margin-top: 16px; font-size: 12px; color: #ccc;">
+            <strong>Status:</strong> <span id="menu-status">Fechado</span><br>
+            <strong>Position:</strong> absolute, top: 100%<br>
+            <strong>Current Issue:</strong> Menu mixing with content
+        </div>
+    </div>
+
+    <!-- Potential Conflict Elements (simulating background elements) -->
+    <div class="background-element conflict-element-1" id="conflict1"></div>
+    <div class="background-element conflict-element-2" id="conflict2"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">PITSTOP</div>
+            
+            <div class="desktop-nav">
+                <a href="/">🏠 Início</a>
+                <a href="/servicos">⚡ Serviços</a>
+                <a href="#" style="background: #1EAEDB; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none;">Instagram</a>
+            </div>
+            
+            <div class="mobile-controls">
+                <button class="mobile-button">📷</button>
+                <button class="mobile-button" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-inner">
+                    <ul class="nav-links">
+                        <li><a href="/" class="nav-link">🏠 Início</a></li>
+                        <li><a href="/servicos" class="nav-link">⚡ Serviços</a></li>
+                    </ul>
+                    
+                    <div class="cta-buttons">
+                        <a href="tel:+5511999999999" class="cta-button cta-phone">
+                            📞 Ligar Agora
+                        </a>
+                        <a href="https://wa.me/5511999999999" class="cta-button cta-whatsapp">
+                            💬 WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Main Content) -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">PITSTOP</h1>
+            <h2 class="hero-subtitle">ESTÉTICA AUTOMOTIVA</h2>
+            <p style="margin-bottom: 32px; font-size: 18px;">Cuidado Profissional para seu Veículo ⚡</p>
+            
+            <div class="hero-buttons">
+                <a href="#" class="hero-button hero-button-primary">📞 Agendar Agora</a>
+                <a href="#" class="hero-button hero-button-secondary">💬 WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let menuOpen = false;
+        let conflictElementsVisible = true;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            const menu = document.getElementById('mobileMenu');
+            const status = document.getElementById('menu-status');
+            
+            if (menuOpen) {
+                menu.classList.add('open');
+                status.textContent = 'Aberto';
+            } else {
+                menu.classList.remove('open');
+                status.textContent = 'Fechado';
+            }
+        }
+
+        function changeMenuZIndex(zIndex) {
+            const menu = document.getElementById('mobileMenu');
+            const display = document.getElementById('menu-z-index');
+            
+            menu.style.zIndex = zIndex;
+            display.textContent = zIndex;
+            
+            console.log(`Menu Z-Index changed to: ${zIndex}`);
+        }
+
+        function toggleConflictElements() {
+            conflictElementsVisible = !conflictElementsVisible;
+            const conflict1 = document.getElementById('conflict1');
+            const conflict2 = document.getElementById('conflict2');
+            
+            conflict1.style.display = conflictElementsVisible ? 'block' : 'none';
+            conflict2.style.display = conflictElementsVisible ? 'block' : 'none';
+        }
+
+        // Test different z-index scenarios on load
+        window.addEventListener('load', () => {
+            console.log('🔍 Mobile Menu Overlay Investigation Loaded');
+            console.log('Current mobile menu z-index:', window.getComputedStyle(document.getElementById('mobileMenu')).zIndex);
+            
+            // Simulate the issue
+            setTimeout(() => {
+                alert('📱 TESTE INICIADO\n\n1. Clique no botão ☰ para abrir o menu\n2. Observe se o menu sobrepõe completamente o conteúdo\n3. Use os controles da direita para testar diferentes z-index\n4. Verifique se elementos de fundo (vermelhos) interferem');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

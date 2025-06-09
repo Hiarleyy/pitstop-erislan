@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Instagram, Menu, X, Phone, Calendar, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
@@ -133,60 +134,67 @@ const Navbar = () => {
                 {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </Button>
             </div>
-          </div>
-        </div>
+          </div>        </div>
+      </nav>
+      
+      {/* Mobile Menu Portal - Rendered directly in body to escape all stacking contexts */}
+      {isMenuOpen && createPortal(
+        <div className="md:hidden fixed inset-0 z-[999999] pointer-events-auto" style={{ zIndex: 999999 }}>
+          {/* Backdrop overlay */}
+          <div 
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Menu content positioned below navbar */}
+          <div className="absolute top-[100px] left-0 w-full">
+            <div className="bg-white/95 backdrop-blur-xl shadow-xl border-t border-gray-100 py-6 px-4">
+              <div className="max-w-sm mx-auto">
+                <ul className="space-y-4">
+                  {navLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link 
+                        to={link.href} 
+                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group ${
+                          isActive(link.href) 
+                            ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-pitstop-darkBlue border border-pitstop-blue/30' 
+                            : 'hover:bg-gray-50 text-gray-700'
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span className="text-lg font-semibold">{link.name}</span>
+                        {isActive(link.href) && <Sparkles size={20} className="text-pitstop-blue" />}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 ${
-          isMenuOpen 
-            ? 'opacity-100 translate-y-0' 
-            : 'opacity-0 -translate-y-4 pointer-events-none'
-        }`}>
-          <div className="bg-white/95 backdrop-blur-xl shadow-xl border-t border-gray-100 py-6 px-4">
-            <div className="max-w-sm mx-auto">
-              <ul className="space-y-4">
-                {navLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link 
-                      to={link.href} 
-                      className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group ${
-                        isActive(link.href) 
-                          ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-pitstop-darkBlue border border-pitstop-blue/30' 
-                          : 'hover:bg-gray-50 text-gray-700'
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span className="text-lg font-semibold">{link.name}</span>
-                      {isActive(link.href) && <Sparkles size={20} className="text-pitstop-blue" />}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Mobile CTA Section with touch optimization */}
-              <div className="mt-6 space-y-3">
-                <a 
-                  href="tel:+5511999999999"
-                  className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg min-h-[48px]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Phone size={20} />
-                  <span>📞 Ligar Agora</span>
-                </a>
-                
-                <a 
-                  href="https://wa.me/5511999999999"
-                  className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg min-h-[48px]"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Calendar size={20} />
-                  <span>💬 WhatsApp</span>
-                </a>
+                {/* Mobile CTA Section with touch optimization */}
+                <div className="mt-6 space-y-3">
+                  <a 
+                    href="tel:+5511999999999"
+                    className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg min-h-[48px]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Phone size={20} />
+                    <span>📞 Ligar Agora</span>
+                  </a>
+                  
+                  <a 
+                    href="https://wa.me/5511999999999"
+                    className="flex items-center justify-center space-x-3 w-full p-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg min-h-[48px]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <Calendar size={20} />
+                    <span>💬 WhatsApp</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </div>,
+        document.body
+      )}
     </>
   );
 };

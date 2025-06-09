@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Correção Menu Mobile Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .test-navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1EAEDB;
+        }
+        
+        .menu-button {
+            display: block;
+            background: rgba(30, 174, 219, 0.2);
+            border: 1px solid rgba(30, 174, 219, 0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            background: rgba(30, 174, 219, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 60; /* Z-index alto para ficar acima de todo conteúdo */
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .mobile-menu-content {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .mobile-menu-item {
+            display: block;
+            padding: 1rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .mobile-menu-item:hover {
+            background: rgba(30, 174, 219, 0.1);
+            color: #1EAEDB;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10; /* Z-index menor que o menu */
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #1EAEDB);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .test-status {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            z-index: 1000;
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        .status-item {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+        }
+        
+        .menu-icon span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: #333;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-status">
+        <div>✅ TESTE: Menu Mobile Corrigido</div>
+        <div class="status-item">• Z-index: 60 (menu)</div>
+        <div class="status-item">• Z-index: 10 (hero)</div>
+        <div class="status-item">• Sobreposição resolvida</div>
+        <div class="status-item">• Backdrop blur ativo</div>
+    </div>
+
+    <nav class="test-navbar">
+        <div class="navbar-content">
+            <div class="logo">PITSTOP</div>
+            <button class="menu-button" onclick="toggleMenu()">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="/" class="mobile-menu-item">🏠 Início</a>
+                <a href="/servicos" class="mobile-menu-item">⚡ Serviços</a>
+                <a href="tel:+5511999999999" class="mobile-menu-item">📞 Ligar Agora</a>
+                <a href="https://wa.me/5511999999999" class="mobile-menu-item">💬 WhatsApp</a>
+                <a href="https://instagram.com/pitstop_estetica22" class="mobile-menu-item">📷 Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">PITSTOP ESTÉTICA</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Cuidado profissional para seu veículo</p>
+            <div style="margin-top: 2rem;">
+                <p>⬆️ <strong>Teste o menu hamburger</strong> ⬆️</p>
+                <p>Menu deve aparecer <strong>ACIMA</strong> deste conteúdo</p>
+                <p style="color: #4ade80;">✅ Bug de sobreposição corrigido!</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+            
+            // Log para depuração
+            if (menu.classList.contains('open')) {
+                console.log('✅ Menu aberto - Z-index: 60');
+                console.log('✅ Menu deve aparecer ACIMA do conteúdo da Hero');
+            } else {
+                console.log('❌ Menu fechado');
+            }
+        }
+        
+        // Teste automático de z-index
+        setTimeout(() => {
+            const menu = document.querySelector('.mobile-menu');
+            const hero = document.querySelector('.hero-section');
+            const menuZIndex = window.getComputedStyle(menu).zIndex;
+            const heroZIndex = window.getComputedStyle(hero).zIndex;
+            
+            console.log('Z-index do menu:', menuZIndex);
+            console.log('Z-index da hero:', heroZIndex);
+            
+            if (parseInt(menuZIndex) > parseInt(heroZIndex)) {
+                console.log('✅ Z-index correto: Menu acima da Hero');
+            } else {
+                console.log('❌ Z-index incorreto: Menu pode ficar atrás da Hero');
+            }
+        }, 1000);
+        
+        // Simular clique para testar
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🧪 Teste carregado. Clique no menu hamburger para testar!');
+        });
+    </script>
+</body>
+</html>

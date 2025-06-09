@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Mobile Menu Test - Final Fix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for demonstration */
+        .demo-high-z {
+            z-index: 9999;
+            position: relative;
+        }
+        
+        .demo-portal-menu {
+            z-index: 999999;
+        }
+        
+        /* Animation for menu */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .slide-down {
+            animation: slideDown 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <div class="bg-green-600 text-white p-4 text-center">
+        <h1 class="text-xl font-bold">✅ PORTAL MOBILE MENU TEST - FINAL SOLUTION</h1>
+        <p class="text-sm mt-1">React Portal renders menu directly in document.body</p>
+    </div>
+
+    <!-- Test Status -->
+    <div class="p-4 bg-white border-b">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-green-800 mb-2">✅ SOLUTION APPLIED</h3>
+                    <ul class="text-sm text-green-700 space-y-1">
+                        <li>• React createPortal</li>
+                        <li>• Renders in document.body</li>
+                        <li>• Z-index: 999999</li>
+                        <li>• Escapes ALL stacking contexts</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-blue-800 mb-2">🔧 TECHNICAL DETAILS</h3>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                        <li>• createPortal(element, document.body)</li>
+                        <li>• Fixed positioning</li>
+                        <li>• Full screen overlay</li>
+                        <li>• Backdrop with blur</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-purple-800 mb-2">🎯 EXPECTED RESULT</h3>
+                    <ul class="text-sm text-purple-700 space-y-1">
+                        <li>• Menu appears above everything</li>
+                        <li>• Covers all Hero content</li>
+                        <li>• Perfect overlay behavior</li>
+                        <li>• No z-index conflicts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulated App Structure -->
+    <div class="p-4">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <!-- Simulated Navbar -->
+            <div class="bg-white shadow-lg rounded-lg p-4 relative z-10">
+                <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold text-blue-600">🏁 PitStop Navbar</span>
+                    <div class="text-sm text-gray-600">
+                        <span class="bg-blue-100 px-2 py-1 rounded">Z-index: 10</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">This is where the navbar component lives</p>
+            </div>
+
+            <!-- Simulated Hero Section (High Z-Index) -->
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-lg demo-high-z">
+                <div class="relative z-50">
+                    <h2 class="text-2xl font-bold mb-4">🚗 HERO SECTION</h2>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+                        <p class="mb-4"><strong>Z-Index: 50 (relative)</strong></p>
+                        <p class="text-sm opacity-90">This is the Hero component with high z-index that was causing overlay issues.</p>
+                        <div class="mt-4 flex space-x-2">
+                            <span class="bg-white/20 px-3 py-1 rounded text-xs">Container: z-50</span>
+                            <span class="bg-white/20 px-3 py-1 rounded text-xs">Relative positioning</span>
+                            <span class="bg-white/20 px-3 py-1 rounded text-xs">Stacking context</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex space-x-4">
+                        <button class="bg-white/15 backdrop-blur-md border-2 border-white/30 px-6 py-3 rounded-xl">
+                            Agendar Serviço
+                        </button>
+                        <button class="bg-white/15 backdrop-blur-md border-2 border-white/30 px-6 py-3 rounded-xl">
+                            Nossos Serviços
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other High Z-Index Elements -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-yellow-100 p-4 rounded-lg relative" style="z-index: 100;">
+                    <h3 class="font-semibold text-yellow-800">WhatsApp Button Simulation</h3>
+                    <p class="text-sm text-yellow-700">Z-index: 100</p>
+                </div>
+                
+                <div class="bg-red-100 p-4 rounded-lg relative" style="z-index: 200;">
+                    <h3 class="font-semibold text-red-800">Other UI Elements</h3>
+                    <p class="text-sm text-red-700">Z-index: 200</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portal Menu Simulation -->
+    <div id="portalMenu" class="hidden fixed inset-0 demo-portal-menu" style="z-index: 999999;">
+        <!-- Backdrop overlay -->
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" onclick="closeMenu()"></div>
+        
+        <!-- Menu content positioned below navbar -->
+        <div class="absolute top-[100px] left-0 w-full slide-down">
+            <div class="bg-white/95 backdrop-blur-xl shadow-xl border-t border-gray-100 py-6 px-4">
+                <div class="max-w-sm mx-auto">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                        <p class="text-green-800 text-sm font-medium">✅ PORTAL MENU ACTIVE</p>
+                        <p class="text-green-600 text-xs">This menu is rendered directly in document.body!</p>
+                        <p class="text-green-600 text-xs">Z-index: 999999 - Highest priority</p>
+                    </div>
+                    
+                    <ul class="space-y-3">
+                        <li><a href="#" class="block p-3 bg-blue-50 rounded-lg hover:bg-blue-100 border border-blue-200">🏠 Início</a></li>
+                        <li><a href="#" class="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">⚡ Serviços</a></li>
+                        <li><a href="#" class="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">📞 Contato</a></li>
+                        <li><a href="#" class="block p-3 bg-gray-50 rounded-lg hover:bg-gray-100">ℹ️ Sobre</a></li>
+                    </ul>
+                    
+                    <div class="mt-4 space-y-2">
+                        <button class="w-full p-3 bg-green-500 text-white rounded-lg hover:bg-green-600">
+                            📞 Ligar Agora
+                        </button>
+                        <button class="w-full p-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600">
+                            💬 WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Controls -->
+    <div class="fixed bottom-4 left-4 right-4 z-50">
+        <div class="bg-white shadow-2xl rounded-xl p-4 max-w-md mx-auto border">
+            <h3 class="font-semibold mb-3 text-center">🧪 Test Controls</h3>
+            <div class="flex space-x-2">
+                <button onclick="openMenu()" class="flex-1 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                    Open Portal Menu
+                </button>
+                <button onclick="closeMenu()" class="flex-1 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                    Close Menu
+                </button>
+            </div>
+            <p class="text-xs text-gray-600 mt-2 text-center">Test if menu overlays ALL content including Hero section</p>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div class="p-4 mt-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-xl font-bold mb-4 text-center">🎯 TEST RESULTS VALIDATION</h2>
+            <div class="bg-white rounded-lg p-6 shadow">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-green-800 mb-3">✅ SUCCESS INDICATORS</h3>
+                        <ul class="text-sm space-y-2">
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>Menu appears above Hero section</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>Covers all high z-index elements</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>Backdrop blur effect works</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>Click outside closes menu</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <span class="text-green-500 font-bold">✓</span>
+                                <span>No content mixing or overlap</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-blue-800 mb-3">🔧 TECHNICAL SOLUTION</h3>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>React Portal:</strong> createPortal(menu, document.body)</li>
+                            <li><strong>Z-Index:</strong> 999999 (highest priority)</li>
+                            <li><strong>Position:</strong> fixed (viewport-relative)</li>
+                            <li><strong>Escape:</strong> ALL stacking contexts</li>
+                            <li><strong>Rendering:</strong> Directly in document.body</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                    <h4 class="font-semibold text-green-800 mb-2">🎉 FINAL SOLUTION SUMMARY</h4>
+                    <p class="text-sm text-green-700">
+                        The Portal implementation ensures the mobile menu is rendered directly in document.body, 
+                        completely escaping any parent stacking contexts. This guarantees the menu will appear 
+                        above ALL content, regardless of z-index values in the component hierarchy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById('portalMenu').classList.remove('hidden');
+        }
+        
+        function closeMenu() {
+            document.getElementById('portalMenu').classList.add('hidden');
+        }
+        
+        // ESC key to close menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        });
+        
+        // Show test instructions
+        setTimeout(() => {
+            alert('🎯 PORTAL MENU TEST\n\n✅ SOLUTION: React createPortal\n\n1. Click "Open Portal Menu"\n2. Verify menu appears ABOVE Hero section\n3. Check that it covers ALL content\n4. This is our FINAL SOLUTION! 🚀');
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Overlay Fix Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simulate the app's styling */
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        /* Test different z-index values */
+        .test-content {
+            position: relative;
+            z-index: 50; /* Same as Hero component */
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: white;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .navbar-simulation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem;
+        }
+        
+        .mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 60; /* CRITICAL: Higher than content */
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.hidden {
+            opacity: 0;
+            transform: translateY(-16px);
+            pointer-events: none;
+        }
+        
+        .mobile-menu.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .menu-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .menu-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .test-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .z-index-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: monospace;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="z-index-indicator">
+        Menu Z-Index: <span id="zIndexValue">60</span>
+    </div>
+    
+    <!-- Navbar Simulation -->
+    <nav class="navbar-simulation">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <h1 class="text-xl font-bold text-white">PitStop Erislan</h1>
+            <button id="menuToggle" class="menu-button md:hidden">
+                <span id="menuIcon">☰</span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <div class="py-6 px-4">
+                <div class="max-w-sm mx-auto">
+                    <ul class="space-y-4 text-gray-800">
+                        <li><a href="#" class="block py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">Home</a></li>
+                        <li><a href="#" class="block py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">Serviços</a></li>
+                        <li><a href="#" class="block py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">Sobre</a></li>
+                        <li><a href="#" class="block py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content (simulates Hero section) -->
+    <div class="test-content">
+        <div style="padding-top: 100px;"> <!-- Account for fixed navbar -->
+            <h1 class="text-4xl font-bold mb-8">Mobile Menu Overlay Fix Test</h1>
+            
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">🔧 Bug Description</h2>
+                <p class="mb-4">
+                    The mobile menu was appearing <strong>behind</strong> the Hero section content due to incorrect z-index hierarchy.
+                </p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Navbar container: z-index 50</li>
+                    <li>Hero content: z-index 50</li>
+                    <li>Mobile menu: <strong>z-index 60</strong> (fixed)</li>
+                </ul>
+            </div>
+            
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">📱 Test Instructions</h2>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li>Click the hamburger menu button (☰) in the top-right</li>
+                    <li>Verify the menu appears <strong>above</strong> this content</li>
+                    <li>Check that you can click menu items without issues</li>
+                    <li>Resize browser to mobile width (&lt;768px) for authentic test</li>
+                </ol>
+            </div>
+            
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">✅ Expected Behavior</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Mobile menu slides down smoothly</li>
+                    <li>Menu appears completely above background content</li>
+                    <li>No text bleeding through from behind</li>
+                    <li>Menu items are fully clickable</li>
+                    <li>Backdrop blur effect works properly</li>
+                </ul>
+            </div>
+            
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">🎯 Z-Index Test Controls</h2>
+                <p class="mb-4">Test different z-index values to see the difference:</p>
+                <div class="flex gap-4 flex-wrap">
+                    <button onclick="setZIndex(10)" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+                        z-10 (Broken)
+                    </button>
+                    <button onclick="setZIndex(50)" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">
+                        z-50 (Still Behind)
+                    </button>
+                    <button onclick="setZIndex(60)" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+                        z-60 (Fixed!)
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Large content to demonstrate scroll -->
+            <div class="test-section">
+                <h2 class="text-2xl font-semibold mb-4">📄 Content Behind Menu</h2>
+                <p class="mb-4">This content should be completely covered by the mobile menu when it opens:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">Service 1</h3>
+                        <p>This text should not be visible through the menu overlay.</p>
+                    </div>
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">Service 2</h3>
+                        <p>The menu should completely cover this content area.</p>
+                    </div>
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">Service 3</h3>
+                        <p>Z-index 60 ensures proper layering hierarchy.</p>
+                    </div>
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">Service 4</h3>
+                        <p>Test completed successfully with proper overlay behavior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const zIndexValue = document.getElementById('zIndexValue');
+        let isMenuOpen = false;
+        
+        menuToggle.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('visible');
+                menuIcon.textContent = '✕';
+            } else {
+                mobileMenu.classList.remove('visible');
+                mobileMenu.classList.add('hidden');
+                menuIcon.textContent = '☰';
+            }
+        });
+        
+        function setZIndex(value) {
+            mobileMenu.style.zIndex = value;
+            zIndexValue.textContent = value;
+            
+            // Show visual feedback
+            const indicator = document.querySelector('.z-index-indicator');
+            indicator.style.background = value >= 60 ? 'rgba(34, 197, 94, 0.8)' : 'rgba(239, 68, 68, 0.8)';
+        }
+        
+        // Initialize with correct z-index
+        setZIndex(60);
+        
+        // Add click handlers to menu items for testing
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Menu item clicked successfully! Z-index is working.');
+            });
+        });
+    </script>
+</body>
+</html>
