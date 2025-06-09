@@ -26,7 +26,7 @@ const Hero = () => {
   const waterHeight = Math.min(100, Math.max(0, (scrollY / 4)));
   // Calculate water opacity
   const waterOpacity = Math.min(0.3, Math.max(0, scrollY / 300));  return (
-    <section id="home" className="relative h-[60vh] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Enhanced Background with Multiple Layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/90 to-blue-900/80 z-1"></div>
       {/* Car background image with improved overlay */}
@@ -48,7 +48,7 @@ const Hero = () => {
       
       {/* Enhanced Water effect that rises based on scroll */}
       <div 
-        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pitstop-blue/30 via-blue-400/20 to-transparent z-3 transition-all duration-500"
+        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pitstop-blue/30 via-blue-400/20 to-transparent z-3 transition-all duration-500 pointer-events-none"
         style={{ 
           height: `${waterHeight}%`, 
           opacity: waterOpacity,
@@ -56,11 +56,11 @@ const Hero = () => {
         }}
       >
         {/* Enhanced water ripples */}
-        <div className="absolute inset-0 z-4">
+        <div className="absolute inset-0 z-4 pointer-events-none">
           {Array.from({ length: 15 }).map((_, i) => (
             <div 
               key={i} 
-              className="absolute rounded-full border border-white/40"
+              className="absolute rounded-full border border-white/40 pointer-events-none"
               style={{ 
                 width: `${Math.random() * 120 + 60}px`, 
                 height: `${Math.random() * 120 + 60}px`, 
@@ -77,11 +77,10 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 z-10 relative flex items-center justify-center h-full">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Enhanced Title with modern styling and mobile optimization */}
+      <div className="container mx-auto px-4 z-50 relative flex items-center justify-center h-full">
+        <div className="max-w-5xl mx-auto text-center">          {/* Enhanced Title with modern styling and mobile optimization */}
           <div className="mb-6 md:mb-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-4 md:mb-6 opacity-0 animate-fade-in leading-tight drop-shadow-2xl text-center" style={{ animationDelay: '0.2s' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-100 mb-4 md:mb-6 animate-fade-in leading-tight drop-shadow-2xl text-center" style={{ animationDelay: '0.2s' }}>
               PITSTOP
               <br />
               <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold inline-block animate-automotive-shine">
@@ -92,9 +91,9 @@ const Hero = () => {
           
           {/* Enhanced Description with mobile optimization */}
           <div className="max-w-4xl mx-auto mb-8 md:mb-10">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 shadow-2xl opacity-0 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <p className="text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed mb-3 md:mb-4">
-                🚗 <strong className="text-pitstop-blue">Cuidado Profissional</strong> para seu Veículo ⚡
+                , <strong className="text-pitstop-blue">Cuidado Profissional</strong> para seu Veículo ⚡
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-sm md:text-base text-gray-200">
                 <div className="flex items-center space-x-2">
@@ -111,19 +110,17 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Enhanced CTA Buttons with mobile optimization */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <Button asChild className="group relative overflow-hidden bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 hover:from-pitstop-darkBlue hover:via-blue-800 hover:to-pitstop-blue text-white text-lg md:text-xl py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-2xl shadow-2xl hover:shadow-pitstop-blue/25 transform hover:scale-105 transition-all duration-300 border-0 min-h-[48px]">
-              <a href="#booking" className="relative z-10 flex items-center justify-center space-x-2 md:space-x-3">
-                <span>🚗 Agendar Serviço</span>
+          </div>          {/* Enhanced CTA Buttons with mobile optimization */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6 animate-fade-in relative z-50" style={{ animationDelay: '0.8s' }}>
+            <Button asChild className="group relative overflow-hidden bg-gradient-to-r from-pitstop-blue via-pitstop-darkBlue to-blue-800 hover:from-pitstop-darkBlue hover:via-blue-800 hover:to-pitstop-blue text-white text-lg md:text-xl py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-2xl shadow-2xl hover:shadow-pitstop-blue/25 transform hover:scale-105 transition-all duration-300 border-0 min-h-[48px] z-50">
+              <a href="#booking" className="relative z-50 flex items-center justify-center space-x-2 md:space-x-3 pointer-events-auto">
+                <span>Agendar Serviço</span>
                 <Zap className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform duration-300" />
               </a>
             </Button>
-            <Button variant="outline" asChild className="group relative overflow-hidden bg-white/15 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white/25 hover:border-white/50 text-lg md:text-xl py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-2xl shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-300 min-h-[48px]">
-              <a href="/servicos" className="relative z-10 flex items-center justify-center space-x-2 md:space-x-3">
-                <span>📋 Nossos Serviços</span>
+            <Button variant="outline" asChild className="group relative overflow-hidden bg-white/15 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white/25 hover:border-white/50 text-lg md:text-xl py-3 md:py-4 px-8 md:px-10 rounded-xl md:rounded-2xl shadow-2xl hover:shadow-white/10 transform hover:scale-105 transition-all duration-300 min-h-[48px] z-50">
+              <a href="/servicos" className="relative z-50 flex items-center justify-center space-x-2 md:space-x-3 pointer-events-auto">
+                <span>Nossos Serviços</span>
                 <Star className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform duration-300" />
               </a>
             </Button>

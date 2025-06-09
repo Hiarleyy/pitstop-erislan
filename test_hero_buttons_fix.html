@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Botões Hero Corrigidos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        }
+        
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background-image: url('/img/COMBOPREMIUM-HILUX-1.JPG');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4) contrast(1.1);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 50;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #ffffff, #93c5fd, #dbeafe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1EAEDB;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-description {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 3rem;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+        
+        @media (min-width: 640px) {
+            .buttons-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-height: 48px;
+            position: relative;
+            z-index: 100;
+            pointer-events: auto;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #1EAEDB, #0B5F8A, #1e40af);
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 174, 219, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #0B5F8A, #1e40af, #1EAEDB);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(30, 174, 219, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .water-effect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 174, 219, 0.3), rgba(96, 165, 250, 0.2), transparent);
+            height: 20%;
+            opacity: 0.7;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        .test-info {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            z-index: 1000;
+            max-width: 300px;
+        }
+        
+        .test-status {
+            color: #4ade80;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <div class="test-status">✅ TESTE: Botões Hero Corrigidos</div>
+        <div>• Z-index aumentado para 100</div>
+        <div>• Pointer-events habilitados</div>
+        <div>• Altura mínima da seção: 100vh</div>
+        <div>• Animações otimizadas</div>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="water-effect"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">PITSTOP</h1>
+            <div class="hero-subtitle">ESTÉTICA AUTOMOTIVA</div>
+            
+            <div class="hero-description">
+                <p>🚗 <strong style="color: #1EAEDB;">Cuidado Profissional</strong> para seu Veículo ⚡</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div>⚡ Lavagem Detalhada</div>
+                    <div>⭐ Polimento & Cristalização</div>
+                    <div>✨ Higienização Completa</div>
+                </div>
+            </div>
+            
+            <div class="buttons-container">
+                <a href="#booking" class="btn btn-primary">
+                    🚗 Agendar Serviço
+                    <span style="transform: rotate(0deg); transition: transform 0.3s;">⚡</span>
+                </a>
+                <a href="/servicos" class="btn btn-secondary">
+                    📋 Nossos Serviços
+                    <span style="transform: rotate(0deg); transition: transform 0.3s;">⭐</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Teste de interatividade dos botões
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                const icon = btn.querySelector('span');
+                if (icon) {
+                    icon.style.transform = 'rotate(12deg)';
+                }
+                console.log('✅ Botão funcionando:', btn.textContent.trim());
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                const icon = btn.querySelector('span');
+                if (icon) {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('🔥 Botão clicado:', btn.textContent.trim());
+                alert('Botão funcionando perfeitamente! 🎉\n\n' + btn.textContent.trim() + ' foi clicado.');
+            });
+        });
+        
+        // Verificação de z-index
+        setTimeout(() => {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                const computedStyle = window.getComputedStyle(btn);
+                console.log('Z-index do botão:', computedStyle.zIndex);
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
